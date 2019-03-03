@@ -1,6 +1,14 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title><![CDATA[我的博客]]></title>
+    <url>%2F2019%2F03%2F03%2F%E6%88%91%E7%9A%84%E5%8D%9A%E5%AE%A2%2F</url>
+    <content type="text"><![CDATA[这是测试时间和地方]]></content>
+      <tags>
+        <tag>测试</tag>
+      </tags>
+  </entry>
+  <entry>
     <title><![CDATA[title]]></title>
     <url>%2F2019%2F03%2F03%2Ftitle%2F</url>
     <content type="text"><![CDATA[测试这是个测试]]></content>
