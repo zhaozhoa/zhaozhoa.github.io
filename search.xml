@@ -19,20 +19,8 @@
         <category>移动端</category>
       </categories>
       <tags>
-        <tag>less</tag>
         <tag>rem</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title><![CDATA[tesebo]]></title>
-    <url>%2F2019%2F03%2F03%2Ftesebo%2F</url>
-    <content type="text"><![CDATA[测试这是测试]]></content>
-      <categories>
-        <category>boke</category>
-      </categories>
-      <tags>
-        <tag>11</tag>
-        <tag>22</tag>
+        <tag>less</tag>
       </tags>
   </entry>
 </search>
