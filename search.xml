@@ -1,28 +1,15 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
-    <title><![CDATA[我的博客]]></title>
-    <url>%2F2019%2F03%2F03%2F%E6%88%91%E7%9A%84%E5%8D%9A%E5%AE%A2%2F</url>
-    <content type="text"><![CDATA[这是测试时间和地方]]></content>
-      <tags>
-        <tag>测试</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title><![CDATA[title]]></title>
-    <url>%2F2019%2F03%2F03%2Ftitle%2F</url>
-    <content type="text"><![CDATA[测试这是个测试 这是个测试这是个测试这是个测试这是个测试这是个测试这是个测试这是个测试这是个测试这是个测试这是个测试这是个测试这是个测试这是个测试这是个测试这是个测试这是个测试这是个测试这是个测试这是个测试这是个测试这是个测试这是个测试这是个测试这是个测试这是个测试这是个测试这是个测试这是个测试这是个测试这是个测试这是个测试这是个测试这是个测试这是个测试这是个测试这是个测试这是个测试这是个测试这是个测试这是个测试这是个测试这是个测试这是个测试这是个测试这是个测试这是个测试这是个测试这是个测试这是个测试这是个测试这是个测试这是个测试这是个测试这是个测试这是个测试这是个测试这是个测试这是个测试这是个测试这是个测试这是个测试这是个测试这是个测试这是个测试这是个测试这是个测试这是个测试这是个测试这是个测试这是个测试这是个测试这是个测试这是个测试这是个测试这是个测试这是个测试这是个测试这是个测试这是个测试这是个测试这是个测试这是个测试这是个测试这是个测试这是个测试这是个测试这是个测试这是个测试这是个测试这是个测试这是个测试这是个测试这是个测试这是个测试这是个测试这是个测试这是个测试这是个测试这是个测试这是个测试这是个测试这是个测试这是个测试这是个测试这是个测试这是个测试这是个测试这是个测试这是个测试这是个测试这是个测试这是个测试这是个测试这是个测试这是个测试这是个测试这是个测试这是个测试这是个测试这是个测试这是个测试这是个测试这是个测试这是个测试这是个测试这是个测试这是个测试这是个测试这是个测试这是个测试这是个测试这是个测试这是个测试这是个测试这是个测试这是个测试这是个测试这是个测试这是个测试这是个测试这是个测试这是个测试这是个测试这是个测试这是个测试这是个测试这是个测试这是个测试这是个测试这是个测试这是个测试这是个测试这是个测试这是个测试这是个测试这是个测试这是个测试这是个测试这是个测试这是个测试这是个测试这是个测试这是个测试这是个测试这是个测试这是个测试这是个测试这是个测试这是个测试这是个测试这是个测试这是个测试这是个测试这是个测试这是个测试这是个测试这是个测试这是个测试这是个测试这是个测试这是个测试这是个测试这是个测试这是个测试这是个测试这是个测试这是个测试这是个测试这是个测试这是个测试这是个测试这是个测试这是个测试这是个测试这是个测试这是个测试这是个测试这是个测试这是个测试这是个测试这是个测试这是个测试这是个测试这是个测试v]]></content>
+    <title><![CDATA[tesebo]]></title>
+    <url>%2F2019%2F03%2F03%2Ftesebo%2F</url>
+    <content type="text"><![CDATA[测试这是测试]]></content>
       <categories>
-        <category>测试</category>
+        <category>boke</category>
       </categories>
       <tags>
-        <tag>tags1</tag>
-        <tag>tags2</tag>
+        <tag>11</tag>
+        <tag>22</tag>
       </tags>
-  </entry>
-  <entry>
-    <title><![CDATA[Hello World]]></title>
-    <url>%2F2019%2F03%2F03%2Fhello-world%2F</url>
-    <content type="text"><![CDATA[Welcome to Hexo! This is your very first post. Check documentation for more info. If you get any problems when using Hexo, you can find the answer in troubleshooting or you can ask me on GitHub. Quick StartCreate a new post1$ hexo new "My New Post" More info: Writing Run server1$ hexo server More info: Server Generate static files1$ hexo generate More info: Generating Deploy to remote sites1$ hexo deploy More info: Deployment]]></content>
   </entry>
 </search>
