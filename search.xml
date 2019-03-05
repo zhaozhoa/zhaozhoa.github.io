@@ -1,6 +1,17 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title><![CDATA[数据的获取和转换]]></title>
+    <url>%2F2019%2F03%2F05%2F%E6%95%B0%E6%8D%AE%E7%9A%84%E8%8E%B7%E5%8F%96%E5%92%8C%E8%BD%AC%E6%8D%A2%2F</url>
+    <content type="text"><![CDATA[数据的获取和转换获取页面 url 通过问号传参传递的样式为： 1http://localhost:3000/m/searchList.html?key=1&amp;name=10 获取： 1234567891011121314var getParamsByUrl = function () &#123; var params = &#123;&#125; var search = location.search //"?key=1&amp;name=10" if (search) &#123; search = search.replace('?', '') //"key=1&amp;name=10" var arr = search.split('&amp;') //["key=1", "name=10"] arr.forEach(function (item, i) &#123; var itemArr = item.split('=') //["key", "1"] ["name", "10"] params[itemArr[0]] = itemArr[1] //&#123;key: "1", name: "10"&#125; &#125;) &#125; return params; &#125;var params = getParamsByUrl()]]></content>
+      <categories>
+        <category>前端</category>
+      </categories>
+      <tags>
+        <tag>数据</tag>
+      </tags>
+  </entry>
+  <entry>
     <title><![CDATA[模板引擎使用步骤]]></title>
     <url>%2F2019%2F03%2F04%2F%E6%A8%A1%E6%9D%BF%E5%BC%95%E6%93%8E%E4%BD%BF%E7%94%A8%E6%AD%A5%E9%AA%A4%2F</url>
     <content type="text"><![CDATA[模板引擎渲染步骤 获取数据 定义模板 调用模板 返回 html 1. 用 jQuery 发送 get请求，获取数据123456789101112var getFirstCategoryData = function (callback) &#123; $.ajax(&#123; url: '/category/queryTopCategory', type: 'get', data: '', dataType: 'json', success: function (data) &#123; callback &amp;&amp; callback(data) &#125; &#125;);&#125; 后台返回的json数据 12345678&#123;total: 5, rows: Array(5)&#125;rows: Array(5)0: &#123;id: 1, categoryName: "运动馆", isDelete: 1&#125;1: &#123;id: 2, categoryName: "女士馆", isDelete: 1&#125;2: &#123;id: 3, categoryName: "男士馆", isDelete: 1&#125;3: &#123;id: 4, categoryName: "帆布馆", isDelete: 1&#125;4: &#123;id: 5, categoryName: "户外管", isDelete: 1&#125;length: 5 2. 定义模板12345&lt;script type="text/template" id="firstTemplate"&gt; &lt;% for(var i = 0; i &lt; rows.length; i++) &#123; %&gt; &lt;li class="&lt;%= i==0?'now':''%&gt;"&gt;&lt;a href="javascript:;" data-id = "&lt;%=rows[i].id%&gt;"&gt; &lt;%=rows[i].categoryName%&gt;&lt;/a&gt;&lt;/li&gt; &lt;% &#125; %&gt; &lt;/script&gt; 3. 调用模板,进行渲染123getFirstCategoryData(function (data) &#123; $('.cate_left ul').html(template('firstTemplate',data)) &#125;) 4. 渲染结果1234567891011&lt;ul&gt; &lt;li class="now"&gt;&lt;a href="javascript:;" data-id="1"&gt;运动馆&lt;/a&gt;&lt;/li&gt; &lt;li class=""&gt;&lt;a href="javascript:;" data-id="2"&gt;女士馆&lt;/a&gt;&lt;/li&gt; &lt;li class=""&gt;&lt;a href="javascript:;" data-id="3"&gt;男士馆&lt;/a&gt;&lt;/li&gt; &lt;li class=""&gt;&lt;a href="javascript:;" data-id="4"&gt;帆布馆&lt;/a&gt;&lt;/li&gt; &lt;li class=""&gt;&lt;a href="javascript:;" data-id="5"&gt;户外馆&lt;/a&gt;&lt;/li&gt; &lt;/ul&gt;]]></content>
