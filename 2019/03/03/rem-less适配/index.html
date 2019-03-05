@@ -104,7 +104,7 @@
 
 
   <meta name="description" content="rem 和 emrem和 em都是相对单位 区别 em 是基于父容器的字体大小 rem 是基于根元素（也就是 html 元素）的字体大小  rem 适配常见的适配方案   名称 缺点     伸缩布局 元素只能宽度适配   流式布局 元素只能宽度适配   响应式布局 元素只能宽度适配   rem 布局 高度和宽度可以同时适配    rem 适配原理页面的尺寸都用 rem 作为单位，针对不同大小的页">
-<meta name="keywords" content="rem,less">
+<meta name="keywords" content="less,rem">
 <meta property="og:type" content="article">
 <meta property="og:title" content="rem+less适配">
 <meta property="og:url" content="https://zhaozhoa.github.com/2019/03/03/rem-less适配/index.html">
@@ -534,7 +534,7 @@
 <h3 id="less-rem-实现多种设备的适配"><a href="#less-rem-实现多种设备的适配" class="headerlink" title="less + rem 实现多种设备的适配"></a>less + rem 实现多种设备的适配</h3><p>根据 rem 的适配原理，可以知道是根据设备的宽度不同来改变 html 元素的字体大小来进行适配。所以如果根据当前设备宽度来改变 html 元素的字体大小呢？</p>
 <p><strong>方式一：媒体查询</strong></p>
 <p>同时适配 640px 和 320px 的设备</p>
-<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">style</span>&gt;</span><span class="undefined"> </span></span><br><span class="line"><span class="undefined">    @media (min-width:320px) &#123;</span></span><br><span class="line"><span class="undefined">      html&#123;</span></span><br><span class="line"><span class="undefined">        font-size: 50px;</span></span><br><span class="line"><span class="undefined">      &#125;</span></span><br><span class="line"><span class="undefined">    &#125;</span></span><br><span class="line"><span class="undefined">    @media (min-width: 640px) &#123;</span></span><br><span class="line"><span class="undefined">      html&#123;</span></span><br><span class="line"><span class="undefined">        font-size: 100px;</span></span><br><span class="line"><span class="undefined">      &#125;</span></span><br><span class="line"><span class="undefined">    &#125;</span></span><br><span class="line"><span class="undefined">    body&#123;</span></span><br><span class="line"><span class="undefined">      margin: 0;</span></span><br><span class="line"><span class="undefined">      padding: 0;</span></span><br><span class="line"><span class="undefined">    &#125;</span></span><br><span class="line"><span class="undefined">    header&#123;</span></span><br><span class="line"><span class="undefined">      width: 100%;</span></span><br><span class="line"><span class="undefined">      height: 1rem;</span></span><br><span class="line"><span class="undefined">      line-height: 1rem;</span></span><br><span class="line"><span class="undefined">      font-size: 0.32rem;</span></span><br><span class="line"><span class="undefined">      text-align: center;</span></span><br><span class="line"><span class="undefined">      background-color: green;</span></span><br><span class="line"><span class="undefined">      color: #fff;</span></span><br><span class="line"><span class="undefined">    &#125;</span></span><br><span class="line"><span class="undefined">  </span><span class="tag">&lt;/<span class="name">style</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">head</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">body</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">header</span>&gt;</span>购物车<span class="tag">&lt;/<span class="name">header</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">body</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">style</span>&gt;</span><span class="undefined"> </span></span><br><span class="line"><span class="css">    @<span class="keyword">media</span> (min-width:<span class="number">320px</span>) &#123;</span></span><br><span class="line"><span class="undefined">      html&#123;</span></span><br><span class="line"><span class="undefined">        font-size: 50px;</span></span><br><span class="line"><span class="undefined">      &#125;</span></span><br><span class="line"><span class="undefined">    &#125;</span></span><br><span class="line"><span class="css">    @<span class="keyword">media</span> (min-width: <span class="number">640px</span>) &#123;</span></span><br><span class="line"><span class="undefined">      html&#123;</span></span><br><span class="line"><span class="undefined">        font-size: 100px;</span></span><br><span class="line"><span class="undefined">      &#125;</span></span><br><span class="line"><span class="undefined">    &#125;</span></span><br><span class="line"><span class="undefined">    body&#123;</span></span><br><span class="line"><span class="undefined">      margin: 0;</span></span><br><span class="line"><span class="undefined">      padding: 0;</span></span><br><span class="line"><span class="undefined">    &#125;</span></span><br><span class="line"><span class="undefined">    header&#123;</span></span><br><span class="line"><span class="undefined">      width: 100%;</span></span><br><span class="line"><span class="undefined">      height: 1rem;</span></span><br><span class="line"><span class="undefined">      line-height: 1rem;</span></span><br><span class="line"><span class="css">      <span class="selector-tag">font-size</span>: 0<span class="selector-class">.32rem</span>;</span></span><br><span class="line"><span class="undefined">      text-align: center;</span></span><br><span class="line"><span class="undefined">      background-color: green;</span></span><br><span class="line"><span class="css">      <span class="selector-tag">color</span>: <span class="selector-id">#fff</span>;</span></span><br><span class="line"><span class="undefined">    &#125;</span></span><br><span class="line"><span class="undefined">  </span><span class="tag">&lt;/<span class="name">style</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">head</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">body</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">header</span>&gt;</span>购物车<span class="tag">&lt;/<span class="name">header</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">body</span>&gt;</span></span><br></pre></td></tr></table></figure>
 <p>随着设备的增多，媒体查询和基准值的计算会不方便同时也不好维护，所以可以通过 less 进行改进</p>
 <p><strong>方式二：less</strong></p>
 <ol>
@@ -611,9 +611,9 @@
       
         <div class="post-tags">
           
-            <a href="/tags/rem/" rel="tag"># rem</a>
-          
             <a href="/tags/less/" rel="tag"># less</a>
+          
+            <a href="/tags/rem/" rel="tag"># rem</a>
           
         </div>
       
@@ -705,7 +705,7 @@
                 
                   <a href="/archives/">
                 
-                    <span class="site-state-item-count">2</span>
+                    <span class="site-state-item-count">3</span>
                     <span class="site-state-item-name">日志</span>
                   </a>
                 </div>
@@ -726,7 +726,7 @@
                     
                       
                     
-                    <span class="site-state-item-count">1</span>
+                    <span class="site-state-item-count">2</span>
                     <span class="site-state-item-name">分类</span>
                   </a>
                 </div>
@@ -751,7 +751,9 @@
                     
                       
                     
-                    <span class="site-state-item-count">2</span>
+                      
+                    
+                    <span class="site-state-item-count">5</span>
                     <span class="site-state-item-name">标签</span>
                   </a>
                 </div>
@@ -893,7 +895,7 @@
       <i class="fa fa-area-chart"></i>
     </span>
     
-    <span title="站点总字数">4k</span>
+    <span title="站点总字数">6k</span>
   
 
   
@@ -902,7 +904,7 @@
       <i class="fa fa-coffee"></i>
     </span>
     
-    <span title="站点阅读时长">4 分钟</span>
+    <span title="站点阅读时长">5 分钟</span>
   
 </div>
 

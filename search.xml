@@ -1,6 +1,19 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title><![CDATA[模板引擎使用步骤]]></title>
+    <url>%2F2019%2F03%2F04%2F%E6%A8%A1%E6%9D%BF%E5%BC%95%E6%93%8E%E4%BD%BF%E7%94%A8%E6%AD%A5%E9%AA%A4%2F</url>
+    <content type="text"><![CDATA[模板引擎渲染步骤 获取数据 定义模板 调用模板 返回 html 1. 用 jQuery 发送 get请求，获取数据123456789101112var getFirstCategoryData = function (callback) &#123; $.ajax(&#123; url: '/category/queryTopCategory', type: 'get', data: '', dataType: 'json', success: function (data) &#123; callback &amp;&amp; callback(data) &#125; &#125;);&#125; 后台返回的json数据 12345678&#123;total: 5, rows: Array(5)&#125;rows: Array(5)0: &#123;id: 1, categoryName: "运动馆", isDelete: 1&#125;1: &#123;id: 2, categoryName: "女士馆", isDelete: 1&#125;2: &#123;id: 3, categoryName: "男士馆", isDelete: 1&#125;3: &#123;id: 4, categoryName: "帆布馆", isDelete: 1&#125;4: &#123;id: 5, categoryName: "户外管", isDelete: 1&#125;length: 5 2. 定义模板12345&lt;script type="text/template" id="firstTemplate"&gt; &lt;% for(var i = 0; i &lt; rows.length; i++) &#123; %&gt; &lt;li class="&lt;%= i==0?'now':''%&gt;"&gt;&lt;a href="javascript:;" data-id = "&lt;%=rows[i].id%&gt;"&gt; &lt;%=rows[i].categoryName%&gt;&lt;/a&gt;&lt;/li&gt; &lt;% &#125; %&gt; &lt;/script&gt; 3. 调用模板,进行渲染123getFirstCategoryData(function (data) &#123; $('.cate_left ul').html(template('firstTemplate',data)) &#125;) 4. 渲染结果1234567891011&lt;ul&gt; &lt;li class="now"&gt;&lt;a href="javascript:;" data-id="1"&gt;运动馆&lt;/a&gt;&lt;/li&gt; &lt;li class=""&gt;&lt;a href="javascript:;" data-id="2"&gt;女士馆&lt;/a&gt;&lt;/li&gt; &lt;li class=""&gt;&lt;a href="javascript:;" data-id="3"&gt;男士馆&lt;/a&gt;&lt;/li&gt; &lt;li class=""&gt;&lt;a href="javascript:;" data-id="4"&gt;帆布馆&lt;/a&gt;&lt;/li&gt; &lt;li class=""&gt;&lt;a href="javascript:;" data-id="5"&gt;户外馆&lt;/a&gt;&lt;/li&gt; &lt;/ul&gt;]]></content>
+      <categories>
+        <category>前端</category>
+      </categories>
+      <tags>
+        <tag>json</tag>
+        <tag>ajax</tag>
+        <tag>模板引擎</tag>
+      </tags>
+  </entry>
+  <entry>
     <title><![CDATA[less常见语法]]></title>
     <url>%2F2019%2F03%2F03%2Fless%E5%B8%B8%E8%A7%81%E8%AF%AD%E6%B3%95%2F</url>
     <content type="text"><![CDATA[Less安装less1npm i -g less less 文件编译成 css 文件手动编译 1lessc less文件.less 编译后的css文件.css vscode 自动编译 安装插件 Ease Less 变量申明变量 必须@ 前缀 : 相当于 等号 ，必须; 结束。 必须符合变量的命名规则。 1@mainColor: #ccc; 使用变量123a:hover&#123; color:@mainColor;&#125; 编译结果 123a:hover&#123; color:#ccc;&#125; 注意：less 文件开头 指定编码为 UTF-8 编码 1@charset "UTF-8" Mixin 混入类混入less 语法 12345678910.w50&#123; width: 50%;&#125;.f_left&#123; float: left;&#125;.w50-f_left&#123; .w50(); .f_left();&#125; 编译成 css 12345678910.w50 &#123; width: 50%;&#125;.f_left &#123; float: left;&#125;.w50-f_left &#123; width: 50%; float: left;&#125; 编译的 css 会出现混入前的类 函数混入less 语法 12345678910.w50()&#123; width: 50%;&#125;.f_left()&#123; float: left;&#125;.w50-f_left&#123; .w50(); .f_left()&#125; 编译成 css 。 1234.w50-f_left &#123; width: 50%; float: left;&#125; 编译后的 css 不会出现函数本体。 带参函数混入 定义了参数（没有默认值）调用的时候必须传参。 定义 默认值的方式和定义变量相同。 定义了参数（有默认值），调用的时候可以不用传参。 less 语法 12345678.f(@direction: left) &#123; float:@direction;&#125;.r_left&#123; .f(); .f(right)&#125; 编译的 css 1234.r_left &#123; float: left; float: right;&#125; 嵌套为了使 css 的层次更加清楚 ，less 可以像 html一样进行类似的嵌套写法 less语法 1234567891011121314.top_bar&#123; position: relative; img&#123; display: block; position: absolute; top: 0; left: 0; &#125; &amp;::after&#123; content: ""; display: block; &#125;&#125; 编译后的 css 12345678910.top_bar img &#123; display: block; position: absolute; top: 0; left: 0;&#125;.top_bar::after &#123; content: ""; display: block;&#125; 注意：伪类和伪元素等需要和前面的选择器紧挨使用的 需要用&amp;符号进行连接否则编译后会有空格。 Import（导入）less 可以进行模块化，最后可以用 import 进行导入组合 variables.less 的内容 123456789@mainColor:#ccc;@box: box;a:hover&#123; color: @mainColor;&#125;.@&#123;box&#125; &#123; color:@mainColor;&#125; 在 main.less 中导入 variables.less 1@import "variables"; 编译的 css 文件 123456a:hover &#123; color: #ccc;&#125;.box &#123; color: #ccc;&#125; 运算less 支持数字的简单运算 1234567@num:7;ul&#123; width: 100% * @num; li&#123; width: 100% / @num; &#125;&#125; 编译后的css 123456ul &#123; width: 700%;&#125;ul li &#123; width: 14.28571429%;&#125;]]></content>
@@ -19,8 +32,8 @@
         <category>移动端</category>
       </categories>
       <tags>
-        <tag>rem</tag>
         <tag>less</tag>
+        <tag>rem</tag>
       </tags>
   </entry>
 </search>

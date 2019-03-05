@@ -103,16 +103,18 @@
 
 
 
-  <meta name="description" content="前端菜菜鸟">
-<meta property="og:type" content="website">
-<meta property="og:title" content="脚印">
-<meta property="og:url" content="https://zhaozhoa.github.com/index.html">
+  <meta name="description" content="模板引擎渲染步骤 获取数据 定义模板 调用模板 返回 html  1. 用 jQuery 发送 get请求，获取数据123456789101112var getFirstCategoryData = function (callback) &amp;#123;  $.ajax(&amp;#123;    url: &apos;/category/queryTopCategory&apos;,    type: &apos;get&apos;,    d">
+<meta name="keywords" content="json,ajax,模板引擎">
+<meta property="og:type" content="article">
+<meta property="og:title" content="模板引擎使用步骤">
+<meta property="og:url" content="https://zhaozhoa.github.com/2019/03/04/模板引擎使用步骤/index.html">
 <meta property="og:site_name" content="脚印">
-<meta property="og:description" content="前端菜菜鸟">
+<meta property="og:description" content="模板引擎渲染步骤 获取数据 定义模板 调用模板 返回 html  1. 用 jQuery 发送 get请求，获取数据123456789101112var getFirstCategoryData = function (callback) &amp;#123;  $.ajax(&amp;#123;    url: &apos;/category/queryTopCategory&apos;,    type: &apos;get&apos;,    d">
 <meta property="og:locale" content="zh-CN">
+<meta property="og:updated_time" content="2019-03-05T01:06:31.007Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="脚印">
-<meta name="twitter:description" content="前端菜菜鸟">
+<meta name="twitter:title" content="模板引擎使用步骤">
+<meta name="twitter:description" content="模板引擎渲染步骤 获取数据 定义模板 调用模板 返回 html  1. 用 jQuery 发送 get请求，获取数据123456789101112var getFirstCategoryData = function (callback) &amp;#123;  $.ajax(&amp;#123;    url: &apos;/category/queryTopCategory&apos;,    type: &apos;get&apos;,    d">
 
 
 
@@ -121,7 +123,7 @@
 
 
 
-  <link rel="canonical" href="https://zhaozhoa.github.com/">
+  <link rel="canonical" href="https://zhaozhoa.github.com/2019/03/04/模板引擎使用步骤/">
 
 
 
@@ -131,7 +133,7 @@
   };
 </script>
 
-  <title>脚印</title>
+  <title>模板引擎使用步骤 | 脚印</title>
   
 
 
@@ -179,8 +181,7 @@
     
   
 
-  <div class="container sidebar-position-left 
-  page-home">
+  <div class="container sidebar-position-left page-post-detail">
     <div class="headband"></div>
 
     <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
@@ -218,7 +219,7 @@
         
         
           
-          <li class="menu-item menu-item-home menu-item-active">
+          <li class="menu-item menu-item-home">
 
     
     
@@ -343,9 +344,9 @@
           
           <div id="content" class="content">
             
-  <section id="posts" class="posts-expand">
+
+  <div id="posts" class="posts-expand">
     
-      
 
   
 
@@ -377,10 +378,8 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">
-                
-                
-                <a href="/2019/03/04/模板引擎使用步骤/" class="post-title-link" itemprop="url">模板引擎使用步骤</a>
+          <h1 class="post-title" itemprop="name headline">模板引擎使用步骤
+
               
             
           </h1>
@@ -502,9 +501,7 @@
       
 
       
-        
-          
-            <h1 id="模板引擎渲染步骤"><a href="#模板引擎渲染步骤" class="headerlink" title="模板引擎渲染步骤"></a>模板引擎渲染步骤</h1><ol>
+        <h1 id="模板引擎渲染步骤"><a href="#模板引擎渲染步骤" class="headerlink" title="模板引擎渲染步骤"></a>模板引擎渲染步骤</h1><ol>
 <li>获取数据</li>
 <li>定义模板</li>
 <li>调用模板</li>
@@ -517,8 +514,6 @@
 <h2 id="3-调用模板-进行渲染"><a href="#3-调用模板-进行渲染" class="headerlink" title="3. 调用模板,进行渲染"></a>3. 调用模板,进行渲染</h2><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">getFirstCategoryData(<span class="function"><span class="keyword">function</span> (<span class="params">data</span>) </span>&#123;</span><br><span class="line">   $(<span class="string">'.cate_left ul'</span>).html(template(<span class="string">'firstTemplate'</span>,data))</span><br><span class="line"> &#125;)</span><br></pre></td></tr></table></figure>
 <h2 id="4-渲染结果"><a href="#4-渲染结果" class="headerlink" title="4. 渲染结果"></a>4. 渲染结果</h2><figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">ul</span>&gt;</span></span><br><span class="line">      <span class="tag">&lt;<span class="name">li</span> <span class="attr">class</span>=<span class="string">"now"</span>&gt;</span><span class="tag">&lt;<span class="name">a</span> <span class="attr">href</span>=<span class="string">"javascript:;"</span> <span class="attr">data-id</span>=<span class="string">"1"</span>&gt;</span>运动馆<span class="tag">&lt;/<span class="name">a</span>&gt;</span><span class="tag">&lt;/<span class="name">li</span>&gt;</span></span><br><span class="line">    </span><br><span class="line">      <span class="tag">&lt;<span class="name">li</span> <span class="attr">class</span>=<span class="string">""</span>&gt;</span><span class="tag">&lt;<span class="name">a</span> <span class="attr">href</span>=<span class="string">"javascript:;"</span> <span class="attr">data-id</span>=<span class="string">"2"</span>&gt;</span>女士馆<span class="tag">&lt;/<span class="name">a</span>&gt;</span><span class="tag">&lt;/<span class="name">li</span>&gt;</span></span><br><span class="line">    </span><br><span class="line">      <span class="tag">&lt;<span class="name">li</span> <span class="attr">class</span>=<span class="string">""</span>&gt;</span><span class="tag">&lt;<span class="name">a</span> <span class="attr">href</span>=<span class="string">"javascript:;"</span> <span class="attr">data-id</span>=<span class="string">"3"</span>&gt;</span>男士馆<span class="tag">&lt;/<span class="name">a</span>&gt;</span><span class="tag">&lt;/<span class="name">li</span>&gt;</span></span><br><span class="line">    </span><br><span class="line">      <span class="tag">&lt;<span class="name">li</span> <span class="attr">class</span>=<span class="string">""</span>&gt;</span><span class="tag">&lt;<span class="name">a</span> <span class="attr">href</span>=<span class="string">"javascript:;"</span> <span class="attr">data-id</span>=<span class="string">"4"</span>&gt;</span>帆布馆<span class="tag">&lt;/<span class="name">a</span>&gt;</span><span class="tag">&lt;/<span class="name">li</span>&gt;</span></span><br><span class="line">    </span><br><span class="line">      <span class="tag">&lt;<span class="name">li</span> <span class="attr">class</span>=<span class="string">""</span>&gt;</span><span class="tag">&lt;<span class="name">a</span> <span class="attr">href</span>=<span class="string">"javascript:;"</span> <span class="attr">data-id</span>=<span class="string">"5"</span>&gt;</span>户外馆<span class="tag">&lt;/<span class="name">a</span>&gt;</span><span class="tag">&lt;/<span class="name">li</span>&gt;</span></span><br><span class="line"> <span class="tag">&lt;/<span class="name">ul</span>&gt;</span></span><br></pre></td></tr></table></figure>
 
-          
-        
       
     </div>
 
@@ -534,516 +529,74 @@
       
     
     
+      <div>
+        <div style="padding: 10px 0; margin: 20px auto; width: 90%; text-align: center;">
+  <div>求大佬赏饭</div>
+  <button id="rewardButton" disable="enable" onclick="var qr = document.getElementById(&quot;QR&quot;); if (qr.style.display === 'none') {qr.style.display='block';} else {qr.style.display='none'}">
+    <span>打赏</span>
+  </button>
+  <div id="QR" style="display: none;">
+
+    
+      <div id="wechat" style="display: inline-block">
+        <img id="wechat_qr" src="/images/wechatpay.jpg" alt="张朝 微信支付">
+        <p>微信支付</p>
+      </div>
+    
+
+    
+      <div id="alipay" style="display: inline-block">
+        <img id="alipay_qr" src="/images/alipay.jpg" alt="张朝 支付宝">
+        <p>支付宝</p>
+      </div>
+    
+
+    
+
+  </div>
+</div>
+
+      </div>
+    
 
     
 
     <footer class="post-footer">
       
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://zhaozhoa.github.com/2019/03/03/less常见语法/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="张朝">
-      <meta itemprop="description" content="前端菜菜鸟">
-      <meta itemprop="image" content="/images/avatar.jpg">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="脚印">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                
-                <a href="/2019/03/03/less常见语法/" class="post-title-link" itemprop="url">less常见语法</a>
-              
-            
-          </h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-
-            
-            
-            
-
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-
-              
-                
-              
-
-              <time title="创建时间：2019-03-03 22:52:11 / 修改时间：22:53:15" itemprop="dateCreated datePublished" datetime="2019-03-03T22:52:11+08:00">2019-03-03</time>
-            
-
-            
-              
-
-              
-            
-          </span>
-
+        <div class="post-tags">
           
-            <span class="post-category">
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">分类于</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/移动端/" itemprop="url" rel="index"><span itemprop="name">移动端</span></a></span>
-
-                
-                
-              
-            </span>
+            <a href="/tags/json/" rel="tag"># json</a>
           
-
+            <a href="/tags/ajax/" rel="tag"># ajax</a>
           
-            
-            
+            <a href="/tags/模板引擎/" rel="tag"># 模板引擎</a>
           
-
-          
-          
-
-          
-
-          
-            <div class="post-symbolscount">
-              
-
-              
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-file-word-o"></i>
-                </span>
-                
-                  <span class="post-meta-item-text">本文字数：</span>
-                
-                <span title="本文字数">2.1k</span>
-              
-
-              
-                <span class="post-meta-divider">|</span>
-              
-
-              
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-clock-o"></i>
-                </span>
-                
-                  <span class="post-meta-item-text">阅读时长 &asymp;</span>
-                
-                <span title="阅读时长">2 分钟</span>
-              
-            </div>
-          
-
-          
-
         </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <h1 id="Less"><a href="#Less" class="headerlink" title="Less"></a>Less</h1><h2 id="安装less"><a href="#安装less" class="headerlink" title="安装less"></a>安装less</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm i -g less</span><br></pre></td></tr></table></figure>
-<h2 id="less-文件编译成-css-文件"><a href="#less-文件编译成-css-文件" class="headerlink" title="less 文件编译成 css 文件"></a>less 文件编译成 css 文件</h2><p><strong>手动编译</strong> </p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">lessc less文件.less 编译后的css文件.css</span><br></pre></td></tr></table></figure>
-<p><strong>vscode 自动编译</strong></p>
-<p>安装插件 Ease Less</p>
-<h2 id="变量"><a href="#变量" class="headerlink" title="变量"></a>变量</h2><h3 id="申明变量"><a href="#申明变量" class="headerlink" title="申明变量"></a>申明变量</h3><ul>
-<li>必须<code>@</code> 前缀 <code>:</code> 相当于 等号 ，必须<code>;</code> 结束。</li>
-<li>必须符合变量的命名规则。</li>
-</ul>
-<figure class="highlight less"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="variable">@mainColor:</span> <span class="number">#ccc</span>;</span><br></pre></td></tr></table></figure>
-<h3 id="使用变量"><a href="#使用变量" class="headerlink" title="使用变量"></a>使用变量</h3><figure class="highlight less"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="attribute">a</span>:hover&#123;</span><br><span class="line">    <span class="attribute">color</span>:<span class="variable">@mainColor</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p><strong>编译结果</strong></p>
-<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-tag">a</span><span class="selector-pseudo">:hover</span>&#123;</span><br><span class="line">    <span class="attribute">color</span>:<span class="number">#ccc</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p><strong>注意：</strong>less 文件开头 指定编码为 UTF-8 编码</p>
-<figure class="highlight less"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">@charset</span> <span class="string">"UTF-8"</span></span><br></pre></td></tr></table></figure>
-<h2 id="Mixin-混入"><a href="#Mixin-混入" class="headerlink" title="Mixin 混入"></a>Mixin 混入</h2><h3 id="类混入"><a href="#类混入" class="headerlink" title="类混入"></a>类混入</h3><p>less 语法</p>
-<figure class="highlight less"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-class">.w50</span>&#123;</span><br><span class="line">  <span class="attribute">width</span>: <span class="number">50%</span>;</span><br><span class="line">&#125;</span><br><span class="line"><span class="selector-class">.f_left</span>&#123;</span><br><span class="line">  <span class="attribute">float</span>: left;</span><br><span class="line">&#125;</span><br><span class="line"><span class="selector-class">.w50-f_left</span>&#123;</span><br><span class="line">  <span class="selector-class">.w50</span>();</span><br><span class="line">  <span class="selector-class">.f_left</span>();</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p>编译成 css </p>
-<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-class">.w50</span> &#123;</span><br><span class="line">  <span class="attribute">width</span>: <span class="number">50%</span>;</span><br><span class="line">&#125;</span><br><span class="line"><span class="selector-class">.f_left</span> &#123;</span><br><span class="line">  <span class="attribute">float</span>: left;</span><br><span class="line">&#125;</span><br><span class="line"><span class="selector-class">.w50-f_left</span> &#123;</span><br><span class="line">  <span class="attribute">width</span>: <span class="number">50%</span>;</span><br><span class="line">  <span class="attribute">float</span>: left;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p>编译的 css 会出现混入前的类</p>
-<h3 id="函数混入"><a href="#函数混入" class="headerlink" title="函数混入"></a>函数混入</h3><p>less 语法</p>
-<figure class="highlight less"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-class">.w50</span>()&#123;</span><br><span class="line">  <span class="attribute">width</span>: <span class="number">50%</span>;</span><br><span class="line">&#125;</span><br><span class="line"><span class="selector-class">.f_left</span>()&#123;</span><br><span class="line">  <span class="attribute">float</span>: left;</span><br><span class="line">&#125;</span><br><span class="line"><span class="selector-class">.w50-f_left</span>&#123;</span><br><span class="line">  <span class="selector-class">.w50</span>();</span><br><span class="line">  <span class="selector-class">.f_left</span>()</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p>编译成 css 。</p>
-<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-class">.w50-f_left</span> &#123;</span><br><span class="line">  <span class="attribute">width</span>: <span class="number">50%</span>;</span><br><span class="line">  <span class="attribute">float</span>: left;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p>编译后的 css 不会出现函数本体。</p>
-<p><strong>带参函数混入</strong></p>
-<ul>
-<li>定义了参数（没有默认值）调用的时候必须传参。</li>
-<li>定义 默认值的方式和定义变量相同。</li>
-<li>定义了参数（有默认值），调用的时候可以不用传参。</li>
-</ul>
-<p>less 语法</p>
-<figure class="highlight less"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-class">.f</span>(<span class="variable">@direction</span>: left) &#123;</span><br><span class="line">    <span class="attribute">float</span>:<span class="variable">@direction</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="selector-class">.r_left</span>&#123;</span><br><span class="line">    <span class="selector-class">.f</span>();</span><br><span class="line">    <span class="selector-class">.f</span>(right)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p>编译的 css</p>
-<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-class">.r_left</span> &#123;</span><br><span class="line">  <span class="attribute">float</span>: left;</span><br><span class="line">  <span class="attribute">float</span>: right;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<h2 id="嵌套"><a href="#嵌套" class="headerlink" title="嵌套"></a>嵌套</h2><p>为了使 css 的层次更加清楚 ，less 可以像 html一样进行类似的嵌套写法</p>
-<p>less语法</p>
-<figure class="highlight less"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-class">.top_bar</span>&#123;</span><br><span class="line">  <span class="attribute">position</span>: relative;</span><br><span class="line">  <span class="selector-tag">img</span>&#123;</span><br><span class="line">    <span class="attribute">display</span>: block;</span><br><span class="line">    <span class="attribute">position</span>: absolute;</span><br><span class="line">    <span class="attribute">top</span>: <span class="number">0</span>;</span><br><span class="line">    <span class="attribute">left</span>: <span class="number">0</span>;</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="selector-tag">&amp;</span><span class="selector-pseudo">::after</span>&#123;</span><br><span class="line">    <span class="attribute">content</span>: <span class="string">""</span>;</span><br><span class="line">    <span class="attribute">display</span>: block;</span><br><span class="line">    </span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p>编译后的 css</p>
-<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-class">.top_bar</span> <span class="selector-tag">img</span> &#123;</span><br><span class="line">  <span class="attribute">display</span>: block;</span><br><span class="line">  <span class="attribute">position</span>: absolute;</span><br><span class="line">  <span class="attribute">top</span>: <span class="number">0</span>;</span><br><span class="line">  <span class="attribute">left</span>: <span class="number">0</span>;</span><br><span class="line">&#125;</span><br><span class="line"><span class="selector-class">.top_bar</span><span class="selector-pseudo">::after</span> &#123;</span><br><span class="line">  <span class="attribute">content</span>: <span class="string">""</span>;</span><br><span class="line">  <span class="attribute">display</span>: block;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p><strong>注意：</strong>伪类和伪元素等需要和前面的选择器紧挨使用的 需要用<code>&amp;</code>符号进行连接否则编译后会有空格。</p>
-<h2 id="Import（导入）"><a href="#Import（导入）" class="headerlink" title="Import（导入）"></a>Import（导入）</h2><p>less 可以进行模块化，最后可以用 import 进行导入组合</p>
-<p>variables.less 的内容</p>
-<figure class="highlight less"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="variable">@mainColor:</span><span class="number">#ccc</span>;</span><br><span class="line"><span class="variable">@box:</span> box;</span><br><span class="line"></span><br><span class="line"><span class="attribute">a</span>:hover&#123;</span><br><span class="line">  <span class="attribute">color</span>: <span class="variable">@mainColor</span>;</span><br><span class="line">&#125;</span><br><span class="line"><span class="selector-class">.@&#123;box&#125;</span> &#123;</span><br><span class="line">  <span class="attribute">color</span>:<span class="variable">@mainColor</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p>在 main.less 中导入 variables.less</p>
-<figure class="highlight less"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">@import</span> <span class="string">"variables"</span>;</span><br></pre></td></tr></table></figure>
-<p>编译的 css 文件</p>
-<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-tag">a</span><span class="selector-pseudo">:hover</span> &#123;</span><br><span class="line">  <span class="attribute">color</span>: <span class="number">#ccc</span>;</span><br><span class="line">&#125;</span><br><span class="line"><span class="selector-class">.box</span> &#123;</span><br><span class="line">  <span class="attribute">color</span>: <span class="number">#ccc</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<h2 id="运算"><a href="#运算" class="headerlink" title="运算"></a>运算</h2><p>less 支持数字的简单运算</p>
-<figure class="highlight less"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="variable">@num:</span><span class="number">7</span>;</span><br><span class="line"><span class="selector-tag">ul</span>&#123;</span><br><span class="line">  <span class="attribute">width</span>: <span class="number">100%</span> * <span class="variable">@num</span>;</span><br><span class="line">  <span class="selector-tag">li</span>&#123;</span><br><span class="line">    <span class="attribute">width</span>: <span class="number">100%</span> / <span class="variable">@num</span>;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p>编译后的css</p>
-<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-tag">ul</span> &#123;</span><br><span class="line">  <span class="attribute">width</span>: <span class="number">700%</span>;</span><br><span class="line">&#125;</span><br><span class="line"><span class="selector-tag">ul</span> <span class="selector-tag">li</span> &#123;</span><br><span class="line">  <span class="attribute">width</span>: <span class="number">14.28571429%</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-          
-        
-      
-    </div>
-
-    
-
-    
-    
-    
-
-    
-
-    
-      
-    
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
       
 
       
       
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
       
 
-  
-
-  
-  
-  
-
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://zhaozhoa.github.com/2019/03/03/rem-less适配/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="张朝">
-      <meta itemprop="description" content="前端菜菜鸟">
-      <meta itemprop="image" content="/images/avatar.jpg">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="脚印">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                
-                <a href="/2019/03/03/rem-less适配/" class="post-title-link" itemprop="url">rem+less适配</a>
-              
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
             
-          </h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-
+              <a href="/2019/03/03/less常见语法/" rel="next" title="less常见语法">
+                <i class="fa fa-chevron-left"></i> less常见语法
+              </a>
             
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
             
-            
-
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-
-              
-                
-              
-
-              <time title="创建时间：2019-03-03 22:33:49 / 修改时间：22:39:26" itemprop="dateCreated datePublished" datetime="2019-03-03T22:33:49+08:00">2019-03-03</time>
-            
-
-            
-              
-
-              
-            
-          </span>
-
-          
-            <span class="post-category">
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">分类于</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/移动端/" itemprop="url" rel="index"><span itemprop="name">移动端</span></a></span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-            
-          
-
-          
-          
-
-          
-
-          
-            <div class="post-symbolscount">
-              
-
-              
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-file-word-o"></i>
-                </span>
-                
-                  <span class="post-meta-item-text">本文字数：</span>
-                
-                <span title="本文字数">2.1k</span>
-              
-
-              
-                <span class="post-meta-divider">|</span>
-              
-
-              
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-clock-o"></i>
-                </span>
-                
-                  <span class="post-meta-item-text">阅读时长 &asymp;</span>
-                
-                <span title="阅读时长">2 分钟</span>
-              
-            </div>
-          
-
-          
-
+          </div>
         </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
       
 
       
-        
-          
-            <h1 id="rem-和-em"><a href="#rem-和-em" class="headerlink" title="rem 和 em"></a>rem 和 em</h1><p>rem和 em都是相对单位</p>
-<h2 id="区别"><a href="#区别" class="headerlink" title="区别"></a>区别</h2><ul>
-<li>em 是基于父容器的字体大小</li>
-<li>rem 是基于根元素（也就是 html 元素）的字体大小</li>
-</ul>
-<h2 id="rem-适配"><a href="#rem-适配" class="headerlink" title="rem 适配"></a>rem 适配</h2><h3 id="常见的适配方案"><a href="#常见的适配方案" class="headerlink" title="常见的适配方案"></a>常见的适配方案</h3><table>
-<thead>
-<tr>
-<th>名称</th>
-<th>缺点</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>伸缩布局</td>
-<td>元素只能宽度适配</td>
-</tr>
-<tr>
-<td>流式布局</td>
-<td>元素只能宽度适配</td>
-</tr>
-<tr>
-<td>响应式布局</td>
-<td>元素只能宽度适配</td>
-</tr>
-<tr>
-<td>rem 布局</td>
-<td><code>高度和宽度可以同时适配</code></td>
-</tr>
-</tbody>
-</table>
-<h3 id="rem-适配原理"><a href="#rem-适配原理" class="headerlink" title="rem 适配原理"></a>rem 适配原理</h3><p>页面的尺寸都用 rem 作为单位，针对不同大小的页面只需要更改 基准值 html 的大小即可实现适配</p>
-<h3 id="rem-基准值的换算公式"><a href="#rem-基准值的换算公式" class="headerlink" title="rem 基准值的换算公式"></a>rem 基准值的换算公式</h3><p><code>当前设备 rem 基准值 = 预设的基准值 / 设计稿的宽度 * 当前设备的宽度</code></p>
-<blockquote>
-<p>当前的设备：</p>
-<p>设备宽度为 640px ，当前的 div 为 640px  <em> 100px，预设基准为 100px ，所以div 大小可以转换为 6.4rem </em> 1rem</p>
-<p>适配的设备：</p>
-<p>设备宽度为 320px ，div 的大小为 6.4rem * 1rem，要想div的尺寸实现适配，需要修改当前的 rem 基准值。</p>
-<p>由上面的公式可以算出：</p>
-<p>100 / 640 * 320 = 50px。</p>
-<p>所以需要修改当前的 基准值为 50px</p>
-</blockquote>
-<h3 id="less-rem-实现多种设备的适配"><a href="#less-rem-实现多种设备的适配" class="headerlink" title="less + rem 实现多种设备的适配"></a>less + rem 实现多种设备的适配</h3><p>根据 rem 的适配原理，可以知道是根据设备的宽度不同来改变 html 元素的字体大小来进行适配。所以如果根据当前设备宽度来改变 html 元素的字体大小呢？</p>
-<p><strong>方式一：媒体查询</strong></p>
-<p>同时适配 640px 和 320px 的设备</p>
-<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">style</span>&gt;</span><span class="undefined"> </span></span><br><span class="line"><span class="css">    @<span class="keyword">media</span> (min-width:<span class="number">320px</span>) &#123;</span></span><br><span class="line"><span class="undefined">      html&#123;</span></span><br><span class="line"><span class="undefined">        font-size: 50px;</span></span><br><span class="line"><span class="undefined">      &#125;</span></span><br><span class="line"><span class="undefined">    &#125;</span></span><br><span class="line"><span class="css">    @<span class="keyword">media</span> (min-width: <span class="number">640px</span>) &#123;</span></span><br><span class="line"><span class="undefined">      html&#123;</span></span><br><span class="line"><span class="undefined">        font-size: 100px;</span></span><br><span class="line"><span class="undefined">      &#125;</span></span><br><span class="line"><span class="undefined">    &#125;</span></span><br><span class="line"><span class="undefined">    body&#123;</span></span><br><span class="line"><span class="undefined">      margin: 0;</span></span><br><span class="line"><span class="undefined">      padding: 0;</span></span><br><span class="line"><span class="undefined">    &#125;</span></span><br><span class="line"><span class="undefined">    header&#123;</span></span><br><span class="line"><span class="undefined">      width: 100%;</span></span><br><span class="line"><span class="undefined">      height: 1rem;</span></span><br><span class="line"><span class="undefined">      line-height: 1rem;</span></span><br><span class="line"><span class="css">      <span class="selector-tag">font-size</span>: 0<span class="selector-class">.32rem</span>;</span></span><br><span class="line"><span class="undefined">      text-align: center;</span></span><br><span class="line"><span class="undefined">      background-color: green;</span></span><br><span class="line"><span class="css">      <span class="selector-tag">color</span>: <span class="selector-id">#fff</span>;</span></span><br><span class="line"><span class="undefined">    &#125;</span></span><br><span class="line"><span class="undefined">  </span><span class="tag">&lt;/<span class="name">style</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">head</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">body</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">header</span>&gt;</span>购物车<span class="tag">&lt;/<span class="name">header</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">body</span>&gt;</span></span><br></pre></td></tr></table></figure>
-<p>随着设备的增多，媒体查询和基准值的计算会不方便同时也不好维护，所以可以通过 less 进行改进</p>
-<p><strong>方式二：less</strong></p>
-<ol>
-<li>定义存储变量的less 文件 var.less</li>
-</ol>
-<figure class="highlight less"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">@charset</span> <span class="string">"UTF-8"</span>;</span><br><span class="line"><span class="comment">//变量</span></span><br><span class="line"><span class="comment">// 通过 less 定义数组，存储主流设备的尺寸</span></span><br><span class="line"><span class="variable">@adapterDeviceList:</span><span class="number">750px</span>, <span class="number">720px</span>, <span class="number">640px</span>, <span class="number">540px</span>, <span class="number">480px</span>, <span class="number">424px</span>, <span class="number">414px</span>, <span class="number">400px</span>, <span class="number">384px</span>, <span class="number">375px</span>, <span class="number">360px</span>, <span class="number">320px</span>;</span><br><span class="line"><span class="comment">// 设计稿尺寸</span></span><br><span class="line"><span class="variable">@psdWidth:</span> <span class="number">750px</span>;</span><br><span class="line"><span class="comment">// 预设基准值</span></span><br><span class="line"><span class="variable">@baseFontSize:</span> <span class="number">100px</span>;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 设备的种类（数组的长度）</span></span><br><span class="line"><span class="comment">// 通过内置函数 length来获取</span></span><br><span class="line"><span class="variable">@len:</span> length(<span class="variable">@adapterDeviceList</span>);</span><br></pre></td></tr></table></figure>
-<ol start="2">
-<li>设置一个适配的less 文件 mixins.less<ul>
-<li>这个less文件通过递归来生成不同的媒体查询</li>
-<li>less 没有循环语法</li>
-<li>when （此处是函数的执行条件）</li>
-<li>内置函数  extract（）用于获取数组里面的元素，传入两个参数，一个是数组名称，另一个时序号</li>
-<li>下面的函数是倒着获取数组元素，生成媒体插叙的函数</li>
-</ul>
-</li>
-</ol>
-<figure class="highlight less"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-class">.adapterMixins</span>(<span class="variable">@index</span>) <span class="keyword">when</span>(<span class="variable">@index</span> &gt; <span class="number">0</span>) &#123;</span><br><span class="line">  <span class="keyword">@media</span> (<span class="attribute">min-width</span>: extract(<span class="variable">@adapterDeviceList</span>, <span class="variable">@index</span>)) &#123;</span><br><span class="line">    <span class="selector-tag">html</span>&#123;</span><br><span class="line">      <span class="attribute">font-size</span>: <span class="variable">@baseFontSize</span> / <span class="variable">@psdWidth</span> * extract(<span class="variable">@adapterDeviceList</span>, <span class="variable">@index</span>);</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="selector-class">.adapterMixins</span>(<span class="variable">@index</span> - <span class="number">1</span>);</span><br><span class="line">&#125;</span><br><span class="line"><span class="selector-class">.adapterMixins</span>(<span class="variable">@len</span>);</span><br></pre></td></tr></table></figure>
-<ol start="3">
-<li>设置一个less 文件用于引入上面的less文件的 index.less</li>
-</ol>
-<figure class="highlight less"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">@import</span> <span class="string">"var.less"</span>;</span><br><span class="line"><span class="keyword">@import</span> <span class="string">"mixins.less"</span>;</span><br></pre></td></tr></table></figure>
-<ol start="4">
-<li>编译 index.less 后引入到html文件即可</li>
-</ol>
-
-          
-        
-      
-    </div>
-
-    
-
-    
-    
-    
-
-    
-
-    
-      
-    
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
       
     </footer>
   </div>
@@ -1053,14 +606,15 @@
   </article>
 
 
-    
-  </section>
-
-  
+  </div>
 
 
           </div>
           
+
+  
+
+
 
         </div>
         
@@ -1080,8 +634,17 @@
       
 
       
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
 
-      <div class="site-overview-wrap sidebar-panel sidebar-panel-active">
+      <div class="site-overview-wrap sidebar-panel">
         <div class="site-overview">
           <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
             
@@ -1238,6 +801,23 @@
       </div>
 
       
+      <!--noindex-->
+        <div class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+            
+            
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#模板引擎渲染步骤"><span class="nav-number">1.</span> <span class="nav-text">模板引擎渲染步骤</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#1-用-jQuery-发送-get请求，获取数据"><span class="nav-number">1.1.</span> <span class="nav-text">1. 用 jQuery 发送 get请求，获取数据</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#2-定义模板"><span class="nav-number">1.2.</span> <span class="nav-text">2. 定义模板</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#3-调用模板-进行渲染"><span class="nav-number">1.3.</span> <span class="nav-text">3. 调用模板,进行渲染</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#4-渲染结果"><span class="nav-number">1.4.</span> <span class="nav-text">4. 渲染结果</span></a></li></ol></li></ol></div>
+            
+
+          </div>
+        </div>
+      <!--/noindex-->
+      
 
       
         <div class="back-to-top">
@@ -1384,6 +964,10 @@
 
 
   
+  <script src="/js/src/scrollspy.js?v=7.0.1"></script>
+<script src="/js/src/post-details.js?v=7.0.1"></script>
+
+
 
   
 
@@ -1394,6 +978,8 @@
   
   
 
+
+  
 
 
   
