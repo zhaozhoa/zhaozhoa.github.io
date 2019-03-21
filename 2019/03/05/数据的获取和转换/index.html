@@ -104,14 +104,14 @@
 
 
   <meta name="description" content="数据的获取和转换获取页面 url 通过问号传参传递的样式为： 1http://localhost:3000/m/searchList.html?key=1&amp;amp;name=10 获取： 1234567891011121314var getParamsByUrl = function () &amp;#123;     var params = &amp;#123;&amp;#125;   var search = lo">
-<meta name="keywords" content="数据">
+<meta name="keywords" content="数据，node">
 <meta property="og:type" content="article">
 <meta property="og:title" content="数据的获取和转换">
 <meta property="og:url" content="https://zhaozhoa.github.com/2019/03/05/数据的获取和转换/index.html">
 <meta property="og:site_name" content="脚印">
 <meta property="og:description" content="数据的获取和转换获取页面 url 通过问号传参传递的样式为： 1http://localhost:3000/m/searchList.html?key=1&amp;amp;name=10 获取： 1234567891011121314var getParamsByUrl = function () &amp;#123;     var params = &amp;#123;&amp;#125;   var search = lo">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2019-03-05T11:27:36.233Z">
+<meta property="og:updated_time" content="2019-03-21T12:47:41.578Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="数据的获取和转换">
 <meta name="twitter:description" content="数据的获取和转换获取页面 url 通过问号传参传递的样式为： 1http://localhost:3000/m/searchList.html?key=1&amp;amp;name=10 获取： 1234567891011121314var getParamsByUrl = function () &amp;#123;     var params = &amp;#123;&amp;#125;   var search = lo">
@@ -404,12 +404,24 @@
                 
               
 
-              <time title="创建时间：2019-03-05 16:06:15 / 修改时间：19:27:36" itemprop="dateCreated datePublished" datetime="2019-03-05T16:06:15+08:00">2019-03-05</time>
+              <time title="创建时间：2019-03-05 16:06:15" itemprop="dateCreated datePublished" datetime="2019-03-05T16:06:15+08:00">2019-03-05</time>
             
 
             
               
 
+              
+                
+                <span class="post-meta-divider">|</span>
+                
+
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">更新于</span>
+                
+                <time title="修改时间：2019-03-21 20:47:41" itemprop="dateModified" datetime="2019-03-21T20:47:41+08:00">2019-03-21</time>
               
             
           </span>
@@ -455,7 +467,7 @@
                 
                   <span class="post-meta-item-text">本文字数：</span>
                 
-                <span title="本文字数">656</span>
+                <span title="本文字数">3k</span>
               
 
               
@@ -469,7 +481,7 @@
                 
                   <span class="post-meta-item-text">阅读时长 &asymp;</span>
                 
-                <span title="阅读时长">1 分钟</span>
+                <span title="阅读时长">3 分钟</span>
               
             </div>
           
@@ -493,7 +505,29 @@
 <figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">http:<span class="comment">//localhost:3000/m/searchList.html?key=1&amp;name=10</span></span><br></pre></td></tr></table></figure>
 <p>获取：</p>
 <figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> getParamsByUrl = <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;  </span><br><span class="line">   <span class="keyword">var</span> params = &#123;&#125;</span><br><span class="line">   <span class="keyword">var</span> search = location.search          <span class="comment">//"?key=1&amp;name=10"</span></span><br><span class="line">   <span class="keyword">if</span> (search) &#123;</span><br><span class="line">     search = search.replace(<span class="string">'?'</span>, <span class="string">''</span>)    <span class="comment">//"key=1&amp;name=10"</span></span><br><span class="line">     <span class="keyword">var</span> arr = search.split(<span class="string">'&amp;'</span>)         <span class="comment">//["key=1", "name=10"]</span></span><br><span class="line">     arr.forEach(<span class="function"><span class="keyword">function</span> (<span class="params">item, i</span>) </span>&#123;  </span><br><span class="line">       <span class="keyword">var</span> itemArr = item.split(<span class="string">'='</span>)			<span class="comment">//["key", "1"] ["name", "10"]</span></span><br><span class="line">       params[itemArr[<span class="number">0</span>]] = itemArr[<span class="number">1</span>]		<span class="comment">//&#123;key: "1", name: "10"&#125;</span></span><br><span class="line">     &#125;)</span><br><span class="line">   &#125;</span><br><span class="line">   <span class="keyword">return</span> params;</span><br><span class="line"> &#125;</span><br><span class="line"><span class="keyword">var</span> params = getParamsByUrl()</span><br></pre></td></tr></table></figure>
-
+<h2 id="node-获取-get-和-post-参数"><a href="#node-获取-get-和-post-参数" class="headerlink" title="node 获取 get 和 post 参数"></a>node 获取 get 和 post 参数</h2><h3 id="获取-get-参数"><a href="#获取-get-参数" class="headerlink" title="获取 get 参数"></a>获取 get 参数</h3><p>直接从url 中获取</p>
+<p>使用 req.rul </p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> server = http.createServer(<span class="function">(<span class="params">req, res</span>) =&gt;</span> &#123;</span><br><span class="line">  <span class="built_in">console</span>.log(req.url);<span class="comment">//    /data.js?username=se&amp;pwd=d</span></span><br><span class="line">  res.end()</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
+<p><strong>以对象形式获取</strong></p>
+<p>引入 url 核心模块</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> url = <span class="built_in">require</span>(<span class="string">'rul'</span>)</span><br></pre></td></tr></table></figure>
+<p>给 url使用parse 方法解析 req.url</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> server = http.createServer(<span class="function">(<span class="params">req, res</span>) =&gt;</span> &#123;</span><br><span class="line">  <span class="keyword">let</span> obj = url.parse(req.url)</span><br><span class="line">  <span class="built_in">console</span>.log(obj);</span><br><span class="line">  res.end()</span><br></pre></td></tr></table></figure>
+<p>解析结果为</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">Url &#123;</span><br><span class="line">  protocol: <span class="literal">null</span>,</span><br><span class="line">  slashes: <span class="literal">null</span>,</span><br><span class="line">  auth: <span class="literal">null</span>,</span><br><span class="line">  host: <span class="literal">null</span>,</span><br><span class="line">  port: <span class="literal">null</span>,</span><br><span class="line">  hostname: <span class="literal">null</span>,</span><br><span class="line">  hash: <span class="literal">null</span>,</span><br><span class="line">  search: <span class="string">'?username=se&amp;pwd=f'</span>,</span><br><span class="line">  query: <span class="string">'username=se&amp;pwd=f'</span>,</span><br><span class="line">  pathname: <span class="string">'/data.js'</span>,</span><br><span class="line">  path: <span class="string">'/data.js?username=se&amp;pwd=f'</span>,</span><br><span class="line">  href: <span class="string">'/data.js?username=se&amp;pwd=f'</span> &#125;</span><br></pre></td></tr></table></figure>
+<p>此时的 query 属性还是 字符串形式，<strong>如果给 parse 方法传入第二个参数：true，则结果为</strong></p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">Url &#123;</span><br><span class="line">  protocol: <span class="literal">null</span>,</span><br><span class="line">  slashes: <span class="literal">null</span>,</span><br><span class="line">  auth: <span class="literal">null</span>,</span><br><span class="line">  host: <span class="literal">null</span>,</span><br><span class="line">  port: <span class="literal">null</span>,</span><br><span class="line">  hostname: <span class="literal">null</span>,</span><br><span class="line">  hash: <span class="literal">null</span>,</span><br><span class="line">  search: <span class="string">'?username=se&amp;pwd=deee'</span>,</span><br><span class="line">  query: [<span class="built_in">Object</span>: <span class="literal">null</span> prototype] &#123; <span class="attr">username</span>: <span class="string">'se'</span>, <span class="attr">pwd</span>: <span class="string">'deee'</span> &#125;,</span><br><span class="line">  pathname: <span class="string">'/data.js'</span>,</span><br><span class="line">  path: <span class="string">'/data.js?username=se&amp;pwd=deee'</span>,</span><br><span class="line">  href: <span class="string">'/data.js?username=se&amp;pwd=deee'</span> &#125;</span><br></pre></td></tr></table></figure>
+<p>这时的 query 属性值为一个对象</p>
+<h3 id="获取-post-提交参数"><a href="#获取-post-提交参数" class="headerlink" title="获取 post 提交参数"></a>获取 post 提交参数</h3><p>post 提交的参数在请求体中，获取请求体是以分组报文的形式获取，所以 post 里面的参数不能直接一次性获取</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> http = <span class="built_in">require</span>(<span class="string">'http'</span>)</span><br><span class="line"><span class="comment">//解析传来的参数为 json</span></span><br><span class="line"><span class="keyword">const</span> queryString = <span class="built_in">require</span>(<span class="string">'querystring'</span>)</span><br><span class="line"></span><br><span class="line"><span class="keyword">let</span> server = http.createServer(<span class="function">(<span class="params">req, res</span>) =&gt;</span> &#123;</span><br><span class="line">  <span class="keyword">let</span> str = <span class="string">''</span></span><br><span class="line">  <span class="comment">// 监听每一部分报文到达，将每一次的报文拼装</span></span><br><span class="line">  req.on(<span class="string">'data'</span>, data=&gt; &#123;</span><br><span class="line">    str +=data</span><br><span class="line">  &#125;)</span><br><span class="line">  <span class="comment">//全部传输完毕</span></span><br><span class="line">  req.on(<span class="string">'end'</span>, ()=&gt; &#123;</span><br><span class="line">    <span class="keyword">let</span> post = queryString.parse(str)</span><br><span class="line">    <span class="built_in">console</span>.log(str); <span class="comment">//   username=se&amp;pwd=fgd [Object: null prototype] &#123; username: 'se', pwd: 'fgd' &#125;</span></span><br><span class="line">    res.end()</span><br><span class="line">    </span><br><span class="line">  &#125;)</span><br><span class="line">&#125;)</span><br><span class="line">server.listen(<span class="number">8888</span>)</span><br></pre></td></tr></table></figure>
+<p><strong>url.parse 和queryString.parse 区别</strong></p>
+<ul>
+<li><p>url.parse()解析的是整个 url 如：/data.js?username=se&amp;pwd=f</p>
+</li>
+<li><p>querystring.parse()解析的是 参数  如：username=se&amp;pwd=f</p>
+</li>
+</ul>
+<h3 id="封装成都可以获取"><a href="#封装成都可以获取" class="headerlink" title="封装成都可以获取"></a>封装成都可以获取</h3><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> http = <span class="built_in">require</span>(<span class="string">'http'</span>)</span><br><span class="line"><span class="keyword">const</span> url = <span class="built_in">require</span>(<span class="string">'url'</span>)</span><br><span class="line"><span class="keyword">const</span> querystring = <span class="built_in">require</span>(<span class="string">'querystring'</span>)</span><br><span class="line"></span><br><span class="line"><span class="keyword">let</span> server = http.createServer(<span class="function">(<span class="params">req, res</span>) =&gt;</span> &#123;</span><br><span class="line">  <span class="comment">// 获取get参数</span></span><br><span class="line">  <span class="keyword">let</span> &#123;pathname, query&#125; = url.parse(req.url,<span class="literal">true</span>)</span><br><span class="line"></span><br><span class="line">  <span class="comment">// 获取post 参数</span></span><br><span class="line">  <span class="keyword">let</span> str =<span class="string">''</span></span><br><span class="line">  req.on(<span class="string">'data'</span>, data =&gt; &#123;</span><br><span class="line">    str += data</span><br><span class="line">  &#125;)</span><br><span class="line">  req.on(<span class="string">'end'</span>, () =&gt; &#123;</span><br><span class="line">    <span class="keyword">let</span> post = querystring.parse(str)</span><br><span class="line">    <span class="built_in">console</span>.log(pathname, query, post);</span><br><span class="line">  &#125;)</span><br><span class="line">  res.end()</span><br><span class="line">  </span><br><span class="line">&#125;)</span><br><span class="line"></span><br><span class="line">server.listen(<span class="number">3000</span>)</span><br></pre></td></tr></table></figure>
       
     </div>
 
@@ -545,7 +579,7 @@
       
         <div class="post-tags">
           
-            <a href="/tags/数据/" rel="tag"># 数据</a>
+            <a href="/tags/数据，node/" rel="tag"># 数据，node</a>
           
         </div>
       
@@ -641,7 +675,7 @@
                 
                   <a href="/archives/">
                 
-                    <span class="site-state-item-count">7</span>
+                    <span class="site-state-item-count">8</span>
                     <span class="site-state-item-name">日志</span>
                   </a>
                 </div>
@@ -699,7 +733,9 @@
                     
                       
                     
-                    <span class="site-state-item-count">9</span>
+                      
+                    
+                    <span class="site-state-item-count">10</span>
                     <span class="site-state-item-name">标签</span>
                   </a>
                 </div>
@@ -801,7 +837,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#数据的获取和转换"><span class="nav-number">1.</span> <span class="nav-text">数据的获取和转换</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#获取页面-url-通过问号传参"><span class="nav-number">1.1.</span> <span class="nav-text">获取页面 url 通过问号传参</span></a></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#数据的获取和转换"><span class="nav-number">1.</span> <span class="nav-text">数据的获取和转换</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#获取页面-url-通过问号传参"><span class="nav-number">1.1.</span> <span class="nav-text">获取页面 url 通过问号传参</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#node-获取-get-和-post-参数"><span class="nav-number">1.2.</span> <span class="nav-text">node 获取 get 和 post 参数</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#获取-get-参数"><span class="nav-number">1.2.1.</span> <span class="nav-text">获取 get 参数</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#获取-post-提交参数"><span class="nav-number">1.2.2.</span> <span class="nav-text">获取 post 提交参数</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#封装成都可以获取"><span class="nav-number">1.2.3.</span> <span class="nav-text">封装成都可以获取</span></a></li></ol></li></ol></li></ol></div>
             
 
           </div>
@@ -841,7 +877,7 @@
       <i class="fa fa-area-chart"></i>
     </span>
     
-    <span title="站点总字数">24k</span>
+    <span title="站点总字数">28k</span>
   
 
   
@@ -850,7 +886,7 @@
       <i class="fa fa-coffee"></i>
     </span>
     
-    <span title="站点阅读时长">22 分钟</span>
+    <span title="站点阅读时长">25 分钟</span>
   
 </div>
 
