@@ -103,17 +103,18 @@
 
 
 
-  <meta name="description" content="流作用：边读取，边转发，减少内存存储压力 分类    流方式 常见的流     读取流 req, fs.createReadStream   写入流 res, fs.createWriteStream   读写流 压缩，加密    流操作的基本过程12345678const fs = require(&apos;fs&apos;)//建立一个读取流，读取 1.txt 文件let rs = createReadStre">
+  <meta name="description" content="缓存和多进程缓存http缓存消息第一次请求，无缓存，服务端（S) 向 客户端 （C) 发送的http响应头部有 last-modified: Tue, 26 Feb 2019 10:51:39 GMT 告诉客户端 请求资源最后的修改日期 第二次请求，有缓存C —&amp;gt; S If-Modified-Since: Tue, 26 Feb 2019 10:51:39 GMT  S—-&amp;gt; C  3">
+<meta name="keywords" content="node">
 <meta property="og:type" content="article">
-<meta property="og:title" content="流与压缩">
-<meta property="og:url" content="https://zhaozhoa.github.com/2019/03/23/流与压缩/index.html">
+<meta property="og:title" content="缓存和多进程">
+<meta property="og:url" content="https://zhaozhoa.github.com/2019/03/24/缓存和多进程/index.html">
 <meta property="og:site_name" content="脚印">
-<meta property="og:description" content="流作用：边读取，边转发，减少内存存储压力 分类    流方式 常见的流     读取流 req, fs.createReadStream   写入流 res, fs.createWriteStream   读写流 压缩，加密    流操作的基本过程12345678const fs = require(&apos;fs&apos;)//建立一个读取流，读取 1.txt 文件let rs = createReadStre">
+<meta property="og:description" content="缓存和多进程缓存http缓存消息第一次请求，无缓存，服务端（S) 向 客户端 （C) 发送的http响应头部有 last-modified: Tue, 26 Feb 2019 10:51:39 GMT 告诉客户端 请求资源最后的修改日期 第二次请求，有缓存C —&amp;gt; S If-Modified-Since: Tue, 26 Feb 2019 10:51:39 GMT  S—-&amp;gt; C  3">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2019-03-23T12:48:47.521Z">
+<meta property="og:updated_time" content="2019-03-24T11:00:22.276Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="流与压缩">
-<meta name="twitter:description" content="流作用：边读取，边转发，减少内存存储压力 分类    流方式 常见的流     读取流 req, fs.createReadStream   写入流 res, fs.createWriteStream   读写流 压缩，加密    流操作的基本过程12345678const fs = require(&apos;fs&apos;)//建立一个读取流，读取 1.txt 文件let rs = createReadStre">
+<meta name="twitter:title" content="缓存和多进程">
+<meta name="twitter:description" content="缓存和多进程缓存http缓存消息第一次请求，无缓存，服务端（S) 向 客户端 （C) 发送的http响应头部有 last-modified: Tue, 26 Feb 2019 10:51:39 GMT 告诉客户端 请求资源最后的修改日期 第二次请求，有缓存C —&amp;gt; S If-Modified-Since: Tue, 26 Feb 2019 10:51:39 GMT  S—-&amp;gt; C  3">
 
 
 
@@ -122,7 +123,7 @@
 
 
 
-  <link rel="canonical" href="https://zhaozhoa.github.com/2019/03/23/流与压缩/">
+  <link rel="canonical" href="https://zhaozhoa.github.com/2019/03/24/缓存和多进程/">
 
 
 
@@ -132,7 +133,7 @@
   };
 </script>
 
-  <title>流与压缩 | 脚印</title>
+  <title>缓存和多进程 | 脚印</title>
   
 
 
@@ -360,7 +361,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://zhaozhoa.github.com/2019/03/23/流与压缩/">
+    <link itemprop="mainEntityOfPage" href="https://zhaozhoa.github.com/2019/03/24/缓存和多进程/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="张朝">
@@ -377,7 +378,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">流与压缩
+          <h1 class="post-title" itemprop="name headline">缓存和多进程
 
               
             
@@ -403,7 +404,7 @@
                 
               
 
-              <time title="创建时间：2019-03-23 20:47:42 / 修改时间：20:48:47" itemprop="dateCreated datePublished" datetime="2019-03-23T20:47:42+08:00">2019-03-23</time>
+              <time title="创建时间：2019-03-24 18:58:01 / 修改时间：19:00:22" itemprop="dateCreated datePublished" datetime="2019-03-24T18:58:01+08:00">2019-03-24</time>
             
 
             
@@ -454,7 +455,7 @@
                 
                   <span class="post-meta-item-text">本文字数：</span>
                 
-                <span title="本文字数">1.6k</span>
+                <span title="本文字数">2.5k</span>
               
 
               
@@ -468,7 +469,7 @@
                 
                   <span class="post-meta-item-text">阅读时长 &asymp;</span>
                 
-                <span title="阅读时长">1 分钟</span>
+                <span title="阅读时长">2 分钟</span>
               
             </div>
           
@@ -488,39 +489,38 @@
       
 
       
-        <h1 id="流"><a href="#流" class="headerlink" title="流"></a>流</h1><p>作用：边读取，边转发，减少内存存储压力</p>
-<p>分类</p>
-<table>
+        <h1 id="缓存和多进程"><a href="#缓存和多进程" class="headerlink" title="缓存和多进程"></a>缓存和多进程</h1><h2 id="缓存"><a href="#缓存" class="headerlink" title="缓存"></a>缓存</h2><h3 id="http缓存消息"><a href="#http缓存消息" class="headerlink" title="http缓存消息"></a>http缓存消息</h3><h4 id="第一次请求，无缓存，"><a href="#第一次请求，无缓存，" class="headerlink" title="第一次请求，无缓存，"></a>第一次请求，无缓存，</h4><p>服务端（S) 向 客户端 （C) 发送的http响应头部有</p>
+<p><code>last-modified: Tue, 26 Feb 2019 10:51:39 GMT</code></p>
+<p>告诉客户端 请求资源最后的修改日期</p>
+<h4 id="第二次请求，有缓存"><a href="#第二次请求，有缓存" class="headerlink" title="第二次请求，有缓存"></a>第二次请求，有缓存</h4><p>C —&gt; S</p>
+<p><code>If-Modified-Since: Tue, 26 Feb 2019 10:51:39 GMT</code> </p>
+<p>S—-&gt; C </p>
+<p><code>304</code>状态码</p>
+<h3 id="node-实现缓存"><a href="#node-实现缓存" class="headerlink" title="node 实现缓存"></a>node 实现缓存</h3><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> http = <span class="built_in">require</span>(<span class="string">'http'</span>)</span><br><span class="line"><span class="keyword">const</span> fs = <span class="built_in">require</span>(<span class="string">'fs'</span>)</span><br><span class="line"><span class="keyword">const</span> url = <span class="built_in">require</span>(<span class="string">'url'</span>)</span><br><span class="line"></span><br><span class="line">http.createServer(<span class="function">(<span class="params">req, res</span>) =&gt;</span> &#123;</span><br><span class="line">  <span class="keyword">let</span> &#123;pathname&#125; = url.parse(req.url)</span><br><span class="line">  <span class="comment">// console.log(pathname);</span></span><br><span class="line">  </span><br><span class="line">  <span class="comment">// 获取文件修改时间</span></span><br><span class="line">  fs.stat(<span class="string">`www<span class="subst">$&#123;pathname&#125;</span>`</span>, (err, stat) =&gt; &#123;</span><br><span class="line">    <span class="keyword">if</span> (err) &#123;</span><br><span class="line">       res.writeHead(<span class="number">404</span>)</span><br><span class="line">       res.write(<span class="string">'Not Fond'</span>)</span><br><span class="line">       res.end()</span><br><span class="line">    &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">      <span class="comment">// 如果请求头中有 If-Modified-Since 说明不是第一次获取数据，并且在第一次获取的时候，服务器传给浏览器 Last-Modif 响应头</span></span><br><span class="line">      <span class="keyword">if</span> (req.headers[<span class="string">'if-modified-since'</span>]) &#123;</span><br><span class="line">        <span class="keyword">let</span> oDate = <span class="keyword">new</span> <span class="built_in">Date</span>(req.headers[<span class="string">'if-modified-since'</span>])</span><br><span class="line">        <span class="keyword">let</span> time_client = <span class="built_in">Math</span>.floor(oDate.getTime() / <span class="number">1000</span>)</span><br><span class="line">        <span class="keyword">let</span> time_server = <span class="built_in">Math</span>.floor(stat.mtime.getTime() / <span class="number">1000</span>)</span><br><span class="line">        </span><br><span class="line">        <span class="comment">// 比较那个版本更新</span></span><br><span class="line">        <span class="keyword">if</span> (time_client &lt; time_server) &#123;</span><br><span class="line">          sendFileToClient()</span><br><span class="line">        &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">          res.writeHead(<span class="number">304</span>)</span><br><span class="line">          res.write(<span class="string">'Not Modified'</span>)</span><br><span class="line">          res.end()</span><br><span class="line">        &#125;</span><br><span class="line">      &#125;<span class="keyword">else</span>&#123;</span><br><span class="line">        sendFileToClient()</span><br><span class="line">      &#125;</span><br><span class="line"></span><br><span class="line">      <span class="function"><span class="keyword">function</span> <span class="title">sendFileToClient</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">        <span class="keyword">let</span> rs = fs.createReadStream(<span class="string">`www<span class="subst">$&#123;pathname&#125;</span>`</span>)</span><br><span class="line">        <span class="comment">/* 添加 http 响应头，并将文件的修改世界转换成 格林威治时间 */</span></span><br><span class="line">        res.setHeader(<span class="string">'Last-Modified'</span>, stat.mtime.toGMTString())</span><br><span class="line">        rs.pipe(res)</span><br><span class="line">        rs.on(<span class="string">'error'</span>, err =&gt; &#123;</span><br><span class="line">          res.writeHead(<span class="number">404</span>)</span><br><span class="line">          res.write(<span class="string">'Not Fond'</span>)</span><br><span class="line">          res.end()</span><br><span class="line">        &#125;)</span><br><span class="line">    </span><br><span class="line">      &#125;</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;)</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line">&#125;).listen(<span class="number">8888</span>, () =&gt; &#123;</span><br><span class="line">  <span class="built_in">console</span>.log(<span class="string">'running...'</span>);</span><br><span class="line">  </span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
+<h2 id="多进程"><a href="#多进程" class="headerlink" title="多进程"></a>多进程</h2><h3 id="多进程和多线程"><a href="#多进程和多线程" class="headerlink" title="多进程和多线程"></a>多进程和多线程</h3><table>
 <thead>
 <tr>
-<th>流方式</th>
-<th>常见的流</th>
+<th>多线程</th>
+<th>性能高、复杂、编程复杂</th>
 </tr>
 </thead>
 <tbody>
 <tr>
-<td>读取流</td>
-<td>req, fs.createReadStream</td>
-</tr>
-<tr>
-<td>写入流</td>
-<td>res, fs.createWriteStream</td>
-</tr>
-<tr>
-<td>读写流</td>
-<td>压缩，加密</td>
+<td>多进程</td>
+<td>性能略低、简单</td>
 </tr>
 </tbody>
 </table>
-<h2 id="流操作的基本过程"><a href="#流操作的基本过程" class="headerlink" title="流操作的基本过程"></a>流操作的基本过程</h2><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> fs = <span class="built_in">require</span>(<span class="string">'fs'</span>)</span><br><span class="line"><span class="comment">//建立一个读取流，读取 1.txt 文件</span></span><br><span class="line"><span class="keyword">let</span> rs = createReadStream(<span class="string">'1.text'</span>)</span><br><span class="line"><span class="comment">//建立写入流写的文件 命名为 2.txt</span></span><br><span class="line"><span class="keyword">let</span> ws = createWriteStream(<span class="string">'2.txt'</span>)</span><br><span class="line"></span><br><span class="line"><span class="comment">//对接</span></span><br><span class="line">rs.pipe（ws)</span><br></pre></td></tr></table></figure>
-<p>这样就可以将 1.txt 文件 一边读取，一边写入到 2.txt 文件中</p>
-<p><strong>注意：</strong>流是有方向的，只能从读取流入写入</p>
-<h2 id="流操作再node中的应用"><a href="#流操作再node中的应用" class="headerlink" title="流操作再node中的应用"></a>流操作再node中的应用</h2><h3 id="文件读取和写入的应用"><a href="#文件读取和写入的应用" class="headerlink" title="文件读取和写入的应用"></a>文件读取和写入的应用</h3><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> http = <span class="built_in">require</span>(<span class="string">'http'</span>)</span><br><span class="line"><span class="keyword">const</span> fs = <span class="built_in">require</span>(<span class="string">'fs'</span>)</span><br><span class="line"></span><br><span class="line"><span class="keyword">let</span> server = http.createServer(<span class="function">(<span class="params">req, res</span>) =&gt;</span> &#123;</span><br><span class="line">  <span class="keyword">let</span> rs = fs.createReadStream(<span class="string">`www<span class="subst">$&#123;req.url&#125;</span>`</span>)</span><br><span class="line">  rs.pipe(res)</span><br><span class="line">  </span><br><span class="line">  rs.on(<span class="string">'error'</span>, err =&gt; &#123;</span><br><span class="line">    res.writeHead(<span class="number">404</span>)</span><br><span class="line">    res.write(<span class="string">'Not Fond'</span>)</span><br><span class="line">    res.end()</span><br><span class="line">  &#125;)</span><br><span class="line">&#125;)</span><br><span class="line"></span><br><span class="line">server.listen(<span class="number">8888</span>)</span><br></pre></td></tr></table></figure>
-<h3 id="双向流–-压缩文件"><a href="#双向流–-压缩文件" class="headerlink" title="双向流– 压缩文件"></a>双向流– 压缩文件</h3><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//引入压缩模块</span></span><br><span class="line"><span class="keyword">const</span> zlib = <span class="built_in">require</span>(<span class="string">'zlib'</span>)</span><br><span class="line"><span class="keyword">const</span> fs = <span class="built_in">require</span>(<span class="string">'fs'</span>)</span><br><span class="line"></span><br><span class="line"><span class="keyword">let</span> rs = fs.createReadStream(<span class="string">'jquery.js'</span>)</span><br><span class="line"><span class="keyword">let</span> ws = fs.createWriteStream(<span class="string">'jquery.js.gz'</span>)</span><br><span class="line"></span><br><span class="line"><span class="comment">// 创建压缩对象</span></span><br><span class="line"><span class="keyword">let</span> gz = zlib.createGzip()</span><br><span class="line"></span><br><span class="line"><span class="comment">// 双向流绑定</span></span><br><span class="line">rs.pipe(gz).pipe(ws)</span><br><span class="line"></span><br><span class="line">ws.on(<span class="string">'finish'</span>, () =&gt; &#123;</span><br><span class="line">  <span class="built_in">console</span>.log(<span class="string">'成功'</span>);</span><br><span class="line">  </span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
-<h3 id="综合–将文件用node-压缩然后返回给浏览器"><a href="#综合–将文件用node-压缩然后返回给浏览器" class="headerlink" title="综合–将文件用node 压缩然后返回给浏览器"></a>综合–将文件用node 压缩然后返回给浏览器</h3><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> http = <span class="built_in">require</span>(<span class="string">'http'</span>)</span><br><span class="line"><span class="keyword">const</span> fs = <span class="built_in">require</span>(<span class="string">'fs'</span>)</span><br><span class="line"><span class="keyword">const</span> zlib = <span class="built_in">require</span>(<span class="string">'zlib'</span>)</span><br><span class="line"></span><br><span class="line"><span class="keyword">let</span> server = http.createServer(<span class="function">(<span class="params">req, res</span>) =&gt;</span> &#123;</span><br><span class="line">  <span class="keyword">let</span> rs = fs.createReadStream(<span class="string">`www<span class="subst">$&#123;req.url&#125;</span>`</span>)</span><br><span class="line">  </span><br><span class="line">  res.setHeader(<span class="string">'content-encoding'</span>, <span class="string">'gzip'</span>)</span><br><span class="line">  <span class="keyword">let</span> gz = zlib.createGzip()</span><br><span class="line">  rs.pipe(gz).pipe(res)</span><br><span class="line">  rs.on(<span class="string">'error'</span>, () =&gt; &#123;</span><br><span class="line">    res.writeHead(<span class="number">404</span>)</span><br><span class="line">    res.write(<span class="string">'Not Fond'</span>)</span><br><span class="line">    res.end()</span><br><span class="line">  &#125;)</span><br><span class="line"></span><br><span class="line">&#125;)</span><br><span class="line"></span><br><span class="line">server.listen(<span class="number">8888</span>)</span><br></pre></td></tr></table></figure>
-<p><strong>注意：</strong>因为返回给浏览器的是压缩文件，所以应该设置响应头为</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">res.setHeader(&apos;content-encoding&apos;, &apos;gzip&apos;)</span><br></pre></td></tr></table></figure>
-<p>否则浏览器不会解析压缩文件，而回将其下载</p>
+<p><strong>nodeJs 默认为 单进程、单线程</strong></p>
+<p>但是 nodejs可以设置成多进程</p>
+<p>多进程的优点：性能高，安全</p>
+<h4 id="进程"><a href="#进程" class="headerlink" title="进程"></a>进程</h4><ol>
+<li>普通程序不能创建进程，只有系统进程才可以创建进程</li>
+<li>进程是分裂出来的，但是只有主进程可以分裂能力</li>
+<li>分裂出来的进程执行同一套代码</li>
+<li>父子进程之间可以共享’句柄‘</li>
+</ol>
+<h3 id="node-的多进程"><a href="#node-的多进程" class="headerlink" title="node 的多进程"></a>node 的多进程</h3><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> http = <span class="built_in">require</span>(<span class="string">'http'</span>)</span><br><span class="line"><span class="comment">// 引入 cluster 多进程模块</span></span><br><span class="line"><span class="keyword">const</span> cluster = <span class="built_in">require</span>(<span class="string">'cluster'</span>)</span><br><span class="line"><span class="comment">// cpu 为几核 几个进程可以同时工作，所以需要引入系统模块</span></span><br><span class="line"><span class="keyword">const</span> os = <span class="built_in">require</span>(<span class="string">'os'</span>)</span><br><span class="line"><span class="comment">// 获取当前进程的信息模块</span></span><br><span class="line"><span class="keyword">const</span> process = <span class="built_in">require</span>(<span class="string">'process'</span>)</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="comment">// 判断当前是否为主进程</span></span><br><span class="line"><span class="keyword">if</span> (cluster.isMaster) &#123;</span><br><span class="line"> <span class="keyword">for</span> (<span class="keyword">let</span> i = <span class="number">0</span>; i &lt; os.cpus().length; i++) &#123;</span><br><span class="line">   cluster.fork()</span><br><span class="line"> &#125;</span><br><span class="line">  <span class="built_in">console</span>.log(<span class="string">'主进程'</span>);</span><br><span class="line">&#125; <span class="keyword">else</span> &#123;</span><br><span class="line">  <span class="keyword">let</span> server = http.createServer(<span class="function">(<span class="params">req, res</span>) =&gt;</span> &#123;</span><br><span class="line">    <span class="built_in">console</span>.log(process.pid);</span><br><span class="line"></span><br><span class="line">    res.write(<span class="string">'aaaa'</span>);</span><br><span class="line">    res.end();</span><br><span class="line">  &#125;);</span><br><span class="line"></span><br><span class="line">  server.listen(<span class="number">8888</span>);</span><br><span class="line"></span><br><span class="line">  <span class="built_in">console</span>.log(<span class="string">'服务器开好了，在8888上'</span>);</span><br><span class="line">  </span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
       
     </div>
@@ -571,6 +571,12 @@
 
     <footer class="post-footer">
       
+        <div class="post-tags">
+          
+            <a href="/tags/node/" rel="tag"># node</a>
+          
+        </div>
+      
 
       
       
@@ -580,8 +586,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2019/03/23/继承/" rel="next" title="继承">
-                <i class="fa fa-chevron-left"></i> 继承
+              <a href="/2019/03/24/缓存多进程/" rel="next" title="缓存和多进程">
+                <i class="fa fa-chevron-left"></i> 缓存和多进程
               </a>
             
           </div>
@@ -589,10 +595,6 @@
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2019/03/24/缓存多进程/" rel="prev" title="缓存和多进程">
-                缓存和多进程 <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
@@ -833,7 +835,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#流"><span class="nav-number">1.</span> <span class="nav-text">流</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#流操作的基本过程"><span class="nav-number">1.1.</span> <span class="nav-text">流操作的基本过程</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#流操作再node中的应用"><span class="nav-number">1.2.</span> <span class="nav-text">流操作再node中的应用</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#文件读取和写入的应用"><span class="nav-number">1.2.1.</span> <span class="nav-text">文件读取和写入的应用</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#双向流–-压缩文件"><span class="nav-number">1.2.2.</span> <span class="nav-text">双向流– 压缩文件</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#综合–将文件用node-压缩然后返回给浏览器"><span class="nav-number">1.2.3.</span> <span class="nav-text">综合–将文件用node 压缩然后返回给浏览器</span></a></li></ol></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#缓存和多进程"><span class="nav-number">1.</span> <span class="nav-text">缓存和多进程</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#缓存"><span class="nav-number">1.1.</span> <span class="nav-text">缓存</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#http缓存消息"><span class="nav-number">1.1.1.</span> <span class="nav-text">http缓存消息</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#第一次请求，无缓存，"><span class="nav-number">1.1.1.1.</span> <span class="nav-text">第一次请求，无缓存，</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#第二次请求，有缓存"><span class="nav-number">1.1.1.2.</span> <span class="nav-text">第二次请求，有缓存</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#node-实现缓存"><span class="nav-number">1.1.2.</span> <span class="nav-text">node 实现缓存</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#多进程"><span class="nav-number">1.2.</span> <span class="nav-text">多进程</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#多进程和多线程"><span class="nav-number">1.2.1.</span> <span class="nav-text">多进程和多线程</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#进程"><span class="nav-number">1.2.1.1.</span> <span class="nav-text">进程</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#node-的多进程"><span class="nav-number">1.2.2.</span> <span class="nav-text">node 的多进程</span></a></li></ol></li></ol></li></ol></div>
             
 
           </div>
