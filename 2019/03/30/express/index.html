@@ -103,18 +103,18 @@
 
 
 
-  <meta name="description" content="缓存和多进程缓存http缓存消息第一次请求，无缓存，服务端（S) 向 客户端 （C) 发送的http响应头部有 last-modified: Tue, 26 Feb 2019 10:51:39 GMT 告诉客户端 请求资源最后的修改日期 第二次请求，有缓存C —&amp;gt; S If-Modified-Since: Tue, 26 Feb 2019 10:51:39 GMT  S—-&amp;gt; C  3">
-<meta name="keywords" content="node">
+  <meta name="description" content="express基本使用步骤123456789101112const experss = require(&apos;experss&apos;)let server = experss()server.listen(8888)server.get(&apos;/a&apos;, (req, res)=&amp;gt;&amp;#123;  res.send(&apos;sadf&apos;)  &amp;#125;)//使用中间件 开放 www下面的静态资源server.use(">
+<meta name="keywords" content="express">
 <meta property="og:type" content="article">
-<meta property="og:title" content="缓存和多进程">
-<meta property="og:url" content="https://zhaozhoa.github.com/2019/03/24/缓存和多进程/index.html">
+<meta property="og:title" content="express">
+<meta property="og:url" content="https://zhaozhoa.github.com/2019/03/30/express/index.html">
 <meta property="og:site_name" content="脚印">
-<meta property="og:description" content="缓存和多进程缓存http缓存消息第一次请求，无缓存，服务端（S) 向 客户端 （C) 发送的http响应头部有 last-modified: Tue, 26 Feb 2019 10:51:39 GMT 告诉客户端 请求资源最后的修改日期 第二次请求，有缓存C —&amp;gt; S If-Modified-Since: Tue, 26 Feb 2019 10:51:39 GMT  S—-&amp;gt; C  3">
+<meta property="og:description" content="express基本使用步骤123456789101112const experss = require(&apos;experss&apos;)let server = experss()server.listen(8888)server.get(&apos;/a&apos;, (req, res)=&amp;gt;&amp;#123;  res.send(&apos;sadf&apos;)  &amp;#125;)//使用中间件 开放 www下面的静态资源server.use(">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2019-03-24T11:00:22.276Z">
+<meta property="og:updated_time" content="2019-03-30T02:38:51.153Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="缓存和多进程">
-<meta name="twitter:description" content="缓存和多进程缓存http缓存消息第一次请求，无缓存，服务端（S) 向 客户端 （C) 发送的http响应头部有 last-modified: Tue, 26 Feb 2019 10:51:39 GMT 告诉客户端 请求资源最后的修改日期 第二次请求，有缓存C —&amp;gt; S If-Modified-Since: Tue, 26 Feb 2019 10:51:39 GMT  S—-&amp;gt; C  3">
+<meta name="twitter:title" content="express">
+<meta name="twitter:description" content="express基本使用步骤123456789101112const experss = require(&apos;experss&apos;)let server = experss()server.listen(8888)server.get(&apos;/a&apos;, (req, res)=&amp;gt;&amp;#123;  res.send(&apos;sadf&apos;)  &amp;#125;)//使用中间件 开放 www下面的静态资源server.use(">
 
 
 
@@ -123,7 +123,7 @@
 
 
 
-  <link rel="canonical" href="https://zhaozhoa.github.com/2019/03/24/缓存和多进程/">
+  <link rel="canonical" href="https://zhaozhoa.github.com/2019/03/30/express/">
 
 
 
@@ -133,7 +133,7 @@
   };
 </script>
 
-  <title>缓存和多进程 | 脚印</title>
+  <title>express | 脚印</title>
   
 
 
@@ -361,7 +361,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://zhaozhoa.github.com/2019/03/24/缓存和多进程/">
+    <link itemprop="mainEntityOfPage" href="https://zhaozhoa.github.com/2019/03/30/express/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="张朝">
@@ -378,7 +378,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">缓存和多进程
+          <h1 class="post-title" itemprop="name headline">express
 
               
             
@@ -404,7 +404,7 @@
                 
               
 
-              <time title="创建时间：2019-03-24 18:58:01 / 修改时间：19:00:22" itemprop="dateCreated datePublished" datetime="2019-03-24T18:58:01+08:00">2019-03-24</time>
+              <time title="创建时间：2019-03-30 10:38:03 / 修改时间：10:38:51" itemprop="dateCreated datePublished" datetime="2019-03-30T10:38:03+08:00">2019-03-30</time>
             
 
             
@@ -489,38 +489,66 @@
       
 
       
-        <h1 id="缓存和多进程"><a href="#缓存和多进程" class="headerlink" title="缓存和多进程"></a>缓存和多进程</h1><h2 id="缓存"><a href="#缓存" class="headerlink" title="缓存"></a>缓存</h2><h3 id="http缓存消息"><a href="#http缓存消息" class="headerlink" title="http缓存消息"></a>http缓存消息</h3><h4 id="第一次请求，无缓存，"><a href="#第一次请求，无缓存，" class="headerlink" title="第一次请求，无缓存，"></a>第一次请求，无缓存，</h4><p>服务端（S) 向 客户端 （C) 发送的http响应头部有</p>
-<p><code>last-modified: Tue, 26 Feb 2019 10:51:39 GMT</code></p>
-<p>告诉客户端 请求资源最后的修改日期</p>
-<h4 id="第二次请求，有缓存"><a href="#第二次请求，有缓存" class="headerlink" title="第二次请求，有缓存"></a>第二次请求，有缓存</h4><p>C —&gt; S</p>
-<p><code>If-Modified-Since: Tue, 26 Feb 2019 10:51:39 GMT</code> </p>
-<p>S—-&gt; C </p>
-<p><code>304</code>状态码</p>
-<h3 id="node-实现缓存"><a href="#node-实现缓存" class="headerlink" title="node 实现缓存"></a>node 实现缓存</h3><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> http = <span class="built_in">require</span>(<span class="string">'http'</span>)</span><br><span class="line"><span class="keyword">const</span> fs = <span class="built_in">require</span>(<span class="string">'fs'</span>)</span><br><span class="line"><span class="keyword">const</span> url = <span class="built_in">require</span>(<span class="string">'url'</span>)</span><br><span class="line"></span><br><span class="line">http.createServer(<span class="function">(<span class="params">req, res</span>) =&gt;</span> &#123;</span><br><span class="line">  <span class="keyword">let</span> &#123;pathname&#125; = url.parse(req.url)</span><br><span class="line">  <span class="comment">// console.log(pathname);</span></span><br><span class="line">  </span><br><span class="line">  <span class="comment">// 获取文件修改时间</span></span><br><span class="line">  fs.stat(<span class="string">`www<span class="subst">$&#123;pathname&#125;</span>`</span>, (err, stat) =&gt; &#123;</span><br><span class="line">    <span class="keyword">if</span> (err) &#123;</span><br><span class="line">       res.writeHead(<span class="number">404</span>)</span><br><span class="line">       res.write(<span class="string">'Not Fond'</span>)</span><br><span class="line">       res.end()</span><br><span class="line">    &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">      <span class="comment">// 如果请求头中有 If-Modified-Since 说明不是第一次获取数据，并且在第一次获取的时候，服务器传给浏览器 Last-Modif 响应头</span></span><br><span class="line">      <span class="keyword">if</span> (req.headers[<span class="string">'if-modified-since'</span>]) &#123;</span><br><span class="line">        <span class="keyword">let</span> oDate = <span class="keyword">new</span> <span class="built_in">Date</span>(req.headers[<span class="string">'if-modified-since'</span>])</span><br><span class="line">        <span class="keyword">let</span> time_client = <span class="built_in">Math</span>.floor(oDate.getTime() / <span class="number">1000</span>)</span><br><span class="line">        <span class="keyword">let</span> time_server = <span class="built_in">Math</span>.floor(stat.mtime.getTime() / <span class="number">1000</span>)</span><br><span class="line">        </span><br><span class="line">        <span class="comment">// 比较那个版本更新</span></span><br><span class="line">        <span class="keyword">if</span> (time_client &lt; time_server) &#123;</span><br><span class="line">          sendFileToClient()</span><br><span class="line">        &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">          res.writeHead(<span class="number">304</span>)</span><br><span class="line">          res.write(<span class="string">'Not Modified'</span>)</span><br><span class="line">          res.end()</span><br><span class="line">        &#125;</span><br><span class="line">      &#125;<span class="keyword">else</span>&#123;</span><br><span class="line">        sendFileToClient()</span><br><span class="line">      &#125;</span><br><span class="line"></span><br><span class="line">      <span class="function"><span class="keyword">function</span> <span class="title">sendFileToClient</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">        <span class="keyword">let</span> rs = fs.createReadStream(<span class="string">`www<span class="subst">$&#123;pathname&#125;</span>`</span>)</span><br><span class="line">        <span class="comment">/* 添加 http 响应头，并将文件的修改世界转换成 格林威治时间 */</span></span><br><span class="line">        res.setHeader(<span class="string">'Last-Modified'</span>, stat.mtime.toGMTString())</span><br><span class="line">        rs.pipe(res)</span><br><span class="line">        rs.on(<span class="string">'error'</span>, err =&gt; &#123;</span><br><span class="line">          res.writeHead(<span class="number">404</span>)</span><br><span class="line">          res.write(<span class="string">'Not Fond'</span>)</span><br><span class="line">          res.end()</span><br><span class="line">        &#125;)</span><br><span class="line">    </span><br><span class="line">      &#125;</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;)</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line">&#125;).listen(<span class="number">8888</span>, () =&gt; &#123;</span><br><span class="line">  <span class="built_in">console</span>.log(<span class="string">'running...'</span>);</span><br><span class="line">  </span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
-<h2 id="多进程"><a href="#多进程" class="headerlink" title="多进程"></a>多进程</h2><h3 id="多进程和多线程"><a href="#多进程和多线程" class="headerlink" title="多进程和多线程"></a>多进程和多线程</h3><table>
-<thead>
-<tr>
-<th>多线程</th>
-<th>性能高、复杂、编程复杂</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>多进程</td>
-<td>性能略低、简单</td>
-</tr>
-</tbody>
-</table>
-<p><strong>nodeJs 默认为 单进程、单线程</strong></p>
-<p>但是 nodejs可以设置成多进程</p>
-<p>多进程的优点：性能高，安全</p>
-<h4 id="进程"><a href="#进程" class="headerlink" title="进程"></a>进程</h4><ol>
-<li>普通程序不能创建进程，只有系统进程才可以创建进程</li>
-<li>进程是分裂出来的，但是只有主进程可以分裂能力</li>
-<li>分裂出来的进程执行同一套代码</li>
-<li>父子进程之间可以共享’句柄‘</li>
+        <h1 id="express"><a href="#express" class="headerlink" title="express"></a>express</h1><h2 id="基本使用步骤"><a href="#基本使用步骤" class="headerlink" title="基本使用步骤"></a>基本使用步骤</h2><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> experss = <span class="built_in">require</span>(<span class="string">'experss'</span>)</span><br><span class="line"></span><br><span class="line"><span class="keyword">let</span> server = experss()</span><br><span class="line"></span><br><span class="line">server.listen(<span class="number">8888</span>)</span><br><span class="line"></span><br><span class="line">server.get(<span class="string">'/a'</span>, (req, res)=&gt;&#123;</span><br><span class="line">  res.send(<span class="string">'sadf'</span>)</span><br><span class="line">  </span><br><span class="line">&#125;)</span><br><span class="line"><span class="comment">//使用中间件 开放 www下面的静态资源</span></span><br><span class="line">server.use(experss.static(<span class="string">'www/'</span>))</span><br></pre></td></tr></table></figure>
+<h2 id="中间件"><a href="#中间件" class="headerlink" title="中间件"></a>中间件</h2><ol>
+<li>插件 –补充框架的功能</li>
+<li>类似于流水线</li>
 </ol>
-<h3 id="node-的多进程"><a href="#node-的多进程" class="headerlink" title="node 的多进程"></a>node 的多进程</h3><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> http = <span class="built_in">require</span>(<span class="string">'http'</span>)</span><br><span class="line"><span class="comment">// 引入 cluster 多进程模块</span></span><br><span class="line"><span class="keyword">const</span> cluster = <span class="built_in">require</span>(<span class="string">'cluster'</span>)</span><br><span class="line"><span class="comment">// cpu 为几核 几个进程可以同时工作，所以需要引入系统模块</span></span><br><span class="line"><span class="keyword">const</span> os = <span class="built_in">require</span>(<span class="string">'os'</span>)</span><br><span class="line"><span class="comment">// 获取当前进程的信息模块</span></span><br><span class="line"><span class="keyword">const</span> process = <span class="built_in">require</span>(<span class="string">'process'</span>)</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="comment">// 判断当前是否为主进程</span></span><br><span class="line"><span class="keyword">if</span> (cluster.isMaster) &#123;</span><br><span class="line"> <span class="keyword">for</span> (<span class="keyword">let</span> i = <span class="number">0</span>; i &lt; os.cpus().length; i++) &#123;</span><br><span class="line">   cluster.fork()</span><br><span class="line"> &#125;</span><br><span class="line">  <span class="built_in">console</span>.log(<span class="string">'主进程'</span>);</span><br><span class="line">&#125; <span class="keyword">else</span> &#123;</span><br><span class="line">  <span class="keyword">let</span> server = http.createServer(<span class="function">(<span class="params">req, res</span>) =&gt;</span> &#123;</span><br><span class="line">    <span class="built_in">console</span>.log(process.pid);</span><br><span class="line"></span><br><span class="line">    res.write(<span class="string">'aaaa'</span>);</span><br><span class="line">    res.end();</span><br><span class="line">  &#125;);</span><br><span class="line"></span><br><span class="line">  server.listen(<span class="number">8888</span>);</span><br><span class="line"></span><br><span class="line">  <span class="built_in">console</span>.log(<span class="string">'服务器开好了，在8888上'</span>);</span><br><span class="line">  </span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h3 id="中间件的next-方法（流水线）"><a href="#中间件的next-方法（流水线）" class="headerlink" title="中间件的next()方法（流水线）"></a>中间件的next()方法（流水线）</h3><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> experss = <span class="built_in">require</span>(<span class="string">'experss'</span>)</span><br><span class="line"></span><br><span class="line"><span class="keyword">let</span> server = experss()</span><br><span class="line"></span><br><span class="line">server.listen(<span class="number">8888</span>)</span><br><span class="line"></span><br><span class="line">server.get(<span class="string">'/a'</span>, (req, res, next)=&gt;&#123;</span><br><span class="line">  res.send(<span class="string">'sadf'</span>)</span><br><span class="line">  <span class="built_in">console</span>.log(<span class="string">'sssssss'</span>);</span><br><span class="line">  </span><br><span class="line">  next()</span><br><span class="line">&#125;)</span><br><span class="line"></span><br><span class="line">server.get(<span class="string">'/a'</span>, (req, res, next) =&gt; &#123;</span><br><span class="line">  <span class="built_in">console</span>.log(<span class="string">'dddddddddddd'</span>);</span><br><span class="line">  </span><br><span class="line">  next()</span><br><span class="line">&#125;)</span><br><span class="line">server.use(experss.static(<span class="string">'www/'</span>))</span><br></pre></td></tr></table></figure>
+<p>添加了 next(), 程序会执行向下执行</p>
+<h2 id="路径"><a href="#路径" class="headerlink" title="路径"></a>路径</h2><p>path 模块中有 resolve() 方法 可以获取文件绝对路径</p>
+<h3 id="path-basename"><a href="#path-basename" class="headerlink" title="path.basename"></a>path.basename</h3><p>作用：</p>
+<p>获取路径中的文件名</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">path.basename(<span class="string">'c:a/b/c/d/index.js'</span>)</span><br><span class="line"> <span class="string">'index.js'</span></span><br><span class="line"></span><br><span class="line">path.basename(<span class="string">'c:a/b/c/index.js'</span>, <span class="string">'.js'</span>)</span><br><span class="line"> <span class="string">'index'</span></span><br></pre></td></tr></table></figure>
+<h3 id="path-dirname"><a href="#path-dirname" class="headerlink" title="path.dirname"></a>path.dirname</h3><p>作用：</p>
+<p>获取文件目录</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">path.dirname(<span class="string">'c:a/b/c/index'</span>)</span><br><span class="line"> c:a/b/c<span class="string">'</span></span><br></pre></td></tr></table></figure>
+<h3 id="path-extname"><a href="#path-extname" class="headerlink" title="path.extname"></a>path.extname</h3><p>作用：</p>
+<p>获取文件扩展名</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">path.extname(<span class="string">'c:/a/b/c/index.js'</span>)</span><br><span class="line"> <span class="string">'.js'</span></span><br></pre></td></tr></table></figure>
+<h3 id="path-isAbsolute"><a href="#path-isAbsolute" class="headerlink" title="path.isAbsolute"></a>path.isAbsolute</h3><p>作用:</p>
+<p>判断是否为绝对路径</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">path.isAbsolute(<span class="string">'a/b/c/index'</span>)</span><br><span class="line"> <span class="literal">false</span></span><br><span class="line"></span><br><span class="line">path.isAbsolute(<span class="string">'/a/b/c/index'</span>)</span><br><span class="line"> <span class="literal">true</span></span><br><span class="line"></span><br><span class="line">path.isAbsolute(<span class="string">'./a/b/c/index'</span>)</span><br><span class="line"> <span class="literal">false</span></span><br></pre></td></tr></table></figure>
+<h3 id="path-parse"><a href="#path-parse" class="headerlink" title="path.parse"></a>path.parse</h3><p>作用：</p>
+<p>获取路径的所有信息</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">path.parse(<span class="string">'c:/a/b/c/index.html'</span>)</span><br><span class="line"></span><br><span class="line"><span class="comment">//</span></span><br><span class="line">&#123; <span class="attr">root</span>: <span class="string">'c:/'</span>,</span><br><span class="line">  dir: <span class="string">'c:/a/b/c'</span>,</span><br><span class="line">  base: <span class="string">'index.html'</span>,</span><br><span class="line">  ext: <span class="string">'.html'</span>,</span><br><span class="line">  name: <span class="string">'index'</span> &#125;</span><br></pre></td></tr></table></figure>
+<h3 id="path-join"><a href="#path-join" class="headerlink" title="path.join()"></a>path.join()</h3><p>作用：</p>
+<p>追加路径</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">path.join(<span class="string">'c:/a/'</span>,<span class="string">'b'</span>)</span><br><span class="line"><span class="comment">//</span></span><br><span class="line"><span class="string">'c:\\a\\b'</span></span><br></pre></td></tr></table></figure>
+<h2 id="数据解析"><a href="#数据解析" class="headerlink" title="数据解析"></a>数据解析</h2><h3 id="获取-get-数据"><a href="#获取-get-数据" class="headerlink" title="获取 get 数据"></a>获取 get 数据</h3><p>req.query属性可以获取（json方式）</p>
+<h3 id="获取-post-数据"><a href="#获取-post-数据" class="headerlink" title="获取 post 数据"></a>获取 post 数据</h3><p>使用第三方模块 body-parser</p>
+<p>安装  </p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm i pody-parser -D</span><br></pre></td></tr></table></figure>
+<p>引入</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> bodyPaser = <span class="built_in">require</span>(<span class="string">'body-parser'</span>)</span><br></pre></td></tr></table></figure>
+<p>配置中间件</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">server.use(bodyParser.urlencoded(&#123;<span class="attr">extended</span>: <span class="literal">false</span>&#125;))</span><br></pre></td></tr></table></figure>
+<p>获取数据</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">server.post(<span class="string">'/a'</span>, (req, res)=&gt;&#123;</span><br><span class="line"> <span class="built_in">console</span>.log(req.body);</span><br></pre></td></tr></table></figure>
+<h2 id="路由"><a href="#路由" class="headerlink" title="路由"></a>路由</h2><h3 id="创建路由的基本步骤"><a href="#创建路由的基本步骤" class="headerlink" title="创建路由的基本步骤"></a>创建路由的基本步骤</h3><ol>
+<li>创建路由</li>
+</ol>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> userRouter = express.Router()</span><br></pre></td></tr></table></figure>
+<ol start="2">
+<li>设置父级路由</li>
+</ol>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 所有和 /user 有关的路由都由 userRouter 处理</span></span><br><span class="line">server.use(<span class="string">'/user'</span>, userRouter)</span><br></pre></td></tr></table></figure>
+<ol start="3">
+<li>设置子路由</li>
+</ol>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//处理 /user/ 的路由</span></span><br><span class="line">userRouter.get(<span class="string">'/'</span>, (req, res) =&gt; &#123;</span><br><span class="line">  res.send(<span class="string">'首页'</span>)</span><br><span class="line">&#125;)</span><br><span class="line"><span class="comment">//处理 /user/a 的路由</span></span><br><span class="line">userRouter.get(<span class="string">'/a'</span>, (req, res) =&gt; &#123;</span><br><span class="line">  res.send(<span class="string">'aaaaaaa'</span>)</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
+<h3 id="路由模块化"><a href="#路由模块化" class="headerlink" title="路由模块化"></a>路由模块化</h3><p>将子路由封装到一个模块 user.js 中， 并用 module.exports 导出</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> express = <span class="built_in">require</span>(<span class="string">'express'</span>)</span><br><span class="line"></span><br><span class="line"><span class="keyword">let</span> router = express.Router()</span><br><span class="line">router.get(<span class="string">'/'</span>, (req, res) =&gt; &#123;</span><br><span class="line">  res.send(<span class="string">'首页'</span>)</span><br><span class="line">&#125;)</span><br><span class="line">router.get(<span class="string">'/a'</span>, (req, res) =&gt; &#123;</span><br><span class="line">  res.send(<span class="string">'aaaaaaa'</span>)</span><br><span class="line">&#125;)</span><br><span class="line"></span><br><span class="line"><span class="built_in">module</span>.exports = router</span><br></pre></td></tr></table></figure>
+<p>修改父级路由，只需要请求该模块即可</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">server.use(<span class="string">'/user'</span>,<span class="built_in">require</span>(<span class="string">'./routes/user.js'</span>))</span><br></pre></td></tr></table></figure>
+<h2 id="其他"><a href="#其他" class="headerlink" title="其他"></a>其他</h2><h3 id="状态码返回"><a href="#状态码返回" class="headerlink" title="状态码返回"></a>状态码返回</h3><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">res.sendStatus(<span class="number">404</span>) <span class="comment">//返回404 状态码</span></span><br></pre></td></tr></table></figure>
+<p>相当于原生的</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">res.writeHeader(<span class="number">404</span>)</span><br><span class="line">res.write(<span class="string">'Not Fond'</span>)</span><br><span class="line">res.end()</span><br></pre></td></tr></table></figure>
+<h3 id="重定向"><a href="#重定向" class="headerlink" title="重定向"></a>重定向</h3><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">res.redirect(<span class="string">'http://www.baidu.com'</span>)</span><br></pre></td></tr></table></figure>
+<p>相当于原生的</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">res.setHeader(<span class="string">'location'</span>,<span class="string">'http://www.baidu.com'</span>)</span><br><span class="line">res.writhHeader(<span class="number">301</span>)</span><br><span class="line">res.end()</span><br></pre></td></tr></table></figure>
+<h3 id="开放静态资源"><a href="#开放静态资源" class="headerlink" title="开放静态资源"></a>开放静态资源</h3><p>开放www目录下面的静态资源可以被用户访问</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">server.use(experss.static(<span class="string">'www/'</span>))</span><br></pre></td></tr></table></figure>
 
       
     </div>
@@ -573,7 +601,7 @@
       
         <div class="post-tags">
           
-            <a href="/tags/node/" rel="tag"># node</a>
+            <a href="/tags/express/" rel="tag"># express</a>
           
         </div>
       
@@ -586,8 +614,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2019/03/23/流与压缩/" rel="next" title="流与压缩">
-                <i class="fa fa-chevron-left"></i> 流与压缩
+              <a href="/2019/03/29/canvas/" rel="next" title="canvas">
+                <i class="fa fa-chevron-left"></i> canvas
               </a>
             
           </div>
@@ -595,10 +623,6 @@
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2019/03/29/canvas/" rel="prev" title="canvas">
-                canvas <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
@@ -843,7 +867,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#缓存和多进程"><span class="nav-number">1.</span> <span class="nav-text">缓存和多进程</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#缓存"><span class="nav-number">1.1.</span> <span class="nav-text">缓存</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#http缓存消息"><span class="nav-number">1.1.1.</span> <span class="nav-text">http缓存消息</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#第一次请求，无缓存，"><span class="nav-number">1.1.1.1.</span> <span class="nav-text">第一次请求，无缓存，</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#第二次请求，有缓存"><span class="nav-number">1.1.1.2.</span> <span class="nav-text">第二次请求，有缓存</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#node-实现缓存"><span class="nav-number">1.1.2.</span> <span class="nav-text">node 实现缓存</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#多进程"><span class="nav-number">1.2.</span> <span class="nav-text">多进程</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#多进程和多线程"><span class="nav-number">1.2.1.</span> <span class="nav-text">多进程和多线程</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#进程"><span class="nav-number">1.2.1.1.</span> <span class="nav-text">进程</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#node-的多进程"><span class="nav-number">1.2.2.</span> <span class="nav-text">node 的多进程</span></a></li></ol></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#express"><span class="nav-number">1.</span> <span class="nav-text">express</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#基本使用步骤"><span class="nav-number">1.1.</span> <span class="nav-text">基本使用步骤</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#中间件"><span class="nav-number">1.2.</span> <span class="nav-text">中间件</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#中间件的next-方法（流水线）"><span class="nav-number">1.2.1.</span> <span class="nav-text">中间件的next()方法（流水线）</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#路径"><span class="nav-number">1.3.</span> <span class="nav-text">路径</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#path-basename"><span class="nav-number">1.3.1.</span> <span class="nav-text">path.basename</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#path-dirname"><span class="nav-number">1.3.2.</span> <span class="nav-text">path.dirname</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#path-extname"><span class="nav-number">1.3.3.</span> <span class="nav-text">path.extname</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#path-isAbsolute"><span class="nav-number">1.3.4.</span> <span class="nav-text">path.isAbsolute</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#path-parse"><span class="nav-number">1.3.5.</span> <span class="nav-text">path.parse</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#path-join"><span class="nav-number">1.3.6.</span> <span class="nav-text">path.join()</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#数据解析"><span class="nav-number">1.4.</span> <span class="nav-text">数据解析</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#获取-get-数据"><span class="nav-number">1.4.1.</span> <span class="nav-text">获取 get 数据</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#获取-post-数据"><span class="nav-number">1.4.2.</span> <span class="nav-text">获取 post 数据</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#路由"><span class="nav-number">1.5.</span> <span class="nav-text">路由</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#创建路由的基本步骤"><span class="nav-number">1.5.1.</span> <span class="nav-text">创建路由的基本步骤</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#路由模块化"><span class="nav-number">1.5.2.</span> <span class="nav-text">路由模块化</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#其他"><span class="nav-number">1.6.</span> <span class="nav-text">其他</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#状态码返回"><span class="nav-number">1.6.1.</span> <span class="nav-text">状态码返回</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#重定向"><span class="nav-number">1.6.2.</span> <span class="nav-text">重定向</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#开放静态资源"><span class="nav-number">1.6.3.</span> <span class="nav-text">开放静态资源</span></a></li></ol></li></ol></li></ol></div>
             
 
           </div>
