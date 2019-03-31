@@ -103,18 +103,18 @@
 
 
 
-  <meta name="description" content="express基本使用步骤123456789101112const experss = require(&apos;experss&apos;)let server = experss()server.listen(8888)server.get(&apos;/a&apos;, (req, res)=&amp;gt;&amp;#123;  res.send(&apos;sadf&apos;)  &amp;#125;)//使用中间件 开放 www下面的静态资源server.use(">
-<meta name="keywords" content="express">
+  <meta name="description" content="koakoa 中所有的异步操作都需要用 async /await 安装 1npm i koa koa-static koa-better-body koa-convert koa-router -D  koa-static 用于开放静态资源 koa-better-body 用于解析 post 提交数据 koa-convert 用于兼容中间件 koa-router 用于路由  koa 入门 引入模块">
+<meta name="keywords" content="koa">
 <meta property="og:type" content="article">
-<meta property="og:title" content="express">
-<meta property="og:url" content="https://zhaozhoa.github.com/2019/03/30/express/index.html">
+<meta property="og:title" content="koa">
+<meta property="og:url" content="https://zhaozhoa.github.com/2019/03/31/koa/index.html">
 <meta property="og:site_name" content="脚印">
-<meta property="og:description" content="express基本使用步骤123456789101112const experss = require(&apos;experss&apos;)let server = experss()server.listen(8888)server.get(&apos;/a&apos;, (req, res)=&amp;gt;&amp;#123;  res.send(&apos;sadf&apos;)  &amp;#125;)//使用中间件 开放 www下面的静态资源server.use(">
+<meta property="og:description" content="koakoa 中所有的异步操作都需要用 async /await 安装 1npm i koa koa-static koa-better-body koa-convert koa-router -D  koa-static 用于开放静态资源 koa-better-body 用于解析 post 提交数据 koa-convert 用于兼容中间件 koa-router 用于路由  koa 入门 引入模块">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2019-03-30T02:38:51.153Z">
+<meta property="og:updated_time" content="2019-03-31T10:17:51.105Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="express">
-<meta name="twitter:description" content="express基本使用步骤123456789101112const experss = require(&apos;experss&apos;)let server = experss()server.listen(8888)server.get(&apos;/a&apos;, (req, res)=&amp;gt;&amp;#123;  res.send(&apos;sadf&apos;)  &amp;#125;)//使用中间件 开放 www下面的静态资源server.use(">
+<meta name="twitter:title" content="koa">
+<meta name="twitter:description" content="koakoa 中所有的异步操作都需要用 async /await 安装 1npm i koa koa-static koa-better-body koa-convert koa-router -D  koa-static 用于开放静态资源 koa-better-body 用于解析 post 提交数据 koa-convert 用于兼容中间件 koa-router 用于路由  koa 入门 引入模块">
 
 
 
@@ -123,7 +123,7 @@
 
 
 
-  <link rel="canonical" href="https://zhaozhoa.github.com/2019/03/30/express/">
+  <link rel="canonical" href="https://zhaozhoa.github.com/2019/03/31/koa/">
 
 
 
@@ -133,7 +133,7 @@
   };
 </script>
 
-  <title>express | 脚印</title>
+  <title>koa | 脚印</title>
   
 
 
@@ -361,7 +361,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://zhaozhoa.github.com/2019/03/30/express/">
+    <link itemprop="mainEntityOfPage" href="https://zhaozhoa.github.com/2019/03/31/koa/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="张朝">
@@ -378,7 +378,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">express
+          <h1 class="post-title" itemprop="name headline">koa
 
               
             
@@ -404,7 +404,7 @@
                 
               
 
-              <time title="创建时间：2019-03-30 10:38:03 / 修改时间：10:38:51" itemprop="dateCreated datePublished" datetime="2019-03-30T10:38:03+08:00">2019-03-30</time>
+              <time title="创建时间：2019-03-31 18:16:42 / 修改时间：18:17:51" itemprop="dateCreated datePublished" datetime="2019-03-31T18:16:42+08:00">2019-03-31</time>
             
 
             
@@ -455,7 +455,7 @@
                 
                   <span class="post-meta-item-text">本文字数：</span>
                 
-                <span title="本文字数">2.5k</span>
+                <span title="本文字数">4.5k</span>
               
 
               
@@ -469,7 +469,7 @@
                 
                   <span class="post-meta-item-text">阅读时长 &asymp;</span>
                 
-                <span title="阅读时长">2 分钟</span>
+                <span title="阅读时长">4 分钟</span>
               
             </div>
           
@@ -489,66 +489,140 @@
       
 
       
-        <h1 id="express"><a href="#express" class="headerlink" title="express"></a>express</h1><h2 id="基本使用步骤"><a href="#基本使用步骤" class="headerlink" title="基本使用步骤"></a>基本使用步骤</h2><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> experss = <span class="built_in">require</span>(<span class="string">'experss'</span>)</span><br><span class="line"></span><br><span class="line"><span class="keyword">let</span> server = experss()</span><br><span class="line"></span><br><span class="line">server.listen(<span class="number">8888</span>)</span><br><span class="line"></span><br><span class="line">server.get(<span class="string">'/a'</span>, (req, res)=&gt;&#123;</span><br><span class="line">  res.send(<span class="string">'sadf'</span>)</span><br><span class="line">  </span><br><span class="line">&#125;)</span><br><span class="line"><span class="comment">//使用中间件 开放 www下面的静态资源</span></span><br><span class="line">server.use(experss.static(<span class="string">'www/'</span>))</span><br></pre></td></tr></table></figure>
-<h2 id="中间件"><a href="#中间件" class="headerlink" title="中间件"></a>中间件</h2><ol>
-<li>插件 –补充框架的功能</li>
-<li>类似于流水线</li>
-</ol>
-<h3 id="中间件的next-方法（流水线）"><a href="#中间件的next-方法（流水线）" class="headerlink" title="中间件的next()方法（流水线）"></a>中间件的next()方法（流水线）</h3><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> experss = <span class="built_in">require</span>(<span class="string">'experss'</span>)</span><br><span class="line"></span><br><span class="line"><span class="keyword">let</span> server = experss()</span><br><span class="line"></span><br><span class="line">server.listen(<span class="number">8888</span>)</span><br><span class="line"></span><br><span class="line">server.get(<span class="string">'/a'</span>, (req, res, next)=&gt;&#123;</span><br><span class="line">  res.send(<span class="string">'sadf'</span>)</span><br><span class="line">  <span class="built_in">console</span>.log(<span class="string">'sssssss'</span>);</span><br><span class="line">  </span><br><span class="line">  next()</span><br><span class="line">&#125;)</span><br><span class="line"></span><br><span class="line">server.get(<span class="string">'/a'</span>, (req, res, next) =&gt; &#123;</span><br><span class="line">  <span class="built_in">console</span>.log(<span class="string">'dddddddddddd'</span>);</span><br><span class="line">  </span><br><span class="line">  next()</span><br><span class="line">&#125;)</span><br><span class="line">server.use(experss.static(<span class="string">'www/'</span>))</span><br></pre></td></tr></table></figure>
-<p>添加了 next(), 程序会执行向下执行</p>
-<h2 id="路径"><a href="#路径" class="headerlink" title="路径"></a>路径</h2><p>path 模块中有 resolve() 方法 可以获取文件绝对路径</p>
-<h3 id="path-basename"><a href="#path-basename" class="headerlink" title="path.basename"></a>path.basename</h3><p>作用：</p>
-<p>获取路径中的文件名</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">path.basename(<span class="string">'c:a/b/c/d/index.js'</span>)</span><br><span class="line"> <span class="string">'index.js'</span></span><br><span class="line"></span><br><span class="line">path.basename(<span class="string">'c:a/b/c/index.js'</span>, <span class="string">'.js'</span>)</span><br><span class="line"> <span class="string">'index'</span></span><br></pre></td></tr></table></figure>
-<h3 id="path-dirname"><a href="#path-dirname" class="headerlink" title="path.dirname"></a>path.dirname</h3><p>作用：</p>
-<p>获取文件目录</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">path.dirname(<span class="string">'c:a/b/c/index'</span>)</span><br><span class="line"> c:a/b/c<span class="string">'</span></span><br></pre></td></tr></table></figure>
-<h3 id="path-extname"><a href="#path-extname" class="headerlink" title="path.extname"></a>path.extname</h3><p>作用：</p>
-<p>获取文件扩展名</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">path.extname(<span class="string">'c:/a/b/c/index.js'</span>)</span><br><span class="line"> <span class="string">'.js'</span></span><br></pre></td></tr></table></figure>
-<h3 id="path-isAbsolute"><a href="#path-isAbsolute" class="headerlink" title="path.isAbsolute"></a>path.isAbsolute</h3><p>作用:</p>
-<p>判断是否为绝对路径</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">path.isAbsolute(<span class="string">'a/b/c/index'</span>)</span><br><span class="line"> <span class="literal">false</span></span><br><span class="line"></span><br><span class="line">path.isAbsolute(<span class="string">'/a/b/c/index'</span>)</span><br><span class="line"> <span class="literal">true</span></span><br><span class="line"></span><br><span class="line">path.isAbsolute(<span class="string">'./a/b/c/index'</span>)</span><br><span class="line"> <span class="literal">false</span></span><br></pre></td></tr></table></figure>
-<h3 id="path-parse"><a href="#path-parse" class="headerlink" title="path.parse"></a>path.parse</h3><p>作用：</p>
-<p>获取路径的所有信息</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">path.parse(<span class="string">'c:/a/b/c/index.html'</span>)</span><br><span class="line"></span><br><span class="line"><span class="comment">//</span></span><br><span class="line">&#123; <span class="attr">root</span>: <span class="string">'c:/'</span>,</span><br><span class="line">  dir: <span class="string">'c:/a/b/c'</span>,</span><br><span class="line">  base: <span class="string">'index.html'</span>,</span><br><span class="line">  ext: <span class="string">'.html'</span>,</span><br><span class="line">  name: <span class="string">'index'</span> &#125;</span><br></pre></td></tr></table></figure>
-<h3 id="path-join"><a href="#path-join" class="headerlink" title="path.join()"></a>path.join()</h3><p>作用：</p>
-<p>追加路径</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">path.join(<span class="string">'c:/a/'</span>,<span class="string">'b'</span>)</span><br><span class="line"><span class="comment">//</span></span><br><span class="line"><span class="string">'c:\\a\\b'</span></span><br></pre></td></tr></table></figure>
-<h2 id="数据解析"><a href="#数据解析" class="headerlink" title="数据解析"></a>数据解析</h2><h3 id="获取-get-数据"><a href="#获取-get-数据" class="headerlink" title="获取 get 数据"></a>获取 get 数据</h3><p>req.query属性可以获取（json方式）</p>
-<h3 id="获取-post-数据"><a href="#获取-post-数据" class="headerlink" title="获取 post 数据"></a>获取 post 数据</h3><p>使用第三方模块 body-parser</p>
-<p>安装  </p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm i pody-parser -D</span><br></pre></td></tr></table></figure>
-<p>引入</p>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> bodyPaser = <span class="built_in">require</span>(<span class="string">'body-parser'</span>)</span><br></pre></td></tr></table></figure>
-<p>配置中间件</p>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">server.use(bodyParser.urlencoded(&#123;<span class="attr">extended</span>: <span class="literal">false</span>&#125;))</span><br></pre></td></tr></table></figure>
-<p>获取数据</p>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">server.post(<span class="string">'/a'</span>, (req, res)=&gt;&#123;</span><br><span class="line"> <span class="built_in">console</span>.log(req.body);</span><br></pre></td></tr></table></figure>
-<h2 id="路由"><a href="#路由" class="headerlink" title="路由"></a>路由</h2><h3 id="创建路由的基本步骤"><a href="#创建路由的基本步骤" class="headerlink" title="创建路由的基本步骤"></a>创建路由的基本步骤</h3><ol>
+        <h1 id="koa"><a href="#koa" class="headerlink" title="koa"></a>koa</h1><p><strong>koa 中所有的异步操作都需要用 async /await</strong></p>
+<p>安装</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm i koa koa-static koa-better-body koa-convert koa-router -D</span><br></pre></td></tr></table></figure>
+<ul>
+<li>koa-static 用于开放静态资源</li>
+<li>koa-better-body 用于解析 post 提交数据</li>
+<li>koa-convert 用于兼容中间件</li>
+<li>koa-router 用于路由</li>
+</ul>
+<h2 id="koa-入门"><a href="#koa-入门" class="headerlink" title="koa 入门"></a>koa 入门</h2><ul>
+<li>引入模块</li>
+<li>使用</li>
+<li>监听端口</li>
+</ul>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> koa = <span class="built_in">require</span>(<span class="string">'koa'</span>)</span><br><span class="line"></span><br><span class="line"><span class="keyword">let</span> server = <span class="keyword">new</span> koa()</span><br><span class="line">server.listen(<span class="number">8888</span>)</span><br></pre></td></tr></table></figure>
+<h2 id="路由"><a href="#路由" class="headerlink" title="路由"></a>路由</h2><p>koa 对router 强依赖，不像 express 一样可以自带简单路由</p>
+<p><strong>express 中的简单路由</strong></p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> server = express</span><br><span class="line">server.get(<span class="string">'/'</span>, (req, res)=&gt;&#123;</span><br><span class="line">  </span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
+<p>但是这个不能在 koa 中使用，要在 koa 中使用路由，必须</p>
+<ul>
+<li>引入路由模块，</li>
 <li>创建路由</li>
+<li>配置中间件</li>
+</ul>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> koa = <span class="built_in">require</span>(<span class="string">'koa'</span>)</span><br><span class="line"><span class="keyword">const</span> router = <span class="built_in">require</span>(<span class="string">'koa-router'</span>)</span><br><span class="line"></span><br><span class="line"><span class="keyword">let</span> server = <span class="keyword">new</span> koa()</span><br><span class="line">server.listen(<span class="number">8888</span>)</span><br><span class="line"></span><br><span class="line"><span class="keyword">let</span> router1 = router()</span><br><span class="line">server.use(router1.routes())</span><br><span class="line"></span><br><span class="line">router1.get(<span class="string">'/'</span>, <span class="keyword">async</span>(ctx, next) =&gt; &#123;</span><br><span class="line">  </span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
+<h2 id="async-中的-ctx-对象-的重要属性"><a href="#async-中的-ctx-对象-的重要属性" class="headerlink" title="async 中的 ctx 对象 的重要属性"></a>async 中的 ctx 对象 的重要属性</h2><ul>
+<li><p>ctx. req</p>
+<p>原生的 req 对象</p>
+</li>
+<li><p>ctx.request</p>
+<p>koa 封装的 req 对象</p>
+</li>
+<li><p>ctx.res</p>
+<p>原生的 res 对象</p>
+</li>
+<li><p>ctx.response</p>
+<p>koa 封装的 res 对象</p>
+</li>
+</ul>
+<h3 id="ctx-response"><a href="#ctx-response" class="headerlink" title="ctx.response"></a>ctx.response</h3><ul>
+<li>设置响应头</li>
+</ul>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//设置一个 a 的响应头， 值为 12</span></span><br><span class="line">ctx.response.set(<span class="string">'a'</span>, <span class="number">12</span>)</span><br></pre></td></tr></table></figure>
+<ul>
+<li>设置返回内容</li>
+</ul>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//向浏览器返回json</span></span><br><span class="line">ctx.response.body = &#123;<span class="attr">a</span>: <span class="number">12</span>, <span class="attr">b</span>: <span class="number">25</span>&#125;</span><br></pre></td></tr></table></figure>
+<ul>
+<li>设置状态码</li>
+</ul>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ctx.response.status = <span class="number">403</span></span><br></pre></td></tr></table></figure>
+<h3 id="ctx-request"><a href="#ctx-request" class="headerlink" title="ctx.request"></a>ctx.request</h3><ul>
+<li>获取请求头</li>
+</ul>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ctx.request.headers</span><br></pre></td></tr></table></figure>
+<h2 id="开放静态文件，-返回文件"><a href="#开放静态文件，-返回文件" class="headerlink" title="开放静态文件， 返回文件"></a>开放静态文件， 返回文件</h2><p>开放 www 目录下的资源</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> koa = <span class="built_in">require</span>(<span class="string">'koa'</span>)</span><br><span class="line"><span class="keyword">const</span> <span class="keyword">static</span> = <span class="built_in">require</span>(<span class="string">'koa-static'</span>)</span><br><span class="line"><span class="keyword">const</span> path = <span class="built_in">require</span>(<span class="string">'path'</span>)</span><br><span class="line"></span><br><span class="line"><span class="keyword">let</span> server = <span class="keyword">new</span> koa()</span><br><span class="line">server.listen(<span class="number">8888</span>)</span><br><span class="line"></span><br><span class="line"><span class="comment">// 路径转化成绝对路径</span></span><br><span class="line">server.use(<span class="keyword">static</span>(path.resolve(<span class="string">'./www'</span>)))</span><br></pre></td></tr></table></figure>
+<p> 如果 www 目录下面 有一个 1.html 我文件，则可以通过 </p>
+<p><a href="http://localhost:8888/1.html" target="_blank" rel="noopener">http://localhost:8888/1.html</a>请求</p>
+<h3 id="koa-static-存在问题"><a href="#koa-static-存在问题" class="headerlink" title="koa-static 存在问题"></a>koa-static 存在问题</h3><ul>
+<li>发送给浏览器的文件没有经过压缩</li>
+<li>发送的文件不会缓存</li>
+</ul>
+<p><strong>解决方法</strong></p>
+<p>使用中间件 <code>koa-static-cache</code> 代替 koa-static</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> koa = <span class="built_in">require</span>(<span class="string">'koa'</span>)</span><br><span class="line"><span class="keyword">const</span> staticCache = <span class="built_in">require</span>(<span class="string">'koa-static-cache'</span>)</span><br><span class="line"><span class="keyword">const</span> path = <span class="built_in">require</span>(<span class="string">'path'</span>)</span><br><span class="line"></span><br><span class="line"><span class="keyword">let</span> server = <span class="keyword">new</span> koa()</span><br><span class="line">server.listen(<span class="number">8888</span>)</span><br><span class="line"></span><br><span class="line"><span class="comment">// 路径转化成绝对路径</span></span><br><span class="line">server.use(staticCache(path.resolve(<span class="string">'./www'</span>)))</span><br></pre></td></tr></table></figure>
+<h2 id="数据处理"><a href="#数据处理" class="headerlink" title="数据处理"></a>数据处理</h2><h3 id="获取-get-数据"><a href="#获取-get-数据" class="headerlink" title="获取 get 数据"></a>获取 get 数据</h3><p><strong>获取问号参数</strong></p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ctx.request.query</span><br></pre></td></tr></table></figure>
+<p><strong>获取路由参数</strong></p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ctx.params</span><br></pre></td></tr></table></figure>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> koa = <span class="built_in">require</span>(<span class="string">'koa'</span>)</span><br><span class="line"><span class="keyword">const</span> router = <span class="built_in">require</span>(<span class="string">'koa-router'</span>)</span><br><span class="line"></span><br><span class="line"><span class="keyword">let</span> server = <span class="keyword">new</span> koa()</span><br><span class="line">server.listen(<span class="number">8888</span>)</span><br><span class="line"></span><br><span class="line"><span class="keyword">let</span> r1 = router()</span><br><span class="line">server.use(r1.routes())</span><br><span class="line"></span><br><span class="line"><span class="comment">// 路由参数为 user，和 age</span></span><br><span class="line">r1.get(<span class="string">'/:user/:age'</span>, <span class="keyword">async</span> (ctx, next) =&gt; &#123;</span><br><span class="line">  ctx.response.body = <span class="string">'sadfasd'</span></span><br><span class="line">  <span class="built_in">console</span>.log(ctx.params); 		<span class="comment">//&#123; user: '小明', age: '54' &#125;</span></span><br><span class="line">  </span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
+<p>请求url：<a href="http://localhost:8888/小明/54" target="_blank" rel="noopener">http://localhost:8888/小明/54</a> ，</p>
+<h3 id="获取-post-数据"><a href="#获取-post-数据" class="headerlink" title="获取 post 数据"></a>获取 post 数据</h3><ol>
+<li>引入第三方模块 koa-better-body，用来解析 post 提交的数据</li>
+<li>引入 koa-convert ，用来 兼容 koa-better-body 在 koa2版本的使用</li>
 </ol>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> userRouter = express.Router()</span><br></pre></td></tr></table></figure>
-<ol start="2">
-<li>设置父级路由</li>
-</ol>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 所有和 /user 有关的路由都由 userRouter 处理</span></span><br><span class="line">server.use(<span class="string">'/user'</span>, userRouter)</span><br></pre></td></tr></table></figure>
-<ol start="3">
-<li>设置子路由</li>
-</ol>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//处理 /user/ 的路由</span></span><br><span class="line">userRouter.get(<span class="string">'/'</span>, (req, res) =&gt; &#123;</span><br><span class="line">  res.send(<span class="string">'首页'</span>)</span><br><span class="line">&#125;)</span><br><span class="line"><span class="comment">//处理 /user/a 的路由</span></span><br><span class="line">userRouter.get(<span class="string">'/a'</span>, (req, res) =&gt; &#123;</span><br><span class="line">  res.send(<span class="string">'aaaaaaa'</span>)</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
-<h3 id="路由模块化"><a href="#路由模块化" class="headerlink" title="路由模块化"></a>路由模块化</h3><p>将子路由封装到一个模块 user.js 中， 并用 module.exports 导出</p>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> express = <span class="built_in">require</span>(<span class="string">'express'</span>)</span><br><span class="line"></span><br><span class="line"><span class="keyword">let</span> router = express.Router()</span><br><span class="line">router.get(<span class="string">'/'</span>, (req, res) =&gt; &#123;</span><br><span class="line">  res.send(<span class="string">'首页'</span>)</span><br><span class="line">&#125;)</span><br><span class="line">router.get(<span class="string">'/a'</span>, (req, res) =&gt; &#123;</span><br><span class="line">  res.send(<span class="string">'aaaaaaa'</span>)</span><br><span class="line">&#125;)</span><br><span class="line"></span><br><span class="line"><span class="built_in">module</span>.exports = router</span><br></pre></td></tr></table></figure>
-<p>修改父级路由，只需要请求该模块即可</p>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">server.use(<span class="string">'/user'</span>,<span class="built_in">require</span>(<span class="string">'./routes/user.js'</span>))</span><br></pre></td></tr></table></figure>
-<h2 id="其他"><a href="#其他" class="headerlink" title="其他"></a>其他</h2><h3 id="状态码返回"><a href="#状态码返回" class="headerlink" title="状态码返回"></a>状态码返回</h3><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">res.sendStatus(<span class="number">404</span>) <span class="comment">//返回404 状态码</span></span><br></pre></td></tr></table></figure>
-<p>相当于原生的</p>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">res.writeHeader(<span class="number">404</span>)</span><br><span class="line">res.write(<span class="string">'Not Fond'</span>)</span><br><span class="line">res.end()</span><br></pre></td></tr></table></figure>
-<h3 id="重定向"><a href="#重定向" class="headerlink" title="重定向"></a>重定向</h3><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">res.redirect(<span class="string">'http://www.baidu.com'</span>)</span><br></pre></td></tr></table></figure>
-<p>相当于原生的</p>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">res.setHeader(<span class="string">'location'</span>,<span class="string">'http://www.baidu.com'</span>)</span><br><span class="line">res.writhHeader(<span class="number">301</span>)</span><br><span class="line">res.end()</span><br></pre></td></tr></table></figure>
-<h3 id="开放静态资源"><a href="#开放静态资源" class="headerlink" title="开放静态资源"></a>开放静态资源</h3><p>开放www目录下面的静态资源可以被用户访问</p>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">server.use(experss.static(<span class="string">'www/'</span>))</span><br></pre></td></tr></table></figure>
+<ul>
+<li><p>ctx.request.fields</p>
+<p>可以获取 post 方式提交的 表单，文件信息</p>
+</li>
+<li><p>ctx.request.files</p>
+<p>只能获取 post 方式提交的 文件信息</p>
+</li>
+</ul>
+<h3 id="使用"><a href="#使用" class="headerlink" title="使用"></a>使用</h3><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> koa = <span class="built_in">require</span>(<span class="string">'koa'</span>)</span><br><span class="line"><span class="keyword">const</span> betterBody = <span class="built_in">require</span>(<span class="string">'koa-better-body'</span>)</span><br><span class="line"><span class="keyword">const</span> staticCache = <span class="built_in">require</span>(<span class="string">'koa-static-cache'</span>)</span><br><span class="line"><span class="keyword">const</span> convert = <span class="built_in">require</span>(<span class="string">'koa-convert'</span>)</span><br><span class="line"><span class="keyword">const</span> path = <span class="built_in">require</span>(<span class="string">'path'</span>)</span><br><span class="line"></span><br><span class="line"><span class="keyword">let</span> server = <span class="keyword">new</span> koa()</span><br><span class="line">server.listen(<span class="number">8888</span>)</span><br><span class="line"></span><br><span class="line"><span class="comment">// 开放静态资源</span></span><br><span class="line">server.use(staticCache(path.resolve(<span class="string">'./www'</span>)))</span><br><span class="line"></span><br><span class="line">server.use(convert(betterBody(&#123;</span><br><span class="line">  <span class="comment">//保存提交的文件地址</span></span><br><span class="line">  uploadDir: path.resolve(<span class="string">'./upload'</span>),</span><br><span class="line">  <span class="comment">//是否保留上传文件的扩展名（一般不用保留）</span></span><br><span class="line">  keepExtensions: <span class="literal">true</span></span><br><span class="line">&#125;)))</span><br><span class="line"></span><br><span class="line"><span class="comment">//不用路由，可以获取所有的提交</span></span><br><span class="line">server.use(<span class="keyword">async</span> ctx =&gt; &#123;</span><br><span class="line">  <span class="built_in">console</span>.log(ctx.request.fields);</span><br><span class="line">  <span class="built_in">console</span>.log(ctx.request.files);</span><br><span class="line">  </span><br><span class="line">  </span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
+<h2 id="cookie-amp-session"><a href="#cookie-amp-session" class="headerlink" title="cookie&amp;session"></a>cookie&amp;session</h2><h3 id="cookie"><a href="#cookie" class="headerlink" title="cookie"></a>cookie</h3><ul>
+<li>获取cookie</li>
+</ul>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ctx.cookies.get(cookie名字)</span><br></pre></td></tr></table></figure>
+<ul>
+<li>设置cookie</li>
+</ul>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ctx.cookes.set(cookie名字，值，option)</span><br></pre></td></tr></table></figure>
+<h3 id="session"><a href="#session" class="headerlink" title="session"></a>session</h3><p>使用 第三方模块 koa- session</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> session = <span class="built_in">require</span>(<span class="string">'koa-session'</span>)</span><br></pre></td></tr></table></figure>
+<p>配置中间件</p>
+<p>{}中填入session 的信息</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">server.use(session(&#123;&#125;, server))</span><br></pre></td></tr></table></figure>
+<p>使用</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ctx.session</span><br></pre></td></tr></table></figure>
+<h2 id="ejs-后端渲染"><a href="#ejs-后端渲染" class="headerlink" title="ejs 后端渲染"></a>ejs 后端渲染</h2><p>安装 ejs</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> ejs = <span class="built_in">require</span>(<span class="string">'koa-ejs'</span>)</span><br></pre></td></tr></table></figure>
+<p><code>将模板文件创建在 template 目录下 名称为 template.html</code></p>
+<p>使用</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> koa = <span class="built_in">require</span>(<span class="string">'koa'</span>)</span><br><span class="line"><span class="keyword">const</span> path = <span class="built_in">require</span>(<span class="string">'path'</span>)</span><br><span class="line"><span class="keyword">const</span> ejs = <span class="built_in">require</span>(<span class="string">'koa-ejs'</span>)</span><br><span class="line"></span><br><span class="line"><span class="keyword">let</span> server = <span class="keyword">new</span> koa()</span><br><span class="line">server.listen(<span class="number">8888</span>)</span><br><span class="line"></span><br><span class="line">ejs(server, &#123;</span><br><span class="line">  <span class="comment">//模板文件目录</span></span><br><span class="line">  root: path.resolve(<span class="string">'template'</span>),</span><br><span class="line">  layout: <span class="literal">false</span>,</span><br><span class="line">  <span class="comment">//模板文件 扩展名</span></span><br><span class="line">  viewExt: <span class="string">'html'</span></span><br><span class="line">&#125;)</span><br><span class="line"></span><br><span class="line">server.use(<span class="keyword">async</span> ctx=&gt;&#123;</span><br><span class="line">  <span class="comment">//渲染文件 template，不用带扩展名，&#123;渲染数据&#125;</span></span><br><span class="line">  <span class="keyword">await</span> ctx.render(<span class="string">'template'</span>, &#123;</span><br><span class="line">    name: <span class="string">'zhao'</span>,</span><br><span class="line">    age: <span class="number">20</span></span><br><span class="line">  &#125;)</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
+<h2 id="MySQL"><a href="#MySQL" class="headerlink" title="MySQL"></a>MySQL</h2><p>引入中间件</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> db = <span class="built_in">require</span>(<span class="string">'mysql-pro'</span>)</span><br></pre></td></tr></table></figure>
+<p><strong>优点:</strong></p>
+<ul>
+<li>事务管理（Transaction）</li>
+<li>防止 SQL 注入</li>
+</ul>
+<p>使用</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> koa = <span class="built_in">require</span>(<span class="string">'koa'</span>)</span><br><span class="line"><span class="keyword">const</span> router = <span class="built_in">require</span>(<span class="string">'koa-router'</span>)</span><br><span class="line"><span class="keyword">const</span> Mysql = <span class="built_in">require</span>(<span class="string">'mysql-pro'</span>)</span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> db = <span class="keyword">new</span> Mysql(&#123;</span><br><span class="line"> mysql: &#123;</span><br><span class="line">    host: <span class="string">'localhost'</span>,</span><br><span class="line">    port: <span class="string">'3306'</span>,</span><br><span class="line">    user: <span class="string">'root'</span>,</span><br><span class="line">    password: <span class="string">'123456'</span>,</span><br><span class="line">    database: <span class="string">'test'</span></span><br><span class="line"> &#125;</span><br><span class="line">&#125;)</span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> server = <span class="keyword">new</span> koa()</span><br><span class="line">server.listen(<span class="number">8888</span>)</span><br><span class="line"></span><br><span class="line"><span class="keyword">let</span> r1= router()</span><br><span class="line">server.use(r1.routes())</span><br><span class="line"></span><br><span class="line">r1.get(<span class="string">'/user'</span>, <span class="keyword">async</span> ctx=&gt; &#123;</span><br><span class="line">  <span class="keyword">let</span> id = ctx.query.id;</span><br><span class="line"></span><br><span class="line">  <span class="comment">// 开启事务</span></span><br><span class="line">  <span class="keyword">await</span> db.startTransaction()</span><br><span class="line">	<span class="comment">//防止sql 注入</span></span><br><span class="line">  <span class="keyword">let</span> data = <span class="keyword">await</span> db.executeTransaction(<span class="string">'SELECT * FROM user WHERE ID=?;'</span>,[id])</span><br><span class="line">  ctx.response.body = data</span><br><span class="line">  <span class="comment">//关闭事务</span></span><br><span class="line">  <span class="keyword">await</span> db.stopTransaction()</span><br><span class="line"></span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
+<p><code>注意:</code></p>
+<ul>
+<li>开启事务，对应着要关闭事务</li>
+<li>为了防止 sql 注入，mysql-pro 要求将 需要的参数用 <code>?</code> 代替，然后将参数用数组的形式放到语句后面。</li>
+</ul>
+<h3 id="事务（transaction）"><a href="#事务（transaction）" class="headerlink" title="事务（transaction）"></a>事务（transaction）</h3><p>性质：</p>
+<ul>
+<li><p>A  原子性</p>
+<p>事务内的事情，要么都发生，要么都不发生</p>
+</li>
+<li><p>C  持久性</p>
+<p>只要事务提交，他的作用就是永久的</p>
+</li>
+<li><p>I 隔离性</p>
+<p>各事务之间独立，不干扰</p>
+</li>
+<li><p>D 一致性</p>
+<p>事务前后的状态一致</p>
+</li>
+</ul>
 
       
     </div>
@@ -601,7 +675,7 @@
       
         <div class="post-tags">
           
-            <a href="/tags/express/" rel="tag"># express</a>
+            <a href="/tags/koa/" rel="tag"># koa</a>
           
         </div>
       
@@ -614,8 +688,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2019/03/29/canvas/" rel="next" title="canvas">
-                <i class="fa fa-chevron-left"></i> canvas
+              <a href="/2019/03/30/express/" rel="next" title="express">
+                <i class="fa fa-chevron-left"></i> express
               </a>
             
           </div>
@@ -623,10 +697,6 @@
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2019/03/31/koa/" rel="prev" title="koa">
-                koa <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
@@ -873,7 +943,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#express"><span class="nav-number">1.</span> <span class="nav-text">express</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#基本使用步骤"><span class="nav-number">1.1.</span> <span class="nav-text">基本使用步骤</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#中间件"><span class="nav-number">1.2.</span> <span class="nav-text">中间件</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#中间件的next-方法（流水线）"><span class="nav-number">1.2.1.</span> <span class="nav-text">中间件的next()方法（流水线）</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#路径"><span class="nav-number">1.3.</span> <span class="nav-text">路径</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#path-basename"><span class="nav-number">1.3.1.</span> <span class="nav-text">path.basename</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#path-dirname"><span class="nav-number">1.3.2.</span> <span class="nav-text">path.dirname</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#path-extname"><span class="nav-number">1.3.3.</span> <span class="nav-text">path.extname</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#path-isAbsolute"><span class="nav-number">1.3.4.</span> <span class="nav-text">path.isAbsolute</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#path-parse"><span class="nav-number">1.3.5.</span> <span class="nav-text">path.parse</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#path-join"><span class="nav-number">1.3.6.</span> <span class="nav-text">path.join()</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#数据解析"><span class="nav-number">1.4.</span> <span class="nav-text">数据解析</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#获取-get-数据"><span class="nav-number">1.4.1.</span> <span class="nav-text">获取 get 数据</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#获取-post-数据"><span class="nav-number">1.4.2.</span> <span class="nav-text">获取 post 数据</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#路由"><span class="nav-number">1.5.</span> <span class="nav-text">路由</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#创建路由的基本步骤"><span class="nav-number">1.5.1.</span> <span class="nav-text">创建路由的基本步骤</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#路由模块化"><span class="nav-number">1.5.2.</span> <span class="nav-text">路由模块化</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#其他"><span class="nav-number">1.6.</span> <span class="nav-text">其他</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#状态码返回"><span class="nav-number">1.6.1.</span> <span class="nav-text">状态码返回</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#重定向"><span class="nav-number">1.6.2.</span> <span class="nav-text">重定向</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#开放静态资源"><span class="nav-number">1.6.3.</span> <span class="nav-text">开放静态资源</span></a></li></ol></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#koa"><span class="nav-number">1.</span> <span class="nav-text">koa</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#koa-入门"><span class="nav-number">1.1.</span> <span class="nav-text">koa 入门</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#路由"><span class="nav-number">1.2.</span> <span class="nav-text">路由</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#async-中的-ctx-对象-的重要属性"><span class="nav-number">1.3.</span> <span class="nav-text">async 中的 ctx 对象 的重要属性</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#ctx-response"><span class="nav-number">1.3.1.</span> <span class="nav-text">ctx.response</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#ctx-request"><span class="nav-number">1.3.2.</span> <span class="nav-text">ctx.request</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#开放静态文件，-返回文件"><span class="nav-number">1.4.</span> <span class="nav-text">开放静态文件， 返回文件</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#koa-static-存在问题"><span class="nav-number">1.4.1.</span> <span class="nav-text">koa-static 存在问题</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#数据处理"><span class="nav-number">1.5.</span> <span class="nav-text">数据处理</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#获取-get-数据"><span class="nav-number">1.5.1.</span> <span class="nav-text">获取 get 数据</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#获取-post-数据"><span class="nav-number">1.5.2.</span> <span class="nav-text">获取 post 数据</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#使用"><span class="nav-number">1.5.3.</span> <span class="nav-text">使用</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#cookie-amp-session"><span class="nav-number">1.6.</span> <span class="nav-text">cookie&amp;session</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#cookie"><span class="nav-number">1.6.1.</span> <span class="nav-text">cookie</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#session"><span class="nav-number">1.6.2.</span> <span class="nav-text">session</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#ejs-后端渲染"><span class="nav-number">1.7.</span> <span class="nav-text">ejs 后端渲染</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#MySQL"><span class="nav-number">1.8.</span> <span class="nav-text">MySQL</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#事务（transaction）"><span class="nav-number">1.8.1.</span> <span class="nav-text">事务（transaction）</span></a></li></ol></li></ol></li></ol></div>
             
 
           </div>
