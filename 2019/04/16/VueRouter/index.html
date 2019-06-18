@@ -490,7 +490,7 @@
 
       
         <h1 id="路由"><a href="#路由" class="headerlink" title="路由"></a>路由</h1><p><code>前端路由的本质是锚点值改变，页面不跳转，但改变 innerHtml的内容</code></p>
-<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">body</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">a</span> <span class="attr">href</span>=<span class="string">"#/login"</span>&gt;</span>点我登陆<span class="tag">&lt;/<span class="name">a</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">a</span> <span class="attr">href</span>=<span class="string">"#/register"</span>&gt;</span>点我注册<span class="tag">&lt;/<span class="name">a</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">div</span> <span class="attr">id</span>=<span class="string">"div"</span>&gt;</span><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">body</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">script</span>&gt;</span><span class="undefined"></span></span><br><span class="line"><span class="undefined">  let div = document.querySelector('div')</span></span><br><span class="line"><span class="undefined">  window.addEventListener('hashchange',()=&gt;&#123;</span></span><br><span class="line"><span class="undefined">    switch(location.hash) &#123;</span></span><br><span class="line"><span class="undefined">      case '#/login':</span></span><br><span class="line"><span class="xml">        div.innerHTML = '<span class="tag">&lt;<span class="name">h1</span>&gt;</span>登陆<span class="tag">&lt;/<span class="name">h1</span>&gt;</span>'</span></span><br><span class="line"><span class="undefined">        break;</span></span><br><span class="line"><span class="undefined">      case '#/register':</span></span><br><span class="line"><span class="xml">        div.innerHTML = '<span class="tag">&lt;<span class="name">h1</span>&gt;</span>注册<span class="tag">&lt;/<span class="name">h1</span>&gt;</span>'</span></span><br><span class="line"><span class="undefined">        break;</span></span><br><span class="line"><span class="undefined">    &#125;</span></span><br><span class="line"><span class="undefined">  &#125; )</span></span><br><span class="line"><span class="undefined"></span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">body</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">a</span> <span class="attr">href</span>=<span class="string">"#/login"</span>&gt;</span>点我登陆<span class="tag">&lt;/<span class="name">a</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">a</span> <span class="attr">href</span>=<span class="string">"#/register"</span>&gt;</span>点我注册<span class="tag">&lt;/<span class="name">a</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">div</span> <span class="attr">id</span>=<span class="string">"div"</span>&gt;</span><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">body</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">script</span>&gt;</span><span class="undefined"></span></span><br><span class="line"><span class="javascript">  <span class="keyword">let</span> div = <span class="built_in">document</span>.querySelector(<span class="string">'div'</span>)</span></span><br><span class="line"><span class="javascript">  <span class="built_in">window</span>.addEventListener(<span class="string">'hashchange'</span>,()=&gt;&#123;</span></span><br><span class="line"><span class="javascript">    <span class="keyword">switch</span>(location.hash) &#123;</span></span><br><span class="line"><span class="javascript">      <span class="keyword">case</span> <span class="string">'#/login'</span>:</span></span><br><span class="line"><span class="xml">        div.innerHTML = '<span class="tag">&lt;<span class="name">h1</span>&gt;</span>登陆<span class="tag">&lt;/<span class="name">h1</span>&gt;</span>'</span></span><br><span class="line"><span class="javascript">        <span class="keyword">break</span>;</span></span><br><span class="line"><span class="javascript">      <span class="keyword">case</span> <span class="string">'#/register'</span>:</span></span><br><span class="line"><span class="xml">        div.innerHTML = '<span class="tag">&lt;<span class="name">h1</span>&gt;</span>注册<span class="tag">&lt;/<span class="name">h1</span>&gt;</span>'</span></span><br><span class="line"><span class="javascript">        <span class="keyword">break</span>;</span></span><br><span class="line"><span class="undefined">    &#125;</span></span><br><span class="line"><span class="undefined">  &#125; )</span></span><br><span class="line"><span class="undefined"></span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br></pre></td></tr></table></figure>
 <ul>
 <li>路由其实是由 hash 完成的（基于hashchange事件）</li>
 <li>监听 url 上锚点（#xxx）的变化改变页面的内容（锚点和 hash 一回事）</li>
@@ -695,7 +695,7 @@
                 
                   <a href="/archives/">
                 
-                    <span class="site-state-item-count">23</span>
+                    <span class="site-state-item-count">24</span>
                     <span class="site-state-item-name">日志</span>
                   </a>
                 </div>
@@ -793,7 +793,9 @@
                     
                       
                     
-                    <span class="site-state-item-count">24</span>
+                      
+                    
+                    <span class="site-state-item-count">25</span>
                     <span class="site-state-item-name">标签</span>
                   </a>
                 </div>
@@ -935,7 +937,7 @@
       <i class="fa fa-area-chart"></i>
     </span>
     
-    <span title="站点总字数">91k</span>
+    <span title="站点总字数">93k</span>
   
 
   
@@ -944,7 +946,7 @@
       <i class="fa fa-coffee"></i>
     </span>
     
-    <span title="站点阅读时长">1:22</span>
+    <span title="站点阅读时长">1:24</span>
   
 </div>
 

@@ -1,15 +1,26 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title><![CDATA[栈]]></title>
+    <url>%2F2019%2F06%2F18%2F%E6%A0%88%2F</url>
+    <content type="text"><![CDATA[栈(Stack)先入后出 实现123456789101112131415161718192021function Stack () &#123; let items = [] this.push = function (element) &#123; items.push(element) &#125; this.pop = function () &#123; return items.pop() &#125; this.peek = function () &#123; return items[items.length - 1] &#125; this.isEmpty = function () &#123; return items.length === 0 &#125;&#125;let stack = new Stack()stack.push(2)let tmp = stack.pop()]]></content>
+      <categories>
+        <category>数据结构与算法</category>
+      </categories>
+      <tags>
+        <tag>栈</tag>
+      </tags>
+  </entry>
+  <entry>
     <title><![CDATA[数组封装]]></title>
     <url>%2F2019%2F06%2F17%2F%E6%95%B0%E7%BB%84%E5%B0%81%E8%A3%85%2F</url>
-    <content type="text"><![CDATA[数组数组元素操作方法添加元素尾插 length Array.length 可以获取数组的长度，同时这个返回的长度是数组索引的最大值 + 1 1arr[arr.length] = x 表示给数组的最后添加一个元素 x push 方法 push()方法将一个或多个元素添加到数组的末尾，并返回该数组的新长度。 简单封装 123456Array.prototype.myPush = function () &#123; for(let i = 0; i &lt; arguments.length; i++) &#123; this[this.length] = arguments[i] &#125; return this.length&#125; 首插 unshift() 方法将一个或多个元素添加到数组的开头，并返回该数组的新长度。 简单封装 123456789Array.prototype.myUnshift =function () &#123; for (let j = 0; j &lt; arguments.length; j++) &#123; for (let i = this.length; i &gt; 0; i--) &#123; this[i] = this[i - 1]; &#125; this[0] = arguments[j]; &#125; return this.length;&#125; 删除元素尾删 pop() 删除末尾元素，并返回这个元素 1arr.pop() 简单封装 12345678Array.prototype.myPop = function() &#123; if (this.length === 0) &#123; return &#125; let last = this[this.length - 1] this.length-- return last&#125; 首删 shift() 方法从数组中删除第一个元素，并返回该元素的值 简单封装]]></content>
+    <content type="text"><![CDATA[数组数组元素操作方法添加元素尾插 length Array.length 可以获取数组的长度，同时这个返回的长度是数组索引的最大值 + 1 1arr[arr.length] = x 表示给数组的最后添加一个元素 x push 方法 push()方法将一个或多个元素添加到数组的末尾，并返回该数组的新长度。 简单实现 123456Array.prototype.myPush = function () &#123; for(let i = 0; i &lt; arguments.length; i++) &#123; this[this.length] = arguments[i] &#125; return this.length&#125; 首插 unshift() 方法将一个或多个元素添加到数组的开头，并返回该数组的新长度。 简单实现 123456789Array.prototype.myUnshift =function () &#123; for (let j = 0; j &lt; arguments.length; j++) &#123; for (let i = this.length; i &gt; 0; i--) &#123; this[i] = this[i - 1]; &#125; this[0] = arguments[j]; &#125; return this.length;&#125; 删除元素尾删 pop() 删除末尾元素，并返回这个元素 1arr.pop() 简单实现 12345678Array.prototype.myPop = function() &#123; if (this.length === 0) &#123; return &#125; let last = this[this.length - 1] this.length-- return last&#125; 首删 shift() 方法从数组中删除第一个元素，并返回该元素的值 简单实现 1234567891011Array.prototype.myShift = function () &#123; let head = this[0] if (this.length === 0) &#123; return &#125; for(let i = 0; i &lt; this.length; i++) &#123; this[i] = this[i + 1] &#125; this.length-- return head&#125; 在任意位置添加或删除 splice() 方法通过删除或替换现有元素或者原地添加新的元素来修改数组,并以数组形式返回被修改的内容。此方法会改变原数组。 参数： 第一个：起始计算索引 第二个：删除的元素个数 其余：添加的元素 简单实现 123456789101112131415161718192021222324252627282930313233343536373839Array.prototype.mySplice = function () &#123; let start = arguments[0] let deleteLen = arguments[1] let len = arguments.length let instertEles = [] if (len &lt; 2) &#123; this.length = start &#125; else if (len === 2) &#123; for(let i = start; i &lt; this.length; i++) &#123; this[i] = this[i + deleteLen] &#125; this.length = this.length - deleteLen &#125; else &#123; // 获取添加元素 for (let j = arguments.length - 1; j &gt;= 2; j--) &#123; instertEles.unshift(arguments[j]) &#125; // 删除元素 if (deleteLen &gt;= this.length - start) &#123; this.length = start &#125; else &#123; for (let i = start; i &lt; this.length; i++) &#123; this[i] = this[i + deleteLen] &#125; this.length = this.length - deleteLen &#125; // 添加元素 for(let i = 0; i&lt; instertEles.length; i++) &#123; for(let j = this.length; j &gt; start; j--) &#123; this[j] = this[j - 1] &#125; this[start] = instertEles[i] start++ &#125; &#125;&#125;]]></content>
       <categories>
-        <category>数组</category>
+        <category>数据结构与算法</category>
       </categories>
       <tags>
         <tag>数组</tag>
-        <tag>封装</tag>
+        <tag>数据结构</tag>
       </tags>
   </entry>
   <entry>

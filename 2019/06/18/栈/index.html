@@ -103,18 +103,18 @@
 
 
 
-  <meta name="description" content="vue 服务端渲染 和 nuxt服务端优缺点优点有利于SEO 缺点页面在服务器上渲染，增大服务器压力，不利于高并发 简单的vue服务端渲染安装 1npm i vue-server-renderer -S 简单应用 1234567891011121314151617181920212223242526const Vue = require(&apos;vue&apos;)const renderer = require">
-<meta name="keywords" content="vue">
+  <meta name="description" content="栈(Stack)先入后出 实现123456789101112131415161718192021function Stack () &amp;#123;  let items = []    this.push = function (element) &amp;#123;    items.push(element)  &amp;#125;  this.pop = function () &amp;#123;    retur">
+<meta name="keywords" content="栈">
 <meta property="og:type" content="article">
-<meta property="og:title" content="nuxt">
-<meta property="og:url" content="https://zhaozhoa.github.com/2019/06/11/nuxt/index.html">
+<meta property="og:title" content="栈">
+<meta property="og:url" content="https://zhaozhoa.github.com/2019/06/18/栈/index.html">
 <meta property="og:site_name" content="脚印">
-<meta property="og:description" content="vue 服务端渲染 和 nuxt服务端优缺点优点有利于SEO 缺点页面在服务器上渲染，增大服务器压力，不利于高并发 简单的vue服务端渲染安装 1npm i vue-server-renderer -S 简单应用 1234567891011121314151617181920212223242526const Vue = require(&apos;vue&apos;)const renderer = require">
+<meta property="og:description" content="栈(Stack)先入后出 实现123456789101112131415161718192021function Stack () &amp;#123;  let items = []    this.push = function (element) &amp;#123;    items.push(element)  &amp;#125;  this.pop = function () &amp;#123;    retur">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2019-06-11T14:49:44.423Z">
+<meta property="og:updated_time" content="2019-06-18T13:03:09.048Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="nuxt">
-<meta name="twitter:description" content="vue 服务端渲染 和 nuxt服务端优缺点优点有利于SEO 缺点页面在服务器上渲染，增大服务器压力，不利于高并发 简单的vue服务端渲染安装 1npm i vue-server-renderer -S 简单应用 1234567891011121314151617181920212223242526const Vue = require(&apos;vue&apos;)const renderer = require">
+<meta name="twitter:title" content="栈">
+<meta name="twitter:description" content="栈(Stack)先入后出 实现123456789101112131415161718192021function Stack () &amp;#123;  let items = []    this.push = function (element) &amp;#123;    items.push(element)  &amp;#125;  this.pop = function () &amp;#123;    retur">
 
 
 
@@ -123,7 +123,7 @@
 
 
 
-  <link rel="canonical" href="https://zhaozhoa.github.com/2019/06/11/nuxt/">
+  <link rel="canonical" href="https://zhaozhoa.github.com/2019/06/18/栈/">
 
 
 
@@ -133,7 +133,7 @@
   };
 </script>
 
-  <title>nuxt | 脚印</title>
+  <title>栈 | 脚印</title>
   
 
 
@@ -361,7 +361,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://zhaozhoa.github.com/2019/06/11/nuxt/">
+    <link itemprop="mainEntityOfPage" href="https://zhaozhoa.github.com/2019/06/18/栈/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="张朝">
@@ -378,7 +378,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">nuxt
+          <h1 class="post-title" itemprop="name headline">栈
 
               
             
@@ -404,7 +404,7 @@
                 
               
 
-              <time title="创建时间：2019-06-11 22:48:07 / 修改时间：22:49:44" itemprop="dateCreated datePublished" datetime="2019-06-11T22:48:07+08:00">2019-06-11</time>
+              <time title="创建时间：2019-06-18 20:18:39 / 修改时间：21:03:09" itemprop="dateCreated datePublished" datetime="2019-06-18T20:18:39+08:00">2019-06-18</time>
             
 
             
@@ -426,7 +426,7 @@
                 <span class="post-meta-item-text">分类于</span>
               
               
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/vue/" itemprop="url" rel="index"><span itemprop="name">vue</span></a></span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/数据结构与算法/" itemprop="url" rel="index"><span itemprop="name">数据结构与算法</span></a></span>
 
                 
                 
@@ -455,7 +455,7 @@
                 
                   <span class="post-meta-item-text">本文字数：</span>
                 
-                <span title="本文字数">1.2k</span>
+                <span title="本文字数">431</span>
               
 
               
@@ -489,17 +489,8 @@
       
 
       
-        <h1 id="vue-服务端渲染-和-nuxt"><a href="#vue-服务端渲染-和-nuxt" class="headerlink" title="vue 服务端渲染 和 nuxt"></a>vue 服务端渲染 和 nuxt</h1><h2 id="服务端优缺点"><a href="#服务端优缺点" class="headerlink" title="服务端优缺点"></a>服务端优缺点</h2><h3 id="优点"><a href="#优点" class="headerlink" title="优点"></a>优点</h3><p>有利于SEO</p>
-<h3 id="缺点"><a href="#缺点" class="headerlink" title="缺点"></a>缺点</h3><p>页面在服务器上渲染，增大服务器压力，不利于高并发</p>
-<h2 id="简单的vue服务端渲染"><a href="#简单的vue服务端渲染" class="headerlink" title="简单的vue服务端渲染"></a>简单的vue服务端渲染</h2><p>安装</p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm i vue-server-renderer -S</span><br></pre></td></tr></table></figure>
-<p>简单应用</p>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> Vue = <span class="built_in">require</span>(<span class="string">'vue'</span>)</span><br><span class="line"><span class="keyword">const</span> renderer = <span class="built_in">require</span>(<span class="string">'vue-server-renderer'</span>).createRenderer()</span><br><span class="line"><span class="keyword">const</span> server = <span class="built_in">require</span>(<span class="string">'express'</span>)()</span><br><span class="line"></span><br><span class="line"><span class="comment">// vue 部分</span></span><br><span class="line"><span class="keyword">let</span> app = <span class="keyword">new</span> Vue(&#123;</span><br><span class="line">  template:<span class="string">`&lt;h1&gt;Hello World !! &#123;&#123; name &#125;&#125;&lt;/h1&gt;`</span>,</span><br><span class="line">  data() &#123;</span><br><span class="line">    <span class="keyword">return</span> &#123;</span><br><span class="line">      name: <span class="string">'zhao'</span></span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;)</span><br><span class="line"></span><br><span class="line"><span class="comment">// node 部分</span></span><br><span class="line">server.get(<span class="string">'*'</span>, (req, res) =&gt; &#123;</span><br><span class="line">  <span class="comment">// 将渲染的 template 转换成字符串</span></span><br><span class="line">  renderer.renderToString(app, (err, html) =&gt; &#123;</span><br><span class="line">    <span class="keyword">if</span> (err) &#123;</span><br><span class="line">      <span class="built_in">console</span>.log(err);</span><br><span class="line">      <span class="keyword">return</span></span><br><span class="line">    &#125;</span><br><span class="line">    res.send(html)</span><br><span class="line">  &#125;)</span><br><span class="line">&#125;)</span><br><span class="line">server.listen(<span class="number">8888</span>)</span><br></pre></td></tr></table></figure>
-<h2 id="nuxt"><a href="#nuxt" class="headerlink" title="nuxt"></a>nuxt</h2><p>nuxt vue的服务端渲染框架</p>
-<p><a href="https://zh.nuxtjs.org/guide/installation" target="_blank" rel="noopener">官方文档</a></p>
-<h3 id="上车"><a href="#上车" class="headerlink" title="上车"></a>上车</h3><p>安装</p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npx create-nuxt-app &lt;项目名&gt;</span><br></pre></td></tr></table></figure>
-<h3 id="nuxt-的目录结构"><a href="#nuxt-的目录结构" class="headerlink" title="nuxt 的目录结构"></a>nuxt 的目录结构</h3><p>dome<br>    ├─.nuxt<br>    │  ├─components<br>    │  └─views<br>    ├─assets                  //  存放为编译的静态资源，less，sass ，java<br>    ├─components       // 组件目录<br>    ├─layouts                // 布局目录<br>    ├─middleware        // 中间件目录<br>    ├─pages                  // 页面目录<br>    ├─plugins               // 插件目录<br>    ├─server                 // 服务器文件目录<br>    ├─static                   // 静态目录，不会通过webpack打包<br>    └─store                        // 存放 vuex 的目录</p>
+        <h1 id="栈-Stack"><a href="#栈-Stack" class="headerlink" title="栈(Stack)"></a>栈(Stack)</h1><p><strong>先入后出</strong></p>
+<h2 id="实现"><a href="#实现" class="headerlink" title="实现"></a>实现</h2><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">Stack</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">  <span class="keyword">let</span> items = []</span><br><span class="line"></span><br><span class="line">  </span><br><span class="line">  <span class="keyword">this</span>.push = <span class="function"><span class="keyword">function</span> (<span class="params">element</span>) </span>&#123;</span><br><span class="line">    items.push(element)</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="keyword">this</span>.pop = <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">    <span class="keyword">return</span> items.pop()</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="keyword">this</span>.peek = <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">    <span class="keyword">return</span> items[items.length - <span class="number">1</span>]</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="keyword">this</span>.isEmpty = <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">    <span class="keyword">return</span> items.length === <span class="number">0</span></span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">let</span> stack = <span class="keyword">new</span> Stack()</span><br><span class="line">stack.push(<span class="number">2</span>)</span><br><span class="line"><span class="keyword">let</span> tmp = stack.pop()</span><br></pre></td></tr></table></figure>
 
       
     </div>
@@ -552,7 +543,7 @@
       
         <div class="post-tags">
           
-            <a href="/tags/vue/" rel="tag"># vue</a>
+            <a href="/tags/栈/" rel="tag"># 栈</a>
           
         </div>
       
@@ -565,8 +556,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2019/05/31/webpack/" rel="next" title="webpack">
-                <i class="fa fa-chevron-left"></i> webpack
+              <a href="/2019/06/17/数组封装/" rel="next" title="数组封装">
+                <i class="fa fa-chevron-left"></i> 数组封装
               </a>
             
           </div>
@@ -574,10 +565,6 @@
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2019/06/17/数组封装/" rel="prev" title="数组封装">
-                数组封装 <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
@@ -850,7 +837,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#vue-服务端渲染-和-nuxt"><span class="nav-number">1.</span> <span class="nav-text">vue 服务端渲染 和 nuxt</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#服务端优缺点"><span class="nav-number">1.1.</span> <span class="nav-text">服务端优缺点</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#优点"><span class="nav-number">1.1.1.</span> <span class="nav-text">优点</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#缺点"><span class="nav-number">1.1.2.</span> <span class="nav-text">缺点</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#简单的vue服务端渲染"><span class="nav-number">1.2.</span> <span class="nav-text">简单的vue服务端渲染</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#nuxt"><span class="nav-number">1.3.</span> <span class="nav-text">nuxt</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#上车"><span class="nav-number">1.3.1.</span> <span class="nav-text">上车</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#nuxt-的目录结构"><span class="nav-number">1.3.2.</span> <span class="nav-text">nuxt 的目录结构</span></a></li></ol></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#栈-Stack"><span class="nav-number">1.</span> <span class="nav-text">栈(Stack)</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#实现"><span class="nav-number">1.1.</span> <span class="nav-text">实现</span></a></li></ol></li></ol></div>
             
 
           </div>
