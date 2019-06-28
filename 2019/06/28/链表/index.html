@@ -103,18 +103,18 @@
 
 
 
-  <meta name="description" content="CentOS上车联网用 vim 打开 vi /etc/sysconfig/network-scripts/ifcfg-xxx(xxx为网卡后缀，每个人的都不一样) 修改： 1ONBOOT=no 为 ONBOOT=yes 重启网络 123service network restart//或者/etc/init.d/network restart 更新系统、软件1234// 系统和软件全部更新yum">
-<meta name="keywords" content="linux,服务端">
+  <meta name="description" content="链表 链表存储有序的元素集合，但不同于数组，链表中的元素在内存中并不是连续放置的。每个元素由一个存储元素本身的节点和一个指向下一个元素的引用  初始化链表链表的节点类  Node.js 12345678// 节点类class Node &amp;#123;  constructor (element) &amp;#123;    this.element = element    this.next = unde">
+<meta name="keywords" content="数据结构,链表">
 <meta property="og:type" content="article">
-<meta property="og:title" content="服务部署">
-<meta property="og:url" content="https://zhaozhoa.github.com/2019/05/23/服务部署/index.html">
+<meta property="og:title" content="链表">
+<meta property="og:url" content="https://zhaozhoa.github.com/2019/06/28/链表/index.html">
 <meta property="og:site_name" content="脚印">
-<meta property="og:description" content="CentOS上车联网用 vim 打开 vi /etc/sysconfig/network-scripts/ifcfg-xxx(xxx为网卡后缀，每个人的都不一样) 修改： 1ONBOOT=no 为 ONBOOT=yes 重启网络 123service network restart//或者/etc/init.d/network restart 更新系统、软件1234// 系统和软件全部更新yum">
+<meta property="og:description" content="链表 链表存储有序的元素集合，但不同于数组，链表中的元素在内存中并不是连续放置的。每个元素由一个存储元素本身的节点和一个指向下一个元素的引用  初始化链表链表的节点类  Node.js 12345678// 节点类class Node &amp;#123;  constructor (element) &amp;#123;    this.element = element    this.next = unde">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2019-05-23T12:53:45.941Z">
+<meta property="og:updated_time" content="2019-06-28T11:57:04.810Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="服务部署">
-<meta name="twitter:description" content="CentOS上车联网用 vim 打开 vi /etc/sysconfig/network-scripts/ifcfg-xxx(xxx为网卡后缀，每个人的都不一样) 修改： 1ONBOOT=no 为 ONBOOT=yes 重启网络 123service network restart//或者/etc/init.d/network restart 更新系统、软件1234// 系统和软件全部更新yum">
+<meta name="twitter:title" content="链表">
+<meta name="twitter:description" content="链表 链表存储有序的元素集合，但不同于数组，链表中的元素在内存中并不是连续放置的。每个元素由一个存储元素本身的节点和一个指向下一个元素的引用  初始化链表链表的节点类  Node.js 12345678// 节点类class Node &amp;#123;  constructor (element) &amp;#123;    this.element = element    this.next = unde">
 
 
 
@@ -123,7 +123,7 @@
 
 
 
-  <link rel="canonical" href="https://zhaozhoa.github.com/2019/05/23/服务部署/">
+  <link rel="canonical" href="https://zhaozhoa.github.com/2019/06/28/链表/">
 
 
 
@@ -133,7 +133,7 @@
   };
 </script>
 
-  <title>服务部署 | 脚印</title>
+  <title>链表 | 脚印</title>
   
 
 
@@ -361,7 +361,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://zhaozhoa.github.com/2019/05/23/服务部署/">
+    <link itemprop="mainEntityOfPage" href="https://zhaozhoa.github.com/2019/06/28/链表/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="张朝">
@@ -378,7 +378,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">服务部署
+          <h1 class="post-title" itemprop="name headline">链表
 
               
             
@@ -404,7 +404,7 @@
                 
               
 
-              <time title="创建时间：2019-05-23 20:51:04 / 修改时间：20:53:45" itemprop="dateCreated datePublished" datetime="2019-05-23T20:51:04+08:00">2019-05-23</time>
+              <time title="创建时间：2019-06-28 15:26:41 / 修改时间：19:57:04" itemprop="dateCreated datePublished" datetime="2019-06-28T15:26:41+08:00">2019-06-28</time>
             
 
             
@@ -426,7 +426,7 @@
                 <span class="post-meta-item-text">分类于</span>
               
               
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/服务端/" itemprop="url" rel="index"><span itemprop="name">服务端</span></a></span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/数据结构与算法/" itemprop="url" rel="index"><span itemprop="name">数据结构与算法</span></a></span>
 
                 
                 
@@ -455,7 +455,7 @@
                 
                   <span class="post-meta-item-text">本文字数：</span>
                 
-                <span title="本文字数">3.8k</span>
+                <span title="本文字数">3.1k</span>
               
 
               
@@ -489,90 +489,14 @@
       
 
       
-        <h1 id="CentOS"><a href="#CentOS" class="headerlink" title="CentOS"></a>CentOS</h1><h2 id="上车"><a href="#上车" class="headerlink" title="上车"></a>上车</h2><h3 id="联网"><a href="#联网" class="headerlink" title="联网"></a>联网</h3><p>用 vim 打开</p>
-<p><code>vi /etc/sysconfig/network-scripts/ifcfg-xxx(xxx为网卡后缀，每个人的都不一样)</code></p>
-<p>修改：</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ONBOOT=no 为 ONBOOT=yes</span><br></pre></td></tr></table></figure>
-<p><strong>重启网络</strong></p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">service network restart</span><br><span class="line">//或者</span><br><span class="line">/etc/init.d/network restart</span><br></pre></td></tr></table></figure>
-<h3 id="更新系统、软件"><a href="#更新系统、软件" class="headerlink" title="更新系统、软件"></a>更新系统、软件</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">// 系统和软件全部更新</span><br><span class="line">yum update -y</span><br><span class="line">// 只更新软件</span><br><span class="line">yum upgrade</span><br></pre></td></tr></table></figure>
-<h3 id="更换源"><a href="#更换源" class="headerlink" title="更换源"></a>更换源</h3><p><strong>备份原来的源</strong></p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">mv /etc/yum.repos.d/CentOS-Base.repo /etc/yum.repos.d/CentOS-Base.repo.bak</span><br></pre></td></tr></table></figure>
-<p><strong>更换为网易的源</strong></p>
-<p>安装wget</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">yum install wget</span><br></pre></td></tr></table></figure>
-<p>换源</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">wget http://mirrors.163.com/.<span class="built_in">help</span>/CentOS7-Base-163.repo</span><br><span class="line">mv CentOS7-Base-163.repo /etc/yum.repos.d/</span><br></pre></td></tr></table></figure>
-<p>重置</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">yum clean all</span><br><span class="line">yum makecash</span><br></pre></td></tr></table></figure>
-<h3 id="vim"><a href="#vim" class="headerlink" title="vim"></a>vim</h3><p><strong>安装vim</strong></p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">yum install vim -y</span><br></pre></td></tr></table></figure>
-<h4 id="vim使用"><a href="#vim使用" class="headerlink" title="vim使用"></a>vim使用</h4><p>vim file  打开或创建 file 文件</p>
-<p><strong>vim的三种模式</strong></p>
-<ul>
-<li><p>命令模式</p>
-<p>进入 vim 默认进入命令模式， 在命令模式输入当前命令</p>
-</li>
-<li><p>插入模式</p>
-<p>键入 <code>i</code> 进入插入模式，在插入模式输入直接写的文件</p>
-</li>
-<li><p>底行模式</p>
-<p><code>esc</code> 返回命令模式， <code>shift + ：</code>进入底行模式，在底行模式输入当作底行命令</p>
-<p><strong>底行命令</strong></p>
-<ul>
-<li>:q(退出不保存)</li>
-<li>:w（保存文件）</li>
-<li>:wq(保存并退出)</li>
-<li>q！（强制退出）</li>
-</ul>
-</li>
-</ul>
-<h2 id="安装服务"><a href="#安装服务" class="headerlink" title="安装服务"></a>安装服务</h2><h3 id="node"><a href="#node" class="headerlink" title="node"></a>node</h3><p>将 node 添加到 yum 源中</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">curl --silent --location https://rpm.nodesource.com/setup_10.x | sudo bash -</span><br></pre></td></tr></table></figure>
-<p>安装</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">yum install nodejs -y</span><br></pre></td></tr></table></figure>
-<p>用 vim 写一个简单的 nodejs 服务，发现主机访问不了 需要配置防护墙</p>
-<h3 id="配置防火墙"><a href="#配置防火墙" class="headerlink" title="配置防火墙"></a>配置防火墙</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">// 清除防火墙配置</span><br><span class="line">iptables -F</span><br><span class="line">// 允许 8080 端口访问</span><br><span class="line">iptables -A INPUT -p tcp --dport 8080 -j ACCEPT</span><br></pre></td></tr></table></figure>
-<h3 id="nginx"><a href="#nginx" class="headerlink" title="nginx"></a>nginx</h3><h4 id="安装"><a href="#安装" class="headerlink" title="安装"></a>安装</h4><p>添加 源</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">vim /etc/yum.repos.d/nginx.repo</span><br></pre></td></tr></table></figure>
-<p>添加</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">[nginx-stable]</span><br><span class="line">name=nginx stable repo</span><br><span class="line">baseurl=http://nginx.org/packages/centos/<span class="variable">$releasever</span>/<span class="variable">$basearch</span>/</span><br><span class="line">gpgcheck=1</span><br><span class="line">enabled=1</span><br><span class="line">gpgkey=https://nginx.org/keys/nginx_signing.key</span><br><span class="line"></span><br><span class="line">[nginx-mainline]</span><br><span class="line">name=nginx mainline repo</span><br><span class="line">baseurl=http://nginx.org/packages/mainline/centos/<span class="variable">$releasever</span>/<span class="variable">$basearch</span>/</span><br><span class="line">gpgcheck=1</span><br><span class="line">enabled=0</span><br><span class="line">gpgkey=https://nginx.org/keys/nginx_signing.key</span><br></pre></td></tr></table></figure>
-<p>安装</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">yum install nginx -y</span><br></pre></td></tr></table></figure>
-<h4 id="配置"><a href="#配置" class="headerlink" title="配置"></a>配置</h4><p>进入配置文件</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">vim /etc/nginx/conf.d/default.conf</span><br></pre></td></tr></table></figure>
-<p>原配置文件</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br></pre></td><td class="code"><pre><span class="line">server &#123;</span><br><span class="line">    listen       80;   ----&gt;监听的端口</span><br><span class="line">    server_name  localhost; -----&gt; 服务器名称</span><br><span class="line"></span><br><span class="line">    <span class="comment">#charset koi8-r;</span></span><br><span class="line">    <span class="comment">#access_log  /var/log/nginx/host.access.log  main;</span></span><br><span class="line"></span><br><span class="line">    location / &#123;</span><br><span class="line">        root   /usr/share/nginx/html;  -------&gt;服务文件目录</span><br><span class="line">        index  index.html index.htm;	-------&gt; 默认的服务文件</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="comment">#error_page  404              /404.html;</span></span><br><span class="line"></span><br><span class="line">    <span class="comment"># redirect server error pages to the static page /50x.html</span></span><br><span class="line">    <span class="comment">#</span></span><br><span class="line">    error_page   500 502 503 504  /50x.html;</span><br><span class="line">    location = /50x.html &#123;</span><br><span class="line">        root   /usr/share/nginx/html;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="comment"># proxy the PHP scripts to Apache listening on 127.0.0.1:80</span></span><br><span class="line">    <span class="comment">#</span></span><br><span class="line">    <span class="comment">#location ~ \.php$ &#123;</span></span><br><span class="line">    <span class="comment">#    proxy_pass   http://127.0.0.1;</span></span><br><span class="line">    <span class="comment">#&#125;</span></span><br><span class="line"></span><br><span class="line">    <span class="comment"># pass the PHP scripts to FastCGI server listening on 127.0.0.1:9000</span></span><br><span class="line">    <span class="comment">#</span></span><br><span class="line">    <span class="comment">#location ~ \.php$ &#123;</span></span><br><span class="line">    <span class="comment">#    root           html;</span></span><br><span class="line">    <span class="comment">#    fastcgi_pass   127.0.0.1:9000;</span></span><br><span class="line">    <span class="comment">#    fastcgi_index  index.php;</span></span><br><span class="line">    <span class="comment">#    fastcgi_param  SCRIPT_FILENAME  /scripts$fastcgi_script_name;</span></span><br><span class="line">    <span class="comment">#    include        fastcgi_params;</span></span><br><span class="line">    <span class="comment">#&#125;</span></span><br><span class="line"></span><br><span class="line">    <span class="comment"># deny access to .htaccess files, if Apache's document root</span></span><br><span class="line">    <span class="comment"># concurs with nginx's one</span></span><br><span class="line">    <span class="comment">#</span></span><br><span class="line">    <span class="comment">#location ~ /\.ht &#123;</span></span><br><span class="line">    <span class="comment">#    deny  all;</span></span><br><span class="line">    <span class="comment">#&#125;</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p>配置代理服务</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line">server &#123;</span><br><span class="line">    listen       80;</span><br><span class="line">    server_name  localhost;</span><br><span class="line"></span><br><span class="line">    <span class="comment">#charset koi8-r;</span></span><br><span class="line">    <span class="comment">#access_log  /var/log/nginx/host.access.log  main;</span></span><br><span class="line"></span><br><span class="line">    location / &#123;</span><br><span class="line">        root   /usr/share/nginx/html;</span><br><span class="line">        index  index.html index.htm index.php index.asp;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="comment">#将 /node 代理成 http://localhost:8080</span></span><br><span class="line">    location /node &#123;</span><br><span class="line">    	 <span class="comment">#代理后重新设置一个请求头，用来覆盖原来的请求头</span></span><br><span class="line">    		proxy_set_header host <span class="variable">$host</span>;</span><br><span class="line">        proxy_pass http://localhost:8080/;</span><br><span class="line">    &#125;</span><br></pre></td></tr></table></figure>
-<p>配置完成后就可以将 ip /node 代理成 local host:8080</p>
-<p>还需要修改</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">setsebool -P httpd_can_network_connect 1</span><br></pre></td></tr></table></figure>
-<p>重启服务</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">/usr/sbin/nginx -s reload</span><br></pre></td></tr></table></figure>
-<h3 id="mariadb"><a href="#mariadb" class="headerlink" title="mariadb"></a>mariadb</h3><p>安装</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">yum install mariadb-server -y</span><br><span class="line">mysql_install_db</span><br></pre></td></tr></table></figure>
-<p>配置</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">cp /usr/share/mysql/my-xxx.cng /etc/my.cnf</span><br></pre></td></tr></table></figure>
-<p>启动</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">service mariadb start</span><br></pre></td></tr></table></figure>
-<p>添加密码</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">mysqladmin -u root password</span><br></pre></td></tr></table></figure>
-<p>修改数据库配置，使其可以远程连接</p>
-<p>进入数据库</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">grant all privileges on *.* to root@&apos;%&apos; identified by &apos;123456&apos;;</span><br></pre></td></tr></table></figure>
-<p>这样就可以在本机用数据库管理工具访问数据库</p>
-<h2 id="上传程序"><a href="#上传程序" class="headerlink" title="上传程序"></a>上传程序</h2><h3 id="pm2"><a href="#pm2" class="headerlink" title="pm2"></a>pm2</h3><p><strong>安装 pm2</strong></p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm i -g pm2</span><br></pre></td></tr></table></figure>
-<p><strong>用 pm2 启动服务</strong></p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">pm2 start xxx.js --name <span class="built_in">test</span></span><br></pre></td></tr></table></figure>
-<p>启动 xxx.js 文件 并命名为 test</p>
-<p><strong>查看启动服务列表</strong></p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">pm2 list</span><br></pre></td></tr></table></figure>
-<p><strong>停止服务</strong></p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">pm2 stop 服务名 | id</span><br></pre></td></tr></table></figure>
-<p><strong>从 pm2 中删除服务</strong></p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">pm2 delete 服务名 | id</span><br></pre></td></tr></table></figure>
+        <h1 id="链表"><a href="#链表" class="headerlink" title="链表"></a>链表</h1><blockquote>
+<p>链表存储有序的元素集合，但不同于数组，链表中的元素在内存中并不是连续放置的。每个<br>元素由一个存储元素本身的节点和一个指向下一个元素的引用</p>
+</blockquote>
+<h2 id="初始化链表"><a href="#初始化链表" class="headerlink" title="初始化链表"></a>初始化链表</h2><p><strong>链表的节点类</strong>  Node.js</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 节点类</span></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Node</span> </span>&#123;</span><br><span class="line">  <span class="keyword">constructor</span> (element) &#123;</span><br><span class="line">    <span class="keyword">this</span>.element = element</span><br><span class="line">    <span class="keyword">this</span>.next = <span class="literal">undefined</span></span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="built_in">module</span>.exports = Node</span><br></pre></td></tr></table></figure>
+<p><strong>初始化链表及常用方法</strong></p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br><span class="line">103</span><br><span class="line">104</span><br><span class="line">105</span><br><span class="line">106</span><br><span class="line">107</span><br><span class="line">108</span><br><span class="line">109</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> Node = <span class="built_in">require</span>(<span class="string">'./Node'</span>)</span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">LinkList</span> </span>&#123;</span><br><span class="line">  <span class="keyword">constructor</span> () &#123;</span><br><span class="line">    <span class="comment">// 存储元素的数量</span></span><br><span class="line">    <span class="keyword">this</span>.count = <span class="number">0</span></span><br><span class="line">    <span class="keyword">this</span>.head = <span class="literal">undefined</span></span><br><span class="line">  &#125;</span><br><span class="line">  <span class="comment">// 向链表尾部添加元素</span></span><br><span class="line">  push (ele) &#123;</span><br><span class="line">    <span class="keyword">let</span> node = <span class="keyword">new</span> Node(ele)</span><br><span class="line">    <span class="keyword">let</span> current</span><br><span class="line">    <span class="keyword">if</span> (<span class="keyword">this</span>.head == <span class="literal">null</span>) &#123;</span><br><span class="line">      <span class="keyword">this</span>.head = node</span><br><span class="line">    &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">      <span class="comment">// current 的赋值为 第一个节点</span></span><br><span class="line">      current = <span class="keyword">this</span>.head</span><br><span class="line">      <span class="comment">// current 从第一个节点移动到最后一个节点</span></span><br><span class="line">      <span class="keyword">while</span> (current.next != <span class="literal">null</span>) &#123;</span><br><span class="line">        current = current.next</span><br><span class="line">      &#125;</span><br><span class="line">      current.next = node</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">this</span>.count++</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="comment">// 返回一个元素的位置</span></span><br><span class="line">  indexOf(ele) &#123;</span><br><span class="line">    <span class="keyword">let</span> current = <span class="keyword">this</span>.head</span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">let</span> i = <span class="number">0</span>; i &lt; <span class="keyword">this</span>.count; i++) &#123;</span><br><span class="line">      <span class="keyword">if</span> (current.element === ele) &#123;</span><br><span class="line">        <span class="keyword">return</span> i</span><br><span class="line">      &#125;</span><br><span class="line">      current = current.next</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> <span class="number">-1</span></span><br><span class="line">  &#125;</span><br><span class="line">  <span class="comment">// 获取链表节点方法</span></span><br><span class="line">  getElementAt (index) &#123;</span><br><span class="line">    <span class="keyword">if</span> (index &gt;= <span class="number">0</span> &amp;&amp; index &lt;= <span class="keyword">this</span>.count) &#123;</span><br><span class="line">      <span class="keyword">let</span> node = <span class="keyword">this</span>.head</span><br><span class="line">      <span class="keyword">for</span>(<span class="keyword">let</span> i = <span class="number">0</span>; i &lt; index &amp;&amp; node != <span class="literal">null</span>; i++) &#123;</span><br><span class="line">        node = node.next</span><br><span class="line">      &#125;</span><br><span class="line">      <span class="keyword">return</span> node</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> <span class="literal">undefined</span></span><br><span class="line">  &#125;</span><br><span class="line">  <span class="comment">// 从链表中移除指定位置元素</span></span><br><span class="line">  removeAt (index) &#123;</span><br><span class="line">    <span class="comment">// 判断索引边界</span></span><br><span class="line">    <span class="keyword">if</span> (index &gt;= <span class="number">0</span> &amp;&amp; index &lt; <span class="keyword">this</span>.count) &#123;</span><br><span class="line">      <span class="keyword">let</span> current = <span class="keyword">this</span>.head</span><br><span class="line">      <span class="keyword">if</span> (index === <span class="number">0</span>) &#123;</span><br><span class="line">        <span class="keyword">this</span>.head = current.next</span><br><span class="line">      &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">        <span class="keyword">let</span> previous = <span class="keyword">this</span>.getElementAt(index - <span class="number">1</span>)</span><br><span class="line">        current = previous.next</span><br><span class="line">        previous.next = current.next</span><br><span class="line">      &#125;</span><br><span class="line">      <span class="keyword">this</span>.count--</span><br><span class="line">      <span class="keyword">return</span> current.element</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> <span class="literal">undefined</span></span><br><span class="line">  &#125;</span><br><span class="line">  <span class="comment">// 从链表中移除元素</span></span><br><span class="line">  remove (ele) &#123;</span><br><span class="line">    <span class="keyword">let</span> index = <span class="keyword">this</span>.indexOf(ele)</span><br><span class="line">    <span class="keyword">if</span> (index === <span class="number">-1</span>) &#123;</span><br><span class="line">      <span class="keyword">return</span> <span class="string">'input Error'</span></span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> <span class="keyword">this</span>.removeAt(index)</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="comment">// 任意位置插入元素</span></span><br><span class="line">  insert (ele, index) &#123;</span><br><span class="line">    <span class="keyword">if</span> (index &gt;= <span class="number">0</span> &amp;&amp; index &lt;= <span class="keyword">this</span>.count) &#123;</span><br><span class="line">      <span class="keyword">let</span> node = <span class="keyword">new</span> Node(ele)</span><br><span class="line">      <span class="keyword">if</span> (index === <span class="number">0</span>) &#123;</span><br><span class="line">        node.next = <span class="keyword">this</span>.head</span><br><span class="line">        <span class="keyword">this</span>.head = node</span><br><span class="line">      &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">        <span class="keyword">let</span> previous = <span class="keyword">this</span>.getElementAt(index - <span class="number">1</span>)</span><br><span class="line">        node.next = previous.next</span><br><span class="line">        previous.next = node</span><br><span class="line">      &#125;</span><br><span class="line">      <span class="keyword">this</span>.count++</span><br><span class="line">      <span class="keyword">return</span> <span class="literal">true</span></span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> <span class="literal">false</span></span><br><span class="line">  &#125;</span><br><span class="line">  size () &#123;</span><br><span class="line">    <span class="keyword">return</span> <span class="keyword">this</span>.count</span><br><span class="line">  &#125;</span><br><span class="line">  inEmpty () &#123;</span><br><span class="line">    <span class="keyword">return</span> <span class="keyword">this</span>.size() === <span class="number">0</span></span><br><span class="line">  &#125;</span><br><span class="line">  toString() &#123;</span><br><span class="line">    <span class="keyword">if</span> (<span class="keyword">this</span>.head == <span class="literal">null</span>) &#123; </span><br><span class="line">      <span class="keyword">return</span> <span class="string">''</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">let</span> objString = <span class="string">`<span class="subst">$&#123;<span class="keyword">this</span>.head.element&#125;</span>`</span>;</span><br><span class="line">    <span class="keyword">let</span> current = <span class="keyword">this</span>.head.next; </span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">let</span> i = <span class="number">1</span>; i &lt; <span class="keyword">this</span>.size() &amp;&amp; current != <span class="literal">null</span>; i++) &#123; </span><br><span class="line">      objString = <span class="string">`<span class="subst">$&#123;objString&#125;</span>,<span class="subst">$&#123;current.element&#125;</span>`</span>; </span><br><span class="line">      current = current.next;</span><br><span class="line">    &#125; </span><br><span class="line">    <span class="keyword">return</span> objString; </span><br><span class="line">   &#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="built_in">module</span>.exports = LinkList</span><br></pre></td></tr></table></figure>
+
       
     </div>
 
@@ -624,9 +548,9 @@
       
         <div class="post-tags">
           
-            <a href="/tags/linux/" rel="tag"># linux</a>
+            <a href="/tags/数据结构/" rel="tag"># 数据结构</a>
           
-            <a href="/tags/服务端/" rel="tag"># 服务端</a>
+            <a href="/tags/链表/" rel="tag"># 链表</a>
           
         </div>
       
@@ -639,8 +563,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2019/05/13/Vue数据通信&Vuex/" rel="next" title="vue通信&vuex">
-                <i class="fa fa-chevron-left"></i> vue通信&vuex
+              <a href="/2019/06/24/队列/" rel="next" title="队列">
+                <i class="fa fa-chevron-left"></i> 队列
               </a>
             
           </div>
@@ -648,10 +572,6 @@
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2019/05/31/webpack/" rel="prev" title="webpack">
-                webpack <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
@@ -928,7 +848,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#CentOS"><span class="nav-number">1.</span> <span class="nav-text">CentOS</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#上车"><span class="nav-number">1.1.</span> <span class="nav-text">上车</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#联网"><span class="nav-number">1.1.1.</span> <span class="nav-text">联网</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#更新系统、软件"><span class="nav-number">1.1.2.</span> <span class="nav-text">更新系统、软件</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#更换源"><span class="nav-number">1.1.3.</span> <span class="nav-text">更换源</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#vim"><span class="nav-number">1.1.4.</span> <span class="nav-text">vim</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#vim使用"><span class="nav-number">1.1.4.1.</span> <span class="nav-text">vim使用</span></a></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#安装服务"><span class="nav-number">1.2.</span> <span class="nav-text">安装服务</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#node"><span class="nav-number">1.2.1.</span> <span class="nav-text">node</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#配置防火墙"><span class="nav-number">1.2.2.</span> <span class="nav-text">配置防火墙</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#nginx"><span class="nav-number">1.2.3.</span> <span class="nav-text">nginx</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#安装"><span class="nav-number">1.2.3.1.</span> <span class="nav-text">安装</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#配置"><span class="nav-number">1.2.3.2.</span> <span class="nav-text">配置</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#mariadb"><span class="nav-number">1.2.4.</span> <span class="nav-text">mariadb</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#上传程序"><span class="nav-number">1.3.</span> <span class="nav-text">上传程序</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#pm2"><span class="nav-number">1.3.1.</span> <span class="nav-text">pm2</span></a></li></ol></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#链表"><span class="nav-number">1.</span> <span class="nav-text">链表</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#初始化链表"><span class="nav-number">1.1.</span> <span class="nav-text">初始化链表</span></a></li></ol></li></ol></div>
             
 
           </div>
