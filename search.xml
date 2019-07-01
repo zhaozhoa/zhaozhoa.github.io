@@ -1,6 +1,18 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title><![CDATA[字典和散列]]></title>
+    <url>%2F2019%2F07%2F01%2F%E5%AD%97%E5%85%B8%E5%92%8C%E6%95%A3%E5%88%97%2F</url>
+    <content type="text"><![CDATA[字典和散列字典 在字典中，存储的是[键，值]对，其中键名是用来查询特定元素的。字典和集合很相似，集合以[值，值]的形式存储元素，字 典则是以[键，值]的形式来存储元素。字典也称作映射、符号表或关联数组 创建字典我们将 key 转化为了字符串，而为了保存信息的需要，我们同样要保存原始的 key。 123456789101112131415161718192021222324252627282930313233343536373839404142434445464748495051525354555657585960616263646566676869707172737475767778const defaultToString = require('./../util/defaultToString')// 保存原始的 key：valuclass ValuePair &#123; constructor(key, value) &#123; this.key = key this.value = value &#125; toString () &#123; return `[#$&#123;this.key&#125;: $&#123;this.valve&#125;]` &#125;&#125;class Dictionary &#123; constructor (toStrfn = defaultToString) &#123; this.toStrfn = toStrfn this.table = &#123;&#125; &#125; // 检测一个键是否存在于字典中 hasKey (key) &#123; return this.table[this.toStrfn(key)] != null &#125; // 向字典中添加新元素。如果 key 已经存在，那么已存在的 value 会 被新的值覆盖 set (key, value) &#123; if (key != null &amp;&amp; value != null) &#123; const tableKey = this.toStrfn(key) this.table[tableKey] = new ValuePair(key, value) return true &#125; return false &#125; // 从字典中移除一个值 remove (key) &#123; if (this.hasKey(key)) &#123; delete this.table[this.toStrfn(key)] return true &#125; return false &#125; // 从字典中检索一个值 get (key) &#123; return this.table[this.toStrfn(key)] == null ? undefined : this.table[this.toStrfn(key)].value &#125; // 将字典中所有[键，值]对返回 keyValues() &#123; return Object.values(this.table) &#125; // 将字典所包含的所有键名以数组形式返回 keys () &#123; return this.keyValues().map(valuepair =&gt; valuepair.key) &#125; // 将字典所包含的所有值以数组形式返回 values () &#123; return this.keyValues().map(valuepair =&gt; valuepair.value) &#125; // 用 forEach 迭代字典中的每个键值对 forEach (callback) &#123; const valuepair = this.keyValues() for (let i = 0; i &lt; valuepair.length; i++) &#123; const result = callback(valuepair[i].key, valuepair[i].value) if (result === false) &#123; break &#125; &#125; &#125; size () &#123; return Object.keys(this.table).length &#125; isEmpty () &#123; return this.size() === 0 &#125; clear () &#123; this.table = &#123;&#125; &#125;&#125;]]></content>
+      <categories>
+        <category>数据结构与算法</category>
+      </categories>
+      <tags>
+        <tag>字典和散列</tag>
+        <tag>数据结构</tag>
+      </tags>
+  </entry>
+  <entry>
     <title><![CDATA[集合]]></title>
     <url>%2F2019%2F06%2F30%2F%E9%9B%86%E5%90%88%2F</url>
     <content type="text"><![CDATA[集合 集合是由一组无序且唯一（即不能重复）的项组成的。该数据结构使用了与有限集合相同的数学概念，但应用在计算机科学的数据结构中 自己创建一个集合（Set)1234567891011121314151617181920212223242526272829303132333435363738394041424344454647484950515253545556575859606162// 创建一个集合class Set &#123; constructor () &#123; this.items = &#123;&#125; &#125; // 检查元素是否存在在集合中 has (ele) &#123; // return ele in this.items // 或者 return Object.prototype.hasOwnProperty.call(this.items, ele) &#125; // 给集合里面添加元素 add (ele) &#123; if (!this.has(ele)) &#123; this.items[ele] = ele return true &#125; return false &#125; // 删除集合元素 delete (ele) &#123; if (this.has(ele)) &#123; delete this.items[ele] return true &#125; return false &#125; // 清空集合 clear () &#123; this.items = &#123;&#125; &#125; // 获取集合的长度 size () &#123; // es6 方法，将对象中的键转换成数组，再获取长度 // return Object.keys(this.items).length // es5 方法 let count = 0 for (const key in this.items) &#123; if (this.items.hasOwnProperty(key)) &#123; count++ &#125; &#125; return count &#125; // 将集合里面的值转换成数组 values () &#123; // es6 方法 // return Object.values(this.items) // es5 方法 let values = [] for (const key in this.items) &#123; if (this.items.hasOwnProperty(key)) &#123; values.push(this.items[key]) &#125; &#125; return values &#125;&#125;module.exports = Set 集合运算直接用 es6 api 实现 并集 对于给定的两个集合，返回一个包含两个集合中所有元素的新集合。 123456789/** * 求两个集合的并集 * @param &#123;Set&#125; set1 集合1 * @param &#123;Set&#125; set2 集合2 */let union = (set1, set2) =&gt; new Set([...set1, ...set2])console.log(union(new Set([1, 3, 2, 5]), new Set([1, 2, 8, 9])));// Set &#123; 1, 3, 2, 5, 8, 9 &#125; 交集 对于给定的两个集合，返回一个包含两个集合中共有元素的新集合 12345678/** * 求两个集合的交集 * @param &#123;Set&#125; set1 集合1 * @param &#123;Set&#125; set2 集合2 */let intersection = (set1, set2) =&gt; new Set(Array.from(set1).filter(ele =&gt; set2.has(ele)))console.log(intersection(new Set([1, 3, 2, 5]), new Set([1, 2, 8, 9]))); 差集 对于给定的两个集合，返回一个包含所有存在于第一个集合且不存在于第二个集 合的元素的新集合 12345678/** * 求 集合1 与 集合2 差集 * @param &#123;Set&#125; set1 集合1 * @param &#123;Set&#125; set2 集合2 */let difference = (set1, set2) =&gt; new Set(Array.from(set1).filter(ele =&gt; !set2.has(ele)))console.log(difference(new Set([1, 3, 2, 5]), new Set([1, 2, 8, 9])));// Set &#123; 3, 5 &#125;]]></content>
@@ -55,8 +67,8 @@
         <category>数据结构与算法</category>
       </categories>
       <tags>
-        <tag>数组</tag>
         <tag>数据结构</tag>
+        <tag>数组</tag>
       </tags>
   </entry>
   <entry>
@@ -298,8 +310,8 @@
         <category>移动端</category>
       </categories>
       <tags>
-        <tag>less</tag>
         <tag>rem</tag>
+        <tag>less</tag>
       </tags>
   </entry>
 </search>
