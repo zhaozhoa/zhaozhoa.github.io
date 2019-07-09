@@ -103,21 +103,19 @@
 
 
 
-  <meta name="description" content="字典和散列字典 在字典中，存储的是[键，值]对，其中键名是用来查询特定元素的。字典和集合很相似，集合以[值，值]的形式存储元素，字 典则是以[键，值]的形式来存储元素。字典也称作映射、符号表或关联数组  创建字典我们将 key 转化为了字符串，而为了保存信息的需要，我们同样要保存原始的 key。 123456789101112131415161718192021222324252627282930">
+  <meta name="description" content="字典和散列字典 在字典中，存储的是[键，值]对，其中键名是用来查询特定元素的。字典和集合很相似，集合以[值，值]的形式存储元素，字 典则是以[键，值]的形式来存储元素。字典也称作映射、符号表或关联数组  创建字典我们将 key 转化为了字符串，而为了保存信息的需要，我们同样要保存原始的 key。 创建一个将key转换成字符串的函数  difaultToString.js 1234567891011">
 <meta name="keywords" content="字典和散列,数据结构">
 <meta property="og:type" content="article">
 <meta property="og:title" content="字典和散列">
 <meta property="og:url" content="https://zhaozhoa.github.com/2019/07/01/字典和散列/index.html">
 <meta property="og:site_name" content="脚印">
-<meta property="og:description" content="字典和散列字典 在字典中，存储的是[键，值]对，其中键名是用来查询特定元素的。字典和集合很相似，集合以[值，值]的形式存储元素，字 典则是以[键，值]的形式来存储元素。字典也称作映射、符号表或关联数组  创建字典我们将 key 转化为了字符串，而为了保存信息的需要，我们同样要保存原始的 key。 123456789101112131415161718192021222324252627282930">
+<meta property="og:description" content="字典和散列字典 在字典中，存储的是[键，值]对，其中键名是用来查询特定元素的。字典和集合很相似，集合以[值，值]的形式存储元素，字 典则是以[键，值]的形式来存储元素。字典也称作映射、符号表或关联数组  创建字典我们将 key 转化为了字符串，而为了保存信息的需要，我们同样要保存原始的 key。 创建一个将key转换成字符串的函数  difaultToString.js 1234567891011">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2019-07-01T05:13:11.984Z">
+<meta property="og:updated_time" content="2019-07-01T11:36:27.195Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="字典和散列">
-<meta name="twitter:description" content="字典和散列字典 在字典中，存储的是[键，值]对，其中键名是用来查询特定元素的。字典和集合很相似，集合以[值，值]的形式存储元素，字 典则是以[键，值]的形式来存储元素。字典也称作映射、符号表或关联数组  创建字典我们将 key 转化为了字符串，而为了保存信息的需要，我们同样要保存原始的 key。 123456789101112131415161718192021222324252627282930">
+<meta name="twitter:description" content="字典和散列字典 在字典中，存储的是[键，值]对，其中键名是用来查询特定元素的。字典和集合很相似，集合以[值，值]的形式存储元素，字 典则是以[键，值]的形式来存储元素。字典也称作映射、符号表或关联数组  创建字典我们将 key 转化为了字符串，而为了保存信息的需要，我们同样要保存原始的 key。 创建一个将key转换成字符串的函数  difaultToString.js 1234567891011">
 
-
-  
 
 
   <link rel="alternate" href="/atom.xml" title="脚印" type="application/atom+xml">
@@ -406,7 +404,7 @@
                 
               
 
-              <time title="创建时间：2019-07-01 10:43:11 / 修改时间：13:13:11" itemprop="dateCreated datePublished" datetime="2019-07-01T10:43:11+08:00">2019-07-01</time>
+              <time title="创建时间：2019-07-01 10:43:11 / 修改时间：19:36:27" itemprop="dateCreated datePublished" datetime="2019-07-01T10:43:11+08:00">2019-07-01</time>
             
 
             
@@ -457,7 +455,7 @@
                 
                   <span class="post-meta-item-text">本文字数：</span>
                 
-                <span title="本文字数">2.1k</span>
+                <span title="本文字数">2.7k</span>
               
 
               
@@ -495,7 +493,12 @@
 <p>在字典中，存储的是[键，值]对，其中键名是用来查询特定元素的。字典和集合很相似，集合以[值，值]的形式存储元素，字 典则是以[键，值]的形式来存储元素。字典也称作映射、符号表或关联数组</p>
 </blockquote>
 <h3 id="创建字典"><a href="#创建字典" class="headerlink" title="创建字典"></a>创建字典</h3><p><strong>我们将 key 转化为了字符串，而为了保存信息的需要，我们同<br>样要保存原始的 key。</strong></p>
+<p>创建一个将key转换成字符串的函数  difaultToString.js</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">difaultToString</span>(<span class="params">item</span>) </span>&#123;</span><br><span class="line">  <span class="keyword">if</span> (item == <span class="literal">null</span>) &#123;</span><br><span class="line">    <span class="keyword">return</span> <span class="string">'NULL'</span></span><br><span class="line">  &#125; <span class="keyword">else</span> <span class="keyword">if</span> (item == <span class="literal">undefined</span>) &#123;</span><br><span class="line">    <span class="keyword">return</span> <span class="string">'UNDEFINED'</span></span><br><span class="line">  &#125; <span class="keyword">else</span> <span class="keyword">if</span> (<span class="keyword">typeof</span> item === <span class="string">'string'</span> || item <span class="keyword">instanceof</span> <span class="built_in">String</span>) &#123;</span><br><span class="line">    <span class="keyword">return</span> <span class="string">`<span class="subst">$&#123;item&#125;</span>`</span></span><br><span class="line">  &#125;</span><br><span class="line">  <span class="keyword">return</span> item.toString()</span><br><span class="line">&#125;</span><br><span class="line"><span class="built_in">module</span>.exports = difaultToString</span><br></pre></td></tr></table></figure>
 <figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> defaultToString = <span class="built_in">require</span>(<span class="string">'./../util/defaultToString'</span>)</span><br><span class="line"></span><br><span class="line"><span class="comment">// 保存原始的 key：valu</span></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">ValuePair</span> </span>&#123;</span><br><span class="line">  <span class="keyword">constructor</span>(key, value) &#123;</span><br><span class="line">    <span class="keyword">this</span>.key = key</span><br><span class="line">    <span class="keyword">this</span>.value = value</span><br><span class="line">  &#125;</span><br><span class="line">  toString () &#123;</span><br><span class="line">    <span class="keyword">return</span> <span class="string">`[#<span class="subst">$&#123;<span class="keyword">this</span>.key&#125;</span>: <span class="subst">$&#123;<span class="keyword">this</span>.valve&#125;</span>]`</span></span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Dictionary</span> </span>&#123;</span><br><span class="line">  <span class="keyword">constructor</span> (toStrfn = defaultToString) &#123;</span><br><span class="line">    <span class="keyword">this</span>.toStrfn = toStrfn</span><br><span class="line">    <span class="keyword">this</span>.table = &#123;&#125;</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="comment">// 检测一个键是否存在于字典中</span></span><br><span class="line">  hasKey (key) &#123;</span><br><span class="line">    <span class="keyword">return</span> <span class="keyword">this</span>.table[<span class="keyword">this</span>.toStrfn(key)] != <span class="literal">null</span></span><br><span class="line">  &#125;</span><br><span class="line">  <span class="comment">// 向字典中添加新元素。如果 key 已经存在，那么已存在的 value 会 被新的值覆盖</span></span><br><span class="line">  <span class="keyword">set</span> (key, value) &#123;</span><br><span class="line">    <span class="keyword">if</span> (key != <span class="literal">null</span> &amp;&amp; value != <span class="literal">null</span>) &#123;</span><br><span class="line">      <span class="keyword">const</span> tableKey = <span class="keyword">this</span>.toStrfn(key)</span><br><span class="line">      <span class="keyword">this</span>.table[tableKey] = <span class="keyword">new</span> ValuePair(key, value)</span><br><span class="line">      <span class="keyword">return</span> <span class="literal">true</span></span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> <span class="literal">false</span></span><br><span class="line">  &#125;</span><br><span class="line">  <span class="comment">// 从字典中移除一个值</span></span><br><span class="line">  remove (key) &#123;</span><br><span class="line">    <span class="keyword">if</span> (<span class="keyword">this</span>.hasKey(key)) &#123;</span><br><span class="line">      <span class="keyword">delete</span> <span class="keyword">this</span>.table[<span class="keyword">this</span>.toStrfn(key)]</span><br><span class="line">      <span class="keyword">return</span> <span class="literal">true</span></span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> <span class="literal">false</span></span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  <span class="comment">// 从字典中检索一个值</span></span><br><span class="line">  <span class="keyword">get</span> (key) &#123;</span><br><span class="line">    <span class="keyword">return</span> <span class="keyword">this</span>.table[<span class="keyword">this</span>.toStrfn(key)] == <span class="literal">null</span> ? <span class="literal">undefined</span> : <span class="keyword">this</span>.table[<span class="keyword">this</span>.toStrfn(key)].value</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="comment">// 将字典中所有[键，值]对返回</span></span><br><span class="line">  keyValues() &#123;</span><br><span class="line">    <span class="keyword">return</span> <span class="built_in">Object</span>.values(<span class="keyword">this</span>.table)</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="comment">// 将字典所包含的所有键名以数组形式返回</span></span><br><span class="line">  keys () &#123;</span><br><span class="line">    <span class="keyword">return</span> <span class="keyword">this</span>.keyValues().map(<span class="function"><span class="params">valuepair</span> =&gt;</span> valuepair.key)</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  <span class="comment">// 将字典所包含的所有值以数组形式返回</span></span><br><span class="line">  values () &#123;</span><br><span class="line">    <span class="keyword">return</span> <span class="keyword">this</span>.keyValues().map(<span class="function"><span class="params">valuepair</span> =&gt;</span> valuepair.value)</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  <span class="comment">// 用 forEach 迭代字典中的每个键值对</span></span><br><span class="line">  forEach (callback) &#123;</span><br><span class="line">    <span class="keyword">const</span> valuepair = <span class="keyword">this</span>.keyValues()</span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">let</span> i = <span class="number">0</span>; i &lt; valuepair.length; i++) &#123;</span><br><span class="line">      <span class="keyword">const</span> result = callback(valuepair[i].key, valuepair[i].value)</span><br><span class="line">      <span class="keyword">if</span> (result === <span class="literal">false</span>) &#123;</span><br><span class="line">        <span class="keyword">break</span></span><br><span class="line">      &#125;</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line">  size () &#123;</span><br><span class="line">    <span class="keyword">return</span> <span class="built_in">Object</span>.keys(<span class="keyword">this</span>.table).length</span><br><span class="line">  &#125;</span><br><span class="line">  isEmpty () &#123;</span><br><span class="line">    <span class="keyword">return</span> <span class="keyword">this</span>.size() === <span class="number">0</span></span><br><span class="line">  &#125;</span><br><span class="line">  clear () &#123;</span><br><span class="line">    <span class="keyword">this</span>.table = &#123;&#125;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h2 id="散列"><a href="#散列" class="headerlink" title="散列"></a>散列</h2><blockquote>
+<p>散列算法的作用是尽可能快地在数据结构中找到一个值。在之前的章节中，你已经知道如果要在数据结构中获得一个值（使用 get 方法），需要迭代整个数据结构来找到它。如果使用散列 函数，就知道值的具体位置，因此能够快速检索到该值。散列函数的作用是给定一个键值，然后 返回值在表中的地址</p>
+</blockquote>
 
       
     </div>
@@ -573,6 +576,10 @@
 
           <div class="post-nav-prev post-nav-item">
             
+              <a href="/2019/07/06/排序和搜索/" rel="prev" title="排序和搜索">
+                排序和搜索 <i class="fa fa-chevron-right"></i>
+              </a>
+            
           </div>
         </div>
       
@@ -642,7 +649,7 @@
                 
                   <a href="/archives/">
                 
-                    <span class="site-state-item-count">28</span>
+                    <span class="site-state-item-count">29</span>
                     <span class="site-state-item-name">日志</span>
                   </a>
                 </div>
@@ -750,7 +757,11 @@
                     
                       
                     
-                    <span class="site-state-item-count">29</span>
+                      
+                    
+                      
+                    
+                    <span class="site-state-item-count">31</span>
                     <span class="site-state-item-name">标签</span>
                   </a>
                 </div>
@@ -852,7 +863,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#字典和散列"><span class="nav-number">1.</span> <span class="nav-text">字典和散列</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#字典"><span class="nav-number">1.1.</span> <span class="nav-text">字典</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#创建字典"><span class="nav-number">1.1.1.</span> <span class="nav-text">创建字典</span></a></li></ol></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#字典和散列"><span class="nav-number">1.</span> <span class="nav-text">字典和散列</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#字典"><span class="nav-number">1.1.</span> <span class="nav-text">字典</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#创建字典"><span class="nav-number">1.1.1.</span> <span class="nav-text">创建字典</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#散列"><span class="nav-number">1.2.</span> <span class="nav-text">散列</span></a></li></ol></li></ol></div>
             
 
           </div>
@@ -901,7 +912,7 @@
       <i class="fa fa-coffee"></i>
     </span>
     
-    <span title="站点阅读时长">1:41</span>
+    <span title="站点阅读时长">1:42</span>
   
 </div>
 
