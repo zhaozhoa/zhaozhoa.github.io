@@ -25,13 +25,12 @@
   <entry>
     <title><![CDATA[排序和搜索]]></title>
     <url>%2F2019%2F07%2F06%2F%E6%8E%92%E5%BA%8F%E5%92%8C%E6%90%9C%E7%B4%A2%2F</url>
-    <content type="text"><![CDATA[排序与算法排序冒泡排序 冒泡排序比较所有相邻的两个项，如果第一个比第二个大，则交换它们。元素项向上移动至正确的顺序，就好像气泡升至表面一样，冒泡排序因此得名]]></content>
+    <content type="text"><![CDATA[排序与查找排序冒泡排序 冒泡排序比较所有相邻的两个项，如果第一个比第二个大，则交换它们。元素项向上移动至正确的顺序，就好像气泡升至表面一样，冒泡排序因此得名]]></content>
       <categories>
         <category>数据结构与算法</category>
       </categories>
       <tags>
-        <tag>js</tag>
-        <tag>算法</tag>
+        <tag>排序</tag>
       </tags>
   </entry>
   <entry>
@@ -43,7 +42,6 @@
       </categories>
       <tags>
         <tag>字典和散列</tag>
-        <tag>数据结构</tag>
       </tags>
   </entry>
   <entry>
@@ -54,7 +52,6 @@
         <category>数据结构与算法</category>
       </categories>
       <tags>
-        <tag>数据结构</tag>
         <tag>集合</tag>
       </tags>
   </entry>
@@ -66,7 +63,6 @@
         <category>数据结构与算法</category>
       </categories>
       <tags>
-        <tag>数据结构</tag>
         <tag>链表</tag>
       </tags>
   </entry>
@@ -78,7 +74,6 @@
         <category>数据结构与算法</category>
       </categories>
       <tags>
-        <tag>数据结构</tag>
         <tag>队列</tag>
       </tags>
   </entry>
@@ -101,7 +96,6 @@
         <category>数据结构与算法</category>
       </categories>
       <tags>
-        <tag>数据结构</tag>
         <tag>数组</tag>
       </tags>
   </entry>
@@ -121,7 +115,7 @@
     <url>%2F2019%2F05%2F31%2Fwebpack%2F</url>
     <content type="text"><![CDATA[webpack 4上车安装 1webpack webpack-cli -D webpack4 可以 0 配置，但功能不全 入口文件为 项目根目录下面的 src/index.js 打包输出文件为 项目根目录下面的 dist/main.js 打包: 1npx webpack 手动配置执行配置文件执行默认配置 在当前项目根目录下新建一个 webpack.config.js 这是 webpack 默认执行的配置文件 修改默认配置 建立自己的 webpack 配置文件 xxx.js 1npx webpack --config xxx.js 或者给 package.json 添加脚本 123"scripts": &#123; "bulid" "webpack --config xxx.js"&#125; 执行 1npm run bulid webpack基础配置123456789const path = require('path')module.exports = &#123; mode: 'development', // 模式 有两种： production development entry: './src/index.js', // 打包的入口文件 output: &#123; filename: 'bundle.js', // 打包后的文件名 path: path.resolve(__dirname, 'dist') // 打包文件存放目录 &#125;&#125; webpack-dev-server 配置开发服务器，在内存中打包，不会生成真的打包文件，方便修改 安装 1yarn add webpack-dev-server -D 基本配置 12345678devServer: &#123; // 开发服务器配置 port: 3000, // 设置端口 progress: true, // 显示打包进度条 contentBase: './dist', // 指定打包后的开发文件在 dist 目录，这样就可以被 dist 目录其他文件引用 compress: true, // gzip 压缩 proxy：&#123; ‘/api/*’: 'http://localhost:3000' // 将/api/ 的请求用 http://localhost:3000 代理&#125; 插件所有的插件都放在 plugins： [] html-webpack-plugin 插件作用:是将 src 目录下面的 js 文件 自动引入到 src 目录下面的 html 文件里，并将 引入后的 html 文件 打包到 dist 目录 安装 html-webpack-plugin 1yarn html-webpack-plugin -D 引入 1let HtmlWebpackPlugin = require('html-webpack-plugin') 基本配置 1234567891011plugins: [ // 数组，存放着所有的 webpack 插件 new HtmlWebpackPlugin (&#123; template: './src/index.html', // 引入的 html 文件 filename: 'index.html', // 打包后的文件名 minify: &#123; // 对 html 文件的压缩 removeAttributeQuotes: true, // 删除双引号 collapseWhitespace: true, //删除多余的空格和 空行 &#125;, hash: true, // 打包的 js 文件添加 hash 防止文件覆盖 &#125;) ] mini-css-extract-plugin 插件作用： 将 css 文件抽离成单独的文件 安装 1yarn add mini-css-extract-plugin -D 引入 1let MiniCssExtractPlugin = require('mini-css-extract-plugin') 配置 123new MiniCssExtractPlugin(&#123; filename: 'main.css' //导出的 css 文件名称&#125;) 同时需要用 MiniCssExtractPlugin.loader 替换 style-loader 如： 12345678&#123; test: /\.css$/, use: [ MiniCssExtractPlugin.loader, //将打包的 css 引入到 html文件中 'css-loader', 'postcss-loader', //解析css 自动添加浏览器前缀 ]&#125; 模块用于解析打包不同的文件 解析 css 文件安装loader 1yarn css-loader style-loader postcss-loader autoprefixer -D loader css-loader：解析在 css 文件中用 @import 导入的其他css style-loader：将 css 添加到 head 标签中 postcss-loader 自动为 css 添加浏览器前缀 loader 的执行是由顺序的 ：从右向左，从下到上解析 注意： 使用 postcss-loader 需要添加配置文件 在 项目根目录 新建一个 postcss.config.js 的文件 放入 123module.exports = &#123; plugins: [require('autoprefixer')]&#125; 基本配置 1234567891011121314151617module: &#123; rules: [ // 规则 &#123; test: /\.css$/, use: [ &#123; // 可以将 loader 写成对象形式，也可以直接引用 loader: 'style-loader', options: &#123; insertAt: 'top' //将 css 文件插入到 head 标签顶部，方便可以让自己的html中 css覆盖 &#125; &#125;, 'css-loader'， 'postcss-loader', //给 css 自动添加浏览器前缀 ] &#125; ]&#125; 解析 less安装loader 1yarn css-loader style-loader less less-loader postcss-loader autoprefixer -D 配置 1234567891011121314&#123; test: /\.less$/, use: [ &#123; loader: 'style-loader', options: &#123; insertAt: 'top' &#125; &#125;, 'css-loader', 'less-loader'， 'postcss-loader' ]&#125; 高版本es 转化成es5安装babel 12yarn add babel-loader @babel/core @babel/preset-env babel-plugin-transform-runtime @babel/plugin-proposal-class-properties -Dyarn add @babel/runtime @babel/polyfill 配置 1234567891011121314151617181920&#123; test: /\.js$/, use: [ &#123; loader:'babel-loader', options: &#123; // 用babel-loader 将es6 -&gt; es5 presets: [ '@babel/preset-env' ], plugins: [ ["@babel/plugin-proposal-decorators", &#123; "legacy": true &#125;], ["@babel/plugin-proposal-class-properties", &#123; "loose": true &#125;], ["@babel/plugin-transform-runtime"] ] &#125; &#125; ], exclude: /node_modules/, // 排除文件 include: path.resolve(__dirname, 'src') // 打包的文件&#125; 配置eslint校验 js 代码规范 安装loader 1yarn add eslint eslint-loader -D 配置 123456789&#123; test: /\.js$/, use: &#123; loader: 'eslint-loader', options: &#123; enforce: 'pre' // 强制提前执行 &#125; &#125;&#125;, 同时需要在根目录安装一个 .eslintrc.json 的配置文件 这里下载 打包图片安装loader 1yarn add file-loader -D 作用：默认在内部生成一张图片，到dist 目录下，返回生成的图片名 配置 1234567891011121314&#123; test: /\.html/, use: 'html-withimg-loader' // 将html中的图片打包到 dist 目录&#125;, &#123; test: /\.(jpg|jpeg|png|gif)$/, use: &#123; loader: 'url-loader', // 将小于 200K的图片变成base64格式 options: &#123; limit: 200 * 1024, outputPath: 'img/' // 大于200k 的图片放到 /dist/img 下面 &#125; &#125; &#125;, 多入口配置打包成多个文件 1234567891011121314151617181920212223module.exports = &#123; mode: 'development', entry: &#123; //打包两个 js 文件 index: './src/index.js', others: './src/other.js' &#125;, output: &#123; filename: '[name].js', // [name] -&gt; index &amp; others path: path.resolve(__dirname, 'dist') &#125;, plugins: [ new HtmlWebpackPlugin(&#123; template: './src/index.html', filename: 'index.html', chunks: ['index'] // 导出的 html 只引入 index.js &#125;), new HtmlWebpackPlugin(&#123; template: './src/index.html', filename: 'other.html', chunks: ['othwes'] &#125;), ]&#125; 实时监控打包文件123456watch: true, watchOptions: &#123; poll: 1000, aggregateTimeout: 500, // 防抖, 停止输入后 500ms 后重新打包 ignored: /node_modules/ &#125; resolve配置解析第三方模块的规则和次序 1234567resolve: &#123; modules: [path.resolve('node_modules')]， // 查找第三方模块只在当前的 node_modules 文件中找 extensions: ['.js', '.vue'] // 引入这些类型的文件不用写扩展名 alias: &#123; @: './src/components' // 配置别名，用@ 代替后面的地址 &#125;，&#125;]]></content>
       <categories>
-        <category>webpack</category>
+        <category>前端</category>
       </categories>
       <tags>
         <tag>webpack</tag>
@@ -136,7 +130,7 @@
       </categories>
       <tags>
         <tag>linux</tag>
-        <tag>服务端</tag>
+        <tag>pm2</tag>
       </tags>
   </entry>
   <entry>
@@ -224,7 +218,7 @@
         <category>node</category>
       </categories>
       <tags>
-        <tag>node</tag>
+        <tag>node基础</tag>
       </tags>
   </entry>
   <entry>
@@ -234,6 +228,9 @@
       <categories>
         <category>node</category>
       </categories>
+      <tags>
+        <tag>node基础</tag>
+      </tags>
   </entry>
   <entry>
     <title><![CDATA[继承]]></title>
@@ -243,7 +240,7 @@
         <category>前端</category>
       </categories>
       <tags>
-        <tag>原型，继承</tag>
+        <tag>继承，前端基础</tag>
       </tags>
   </entry>
   <entry>
@@ -255,17 +252,18 @@
       </categories>
       <tags>
         <tag>原型</tag>
+        <tag>前端基础</tag>
       </tags>
   </entry>
   <entry>
-    <title><![CDATA[数据通信]]></title>
+    <title><![CDATA[ajax的封装]]></title>
     <url>%2F2019%2F03%2F20%2F%E6%95%B0%E6%8D%AE%E9%80%9A%E4%BF%A1%2F</url>
     <content type="text"><![CDATA[数据通信常见的通信方式 通信方式 特点 表单 最基本，最简单 Ajax 不用全页面刷新，可跨域 jsonp 跨越，不安全 Websocket 高性能（快），双工通信，直接跨越 跨域：请求不同域名或端口或协议的资源 Ajax封装（仿jQuery）123456789101112131415161718192021222324252627282930313233343536373839404142434445464748function Ajax (options) &#123; options = options || &#123;&#125; options.type = options.type || 'get'; options.data = options.data || &#123;&#125; options.dataType = options.dataType || 'text' let xhr = new XMLHttpRequest() //将 data里面以对象形式传入的值 解析成 a=b&amp;b=c 形式 var arr = [] for (const name in options.data) &#123; var str = `$&#123;encodeURIComponent(name)&#125;=$&#123;encodeURIComponent(options.data[name])&#125;` arr.push(str) &#125; let strData = arr.join('&amp;') if (options.type == 'post') &#123; xhr.open('POST',options.url, true) xhr.setRequestHeader('content-type', 'application/x-www-form-urlencoded'); xhr.send(strData) &#125;else &#123; xhr.open('GET', options.url + '?' + strData ,true) xhr.send() &#125; xhr.onreadystatechange = function () &#123; if (xhr.readyState == 4) &#123; if (xhr.status &gt;= 200 &amp;&amp; xhr.status &lt; 300 || xhr.status == 304) &#123; let data = xhr.responseText switch (options.dataType) &#123; case 'json': if (window.JSON &amp;&amp; JSON.parse) &#123; data = JSON.parse(data) &#125;else&#123; data = eval('('+data+')') &#125; break; case 'xml': data = xhr.responseXML &#125; options.success &amp;&amp; options.success(data) &#125; &#125;else&#123; options.error &amp;&amp; options.error() &#125; &#125;&#125;]]></content>
       <categories>
         <category>前端</category>
       </categories>
       <tags>
-        <tag>总结</tag>
+        <tag>前端基础</tag>
       </tags>
   </entry>
   <entry>
@@ -276,7 +274,7 @@
         <category>软考</category>
       </categories>
       <tags>
-        <tag>复习</tag>
+        <tag>组成原理</tag>
       </tags>
   </entry>
   <entry>
@@ -299,6 +297,7 @@
       </categories>
       <tags>
         <tag>bootstrap</tag>
+        <tag>前端库</tag>
       </tags>
   </entry>
   <entry>
@@ -306,10 +305,10 @@
     <url>%2F2019%2F03%2F05%2F%E6%95%B0%E6%8D%AE%E7%9A%84%E8%8E%B7%E5%8F%96%E5%92%8C%E8%BD%AC%E6%8D%A2%2F</url>
     <content type="text"><![CDATA[数据的获取和转换获取页面 url 通过问号传参传递的样式为： 1http://localhost:3000/m/searchList.html?key=1&amp;name=10 获取： 1234567891011121314var getParamsByUrl = function () &#123; var params = &#123;&#125; var search = location.search //"?key=1&amp;name=10" if (search) &#123; search = search.replace('?', '') //"key=1&amp;name=10" var arr = search.split('&amp;') //["key=1", "name=10"] arr.forEach(function (item, i) &#123; var itemArr = item.split('=') //["key", "1"] ["name", "10"] params[itemArr[0]] = itemArr[1] //&#123;key: "1", name: "10"&#125; &#125;) &#125; return params; &#125;var params = getParamsByUrl() node 获取 get 和 post 参数获取 get 参数直接从url 中获取 使用 req.rul 1234let server = http.createServer((req, res) =&gt; &#123; console.log(req.url);// /data.js?username=se&amp;pwd=d res.end()&#125;) 以对象形式获取 引入 url 核心模块 1let url = require('rul') 给 url使用parse 方法解析 req.url 1234let server = http.createServer((req, res) =&gt; &#123; let obj = url.parse(req.url) console.log(obj); res.end() 解析结果为 12345678910111213Url &#123; protocol: null, slashes: null, auth: null, host: null, port: null, hostname: null, hash: null, search: '?username=se&amp;pwd=f', query: 'username=se&amp;pwd=f', pathname: '/data.js', path: '/data.js?username=se&amp;pwd=f', href: '/data.js?username=se&amp;pwd=f' &#125; 此时的 query 属性还是 字符串形式，如果给 parse 方法传入第二个参数：true，则结果为 12345678910111213Url &#123; protocol: null, slashes: null, auth: null, host: null, port: null, hostname: null, hash: null, search: '?username=se&amp;pwd=deee', query: [Object: null prototype] &#123; username: 'se', pwd: 'deee' &#125;, pathname: '/data.js', path: '/data.js?username=se&amp;pwd=deee', href: '/data.js?username=se&amp;pwd=deee' &#125; 这时的 query 属性值为一个对象 获取 post 提交参数post 提交的参数在请求体中，获取请求体是以分组报文的形式获取，所以 post 里面的参数不能直接一次性获取 12345678910111213141516171819const http = require('http')//解析传来的参数为 jsonconst queryString = require('querystring')let server = http.createServer((req, res) =&gt; &#123; let str = '' // 监听每一部分报文到达，将每一次的报文拼装 req.on('data', data=&gt; &#123; str +=data &#125;) //全部传输完毕 req.on('end', ()=&gt; &#123; let post = queryString.parse(str) console.log(str); // username=se&amp;pwd=fgd [Object: null prototype] &#123; username: 'se', pwd: 'fgd' &#125; res.end() &#125;)&#125;)server.listen(8888) 这种方式只可以获取普通编码数据，不能获取二进制文件，因为二进制转换成字符串，再转换回去格式会被破坏 url.parse 和queryString.parse 区别 url.parse()解析的是整个 url 如：/data.js?username=se&amp;pwd=f querystring.parse()解析的是 参数 如：username=se&amp;pwd=f 封装成都可以获取12345678910111213141516171819202122const http = require('http')const url = require('url')const querystring = require('querystring')let server = http.createServer((req, res) =&gt; &#123; // 获取get参数 let &#123;pathname, query&#125; = url.parse(req.url,true) // 获取post 参数 let str ='' req.on('data', data =&gt; &#123; str += data &#125;) req.on('end', () =&gt; &#123; let post = querystring.parse(str) console.log(pathname, query, post); &#125;) res.end() &#125;)server.listen(3000)]]></content>
       <categories>
-        <category>前端</category>
+        <category>node</category>
       </categories>
       <tags>
-        <tag>数据，node</tag>
+        <tag>node基础</tag>
       </tags>
   </entry>
   <entry>
@@ -320,9 +319,8 @@
         <category>前端</category>
       </categories>
       <tags>
-        <tag>json</tag>
-        <tag>ajax</tag>
         <tag>模板引擎</tag>
+        <tag>前端库</tag>
       </tags>
   </entry>
   <entry>
@@ -330,7 +328,7 @@
     <url>%2F2019%2F03%2F03%2Fless%E5%B8%B8%E8%A7%81%E8%AF%AD%E6%B3%95%2F</url>
     <content type="text"><![CDATA[Less安装less1npm i -g less less 文件编译成 css 文件手动编译 1lessc less文件.less 编译后的css文件.css vscode 自动编译 安装插件 Ease Less 变量申明变量 必须@ 前缀 : 相当于 等号 ，必须; 结束。 必须符合变量的命名规则。 1@mainColor: #ccc; 使用变量123a:hover&#123; color:@mainColor;&#125; 编译结果 123a:hover&#123; color:#ccc;&#125; 注意：less 文件开头 指定编码为 UTF-8 编码 1@charset "UTF-8" Mixin 混入类混入less 语法 12345678910.w50&#123; width: 50%;&#125;.f_left&#123; float: left;&#125;.w50-f_left&#123; .w50(); .f_left();&#125; 编译成 css 12345678910.w50 &#123; width: 50%;&#125;.f_left &#123; float: left;&#125;.w50-f_left &#123; width: 50%; float: left;&#125; 编译的 css 会出现混入前的类 函数混入less 语法 12345678910.w50()&#123; width: 50%;&#125;.f_left()&#123; float: left;&#125;.w50-f_left&#123; .w50(); .f_left()&#125; 编译成 css 。 1234.w50-f_left &#123; width: 50%; float: left;&#125; 编译后的 css 不会出现函数本体。 带参函数混入 定义了参数（没有默认值）调用的时候必须传参。 定义 默认值的方式和定义变量相同。 定义了参数（有默认值），调用的时候可以不用传参。 less 语法 12345678.f(@direction: left) &#123; float:@direction;&#125;.r_left&#123; .f(); .f(right)&#125; 编译的 css 1234.r_left &#123; float: left; float: right;&#125; 嵌套为了使 css 的层次更加清楚 ，less 可以像 html一样进行类似的嵌套写法 less语法 1234567891011121314.top_bar&#123; position: relative; img&#123; display: block; position: absolute; top: 0; left: 0; &#125; &amp;::after&#123; content: ""; display: block; &#125;&#125; 编译后的 css 12345678910.top_bar img &#123; display: block; position: absolute; top: 0; left: 0;&#125;.top_bar::after &#123; content: ""; display: block;&#125; 注意：伪类和伪元素等需要和前面的选择器紧挨使用的 需要用&amp;符号进行连接否则编译后会有空格。 Import（导入）less 可以进行模块化，最后可以用 import 进行导入组合 variables.less 的内容 123456789@mainColor:#ccc;@box: box;a:hover&#123; color: @mainColor;&#125;.@&#123;box&#125; &#123; color:@mainColor;&#125; 在 main.less 中导入 variables.less 1@import "variables"; 编译的 css 文件 123456a:hover &#123; color: #ccc;&#125;.box &#123; color: #ccc;&#125; 运算less 支持数字的简单运算 1234567@num:7;ul&#123; width: 100% * @num; li&#123; width: 100% / @num; &#125;&#125; 编译后的css 123456ul &#123; width: 700%;&#125;ul li &#123; width: 14.28571429%;&#125;]]></content>
       <categories>
-        <category>移动端</category>
+        <category>前端</category>
       </categories>
       <tags>
         <tag>less</tag>
