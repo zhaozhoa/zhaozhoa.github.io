@@ -104,14 +104,14 @@
 
 
   <meta name="description" content="路由前端路由的本质是锚点值改变，页面不跳转，但改变 innerHtml的内容 123456789101112131415161718&amp;lt;body&amp;gt;  &amp;lt;a href=&quot;#/login&quot;&amp;gt;点我登陆&amp;lt;/a&amp;gt;  &amp;lt;a href=&quot;#/register&quot;&amp;gt;点我注册&amp;lt;/a&amp;gt;  &amp;lt;div id=&quot;div&quot;&amp;gt;&amp;lt;/div&amp;gt;&amp;lt;/">
-<meta name="keywords" content="路由">
+<meta name="keywords" content="vue">
 <meta property="og:type" content="article">
 <meta property="og:title" content="VueRouter">
 <meta property="og:url" content="https://zhaozhoa.github.com/2019/04/16/VueRouter/index.html">
 <meta property="og:site_name" content="脚印">
 <meta property="og:description" content="路由前端路由的本质是锚点值改变，页面不跳转，但改变 innerHtml的内容 123456789101112131415161718&amp;lt;body&amp;gt;  &amp;lt;a href=&quot;#/login&quot;&amp;gt;点我登陆&amp;lt;/a&amp;gt;  &amp;lt;a href=&quot;#/register&quot;&amp;gt;点我注册&amp;lt;/a&amp;gt;  &amp;lt;div id=&quot;div&quot;&amp;gt;&amp;lt;/div&amp;gt;&amp;lt;/">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2019-04-16T10:01:56.086Z">
+<meta property="og:updated_time" content="2019-08-23T05:56:43.613Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="VueRouter">
 <meta name="twitter:description" content="路由前端路由的本质是锚点值改变，页面不跳转，但改变 innerHtml的内容 123456789101112131415161718&amp;lt;body&amp;gt;  &amp;lt;a href=&quot;#/login&quot;&amp;gt;点我登陆&amp;lt;/a&amp;gt;  &amp;lt;a href=&quot;#/register&quot;&amp;gt;点我注册&amp;lt;/a&amp;gt;  &amp;lt;div id=&quot;div&quot;&amp;gt;&amp;lt;/div&amp;gt;&amp;lt;/">
@@ -404,12 +404,24 @@
                 
               
 
-              <time title="创建时间：2019-04-16 17:57:46 / 修改时间：18:01:56" itemprop="dateCreated datePublished" datetime="2019-04-16T17:57:46+08:00">2019-04-16</time>
+              <time title="创建时间：2019-04-16 17:57:46" itemprop="dateCreated datePublished" datetime="2019-04-16T17:57:46+08:00">2019-04-16</time>
             
 
             
               
 
+              
+                
+                <span class="post-meta-divider">|</span>
+                
+
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">更新于</span>
+                
+                <time title="修改时间：2019-08-23 13:56:43" itemprop="dateModified" datetime="2019-08-23T13:56:43+08:00">2019-08-23</time>
               
             
           </span>
@@ -426,7 +438,7 @@
                 <span class="post-meta-item-text">分类于</span>
               
               
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/vue/" itemprop="url" rel="index"><span itemprop="name">vue</span></a></span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/前端框架/" itemprop="url" rel="index"><span itemprop="name">前端框架</span></a></span>
 
                 
                 
@@ -490,7 +502,7 @@
 
       
         <h1 id="路由"><a href="#路由" class="headerlink" title="路由"></a>路由</h1><p><code>前端路由的本质是锚点值改变，页面不跳转，但改变 innerHtml的内容</code></p>
-<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">body</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">a</span> <span class="attr">href</span>=<span class="string">"#/login"</span>&gt;</span>点我登陆<span class="tag">&lt;/<span class="name">a</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">a</span> <span class="attr">href</span>=<span class="string">"#/register"</span>&gt;</span>点我注册<span class="tag">&lt;/<span class="name">a</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">div</span> <span class="attr">id</span>=<span class="string">"div"</span>&gt;</span><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">body</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">script</span>&gt;</span><span class="undefined"></span></span><br><span class="line"><span class="javascript">  <span class="keyword">let</span> div = <span class="built_in">document</span>.querySelector(<span class="string">'div'</span>)</span></span><br><span class="line"><span class="javascript">  <span class="built_in">window</span>.addEventListener(<span class="string">'hashchange'</span>,()=&gt;&#123;</span></span><br><span class="line"><span class="javascript">    <span class="keyword">switch</span>(location.hash) &#123;</span></span><br><span class="line"><span class="javascript">      <span class="keyword">case</span> <span class="string">'#/login'</span>:</span></span><br><span class="line"><span class="xml">        div.innerHTML = '<span class="tag">&lt;<span class="name">h1</span>&gt;</span>登陆<span class="tag">&lt;/<span class="name">h1</span>&gt;</span>'</span></span><br><span class="line"><span class="javascript">        <span class="keyword">break</span>;</span></span><br><span class="line"><span class="javascript">      <span class="keyword">case</span> <span class="string">'#/register'</span>:</span></span><br><span class="line"><span class="xml">        div.innerHTML = '<span class="tag">&lt;<span class="name">h1</span>&gt;</span>注册<span class="tag">&lt;/<span class="name">h1</span>&gt;</span>'</span></span><br><span class="line"><span class="javascript">        <span class="keyword">break</span>;</span></span><br><span class="line"><span class="undefined">    &#125;</span></span><br><span class="line"><span class="undefined">  &#125; )</span></span><br><span class="line"><span class="undefined"></span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">body</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">a</span> <span class="attr">href</span>=<span class="string">"#/login"</span>&gt;</span>点我登陆<span class="tag">&lt;/<span class="name">a</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">a</span> <span class="attr">href</span>=<span class="string">"#/register"</span>&gt;</span>点我注册<span class="tag">&lt;/<span class="name">a</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">div</span> <span class="attr">id</span>=<span class="string">"div"</span>&gt;</span><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">body</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">script</span>&gt;</span><span class="undefined"></span></span><br><span class="line"><span class="undefined">  let div = document.querySelector('div')</span></span><br><span class="line"><span class="undefined">  window.addEventListener('hashchange',()=&gt;&#123;</span></span><br><span class="line"><span class="undefined">    switch(location.hash) &#123;</span></span><br><span class="line"><span class="undefined">      case '#/login':</span></span><br><span class="line"><span class="xml">        div.innerHTML = '<span class="tag">&lt;<span class="name">h1</span>&gt;</span>登陆<span class="tag">&lt;/<span class="name">h1</span>&gt;</span>'</span></span><br><span class="line"><span class="undefined">        break;</span></span><br><span class="line"><span class="undefined">      case '#/register':</span></span><br><span class="line"><span class="xml">        div.innerHTML = '<span class="tag">&lt;<span class="name">h1</span>&gt;</span>注册<span class="tag">&lt;/<span class="name">h1</span>&gt;</span>'</span></span><br><span class="line"><span class="undefined">        break;</span></span><br><span class="line"><span class="undefined">    &#125;</span></span><br><span class="line"><span class="undefined">  &#125; )</span></span><br><span class="line"><span class="undefined"></span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br></pre></td></tr></table></figure>
 <ul>
 <li>路由其实是由 hash 完成的（基于hashchange事件）</li>
 <li>监听 url 上锚点（#xxx）的变化改变页面的内容（锚点和 hash 一回事）</li>
@@ -599,7 +611,7 @@
       
         <div class="post-tags">
           
-            <a href="/tags/路由/" rel="tag"># 路由</a>
+            <a href="/tags/vue/" rel="tag"># vue</a>
           
         </div>
       
@@ -695,7 +707,7 @@
                 
                   <a href="/archives/">
                 
-                    <span class="site-state-item-count">30</span>
+                    <span class="site-state-item-count">31</span>
                     <span class="site-state-item-name">日志</span>
                   </a>
                 </div>
