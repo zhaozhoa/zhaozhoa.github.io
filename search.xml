@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
-    <title><![CDATA[Angular]]></title>
+    <title><![CDATA[初窥Angular]]></title>
     <url>%2F2019%2F08%2F23%2FAngular%2F</url>
-    <content type="text"><![CDATA[angular脚手架安装 1npm i -g @angular/cli 创建项目 1ng new 项目名 启动 –open 设置自动启动浏览器 1ng serve --open ​]]></content>
+    <content type="text"><![CDATA[angular上车安装 脚手架 1npm i -g @angular/cli 创建项目 1ng new 项目名 启动 –open 设置自动启动浏览器 1ng serve --open 生成目录结构分析src目录 src:│ favicon.ico│ index.html│ main.ts│ polyfills.ts│ styles.less│ test.ts│├─app│ │ app-routing.module.ts // Angular 的路由模块│ │ app.component.html // Angular 的根html│ │ app.component.less // Angular 的根less│ │ app.component.spec.ts // 测试文件│ │ app.component.ts // 这是 Angular 的根组件模块│ │ app.module.ts // 这是 Angular 的 跟模块，配置了 Angular 加载什么应用│ ││ └─components // 自己创建的组件目录│ └─head // 自己创建的组件│ head.component.html│ head.component.less│ head.component.spec.ts│ head.component.ts│├─assets│ .gitkeep│└─environments environment.prod.ts environment.ts 简单使用创建组件在src 目录下面创建一个 components 文件夹 放入 head 组件 1ng g component components/head 使用这个命令会 自动 生成一个 head 组件的文件夹，里面由有四个文件分别是 head.component.html head.component.less head.component.spec.ts head.component.ts 这个文件了面配置了组件名称 同时还会在 app.module.ts 文件中 引入 和 使用 这个组件 使用组件在 Angular 的 html 文件中直接用&lt;组件名&gt;&lt;/组件名&gt; 使用组件 123456&lt;div class="" style = "text-align: center"&gt; hello Angular &lt;!-- 使用组件 --&gt; &lt;app-head&gt;&lt;/app-head&gt;&lt;/div&gt;&lt;router-outlet&gt;&lt;/router-outlet&gt; angular 和 vue 指令的对比 vue angular v-bind:title=’aaa’ [title]=’aaa’ v-html=’x’ [innerHTML]=’x’ v-for=”item in GoodsList” *ngFor=”let item of GoodsList” v-if *ngIf :class = ‘{‘name’: true}’ [ngClass] =’{‘name’: true}’ @click= ‘fn’ (click) = ‘fn()’ anuglar 的双向数据绑定 在 app.module.st 文件中引入 1import &#123;FormsModule&#125; from '@angular/forms'; 然后将其添加到 imports中 12345imports: [ // 配置当前模块运行依赖的其他模块 BrowserModule, AppRoutingModule, FormsModule ], 在使用的时候用[(ngModel)]=”input”来进行双向数据绑定 1&lt;input type="text" [(ngModel)]="input"&gt; angular 中的服务在服务中可以存储一些全局的方法或者属性，其他组建可以调用这些方法或者属性 创建服务1ng g service (位置: services/storage) 在服务中添加公共方法 123456789101112131415161718import &#123; Injectable &#125; from '@angular/core';@Injectable(&#123; providedIn: 'root'&#125;)export class StorageService &#123; constructor() &#123; &#125; setStorage(key: string, value: any) &#123; localStorage.setItem(key, JSON.stringify(value)); &#125; getStorage(key: string) &#123; return JSON.parse(localStorage.getItem(key)); &#125; reomveStorage(key: string) &#123; localStorage.removeItem(key); &#125;&#125; 在 app.module.ts 中引入及挂载1import &#123; StorageService &#125; from './services/storage.service'; 挂载 1providers: [StorageService], 在其他组建中使用在组建中引入 1import &#123; StorageService &#125; from '../../services/storage.service'; 在组建中使用 12345678910111213constructor(public service: StorageService) &#123; &#125;// 使用 addList(e: any) &#123; if (e.keyCode === 13) &#123; this.list.unshift(&#123; title: this.thing, status: false, &#125;); this.service.setStorage('userHistory', this.list); this.thing = ''; &#125; &#125;]]></content>
       <categories>
         <category>前端框架</category>
       </categories>
@@ -240,7 +240,8 @@
         <category>前端</category>
       </categories>
       <tags>
-        <tag>继承，前端基础</tag>
+        <tag>前端基础</tag>
+        <tag>继承</tag>
       </tags>
   </entry>
   <entry>
