@@ -1,6 +1,18 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title><![CDATA[Mockjs]]></title>
+    <url>%2F2019%2F09%2F04%2FMockjs%2F</url>
+    <content type="text"><![CDATA[Mockjs用于前端自己造加数据的库 文档:https://github.com/nuysoft/Mock/wiki 上车安装1npm i Mockjs -D vue 中使用 在 vue的 src 目录下面 新建一个 mock 文件夹，里面新建一个 index.js文件 在 index.js 文件下面导入 mockjs 包 1import Mock from 'mockjs' 将 index.js 导入到 main.js 1import './mock/' 用 mockjs 模拟 api 拦截 get 和 post 请求 用 Mock.mock() 模拟 api 接口 参数一： 接口地址，可选参数 参数二： 请求方式， 可选参数 参数三： 返回数据或者函数 拦截 get 请求12345678Mock.mock('aaa/bbb', 'get', &#123; status: 0, msg: 'ok', data: &#123; name: 'zhaozhaozhao', age: 22 &#125;&#125;) 拦截 post 请求1234567Mock.mock('/api/addgoods', 'post', function (options) &#123; console.log(options) return &#123; status: 0, msg: 'ok' &#125;&#125;) 函数的 option 参数为 提交的数据 用 mockjs 创造假数据文档写的很详细，不想重复累赘了]]></content>
+      <categories>
+        <category>前端</category>
+      </categories>
+      <tags>
+        <tag>mockjs</tag>
+        <tag>vue</tag>
+      </tags>
+  </entry>
+  <entry>
     <title><![CDATA[初窥Angular]]></title>
     <url>%2F2019%2F08%2F23%2FAngular%2F</url>
     <content type="text"><![CDATA[angular上车安装 脚手架 1npm i -g @angular/cli 创建项目 1ng new 项目名 启动 –open 设置自动启动浏览器 1ng serve --open 生成目录结构分析src目录 src:│ favicon.ico│ index.html│ main.ts│ polyfills.ts│ styles.less│ test.ts│├─app│ │ app-routing.module.ts // Angular 的路由模块│ │ app.component.html // Angular 的根html│ │ app.component.less // Angular 的根less│ │ app.component.spec.ts // 测试文件│ │ app.component.ts // 这是 Angular 的根组件模块│ │ app.module.ts // 这是 Angular 的 跟模块，配置了 Angular 加载什么应用│ ││ └─components // 自己创建的组件目录│ └─head // 自己创建的组件│ head.component.html│ head.component.less│ head.component.spec.ts│ head.component.ts│├─assets│ .gitkeep│└─environments environment.prod.ts environment.ts 简单使用创建组件在src 目录下面创建一个 components 文件夹 放入 head 组件 1ng g component components/head 使用这个命令会 自动 生成一个 head 组件的文件夹，里面由有四个文件分别是 head.component.html head.component.less head.component.spec.ts head.component.ts 这个文件了面配置了组件名称 同时还会在 app.module.ts 文件中 引入 和 使用 这个组件 使用组件在 Angular 的 html 文件中直接用&lt;组件名&gt;&lt;/组件名&gt; 使用组件 123456&lt;div class="" style = "text-align: center"&gt; hello Angular &lt;!-- 使用组件 --&gt; &lt;app-head&gt;&lt;/app-head&gt;&lt;/div&gt;&lt;router-outlet&gt;&lt;/router-outlet&gt; angular 和 vue 指令的对比 vue angular v-bind:title=’aaa’ [title]=’aaa’ v-html=’x’ [innerHTML]=’x’ v-for=”item in GoodsList” *ngFor=”let item of GoodsList” v-if *ngIf :class = ‘{‘name’: true}’ [ngClass] =’{‘name’: true}’ @click= ‘fn’ (click) = ‘fn()’ anuglar 的双向数据绑定 在 app.module.st 文件中引入 1import &#123;FormsModule&#125; from '@angular/forms'; 然后将其添加到 imports中 12345imports: [ // 配置当前模块运行依赖的其他模块 BrowserModule, AppRoutingModule, FormsModule ], 在使用的时候用[(ngModel)]=”input”来进行双向数据绑定 1&lt;input type="text" [(ngModel)]="input"&gt; angular 中的服务在服务中可以存储一些全局的方法或者属性，其他组建可以调用这些方法或者属性 创建服务1ng g service (位置: services/storage) 在服务中添加公共方法 123456789101112131415161718import &#123; Injectable &#125; from '@angular/core';@Injectable(&#123; providedIn: 'root'&#125;)export class StorageService &#123; constructor() &#123; &#125; setStorage(key: string, value: any) &#123; localStorage.setItem(key, JSON.stringify(value)); &#125; getStorage(key: string) &#123; return JSON.parse(localStorage.getItem(key)); &#125; reomveStorage(key: string) &#123; localStorage.removeItem(key); &#125;&#125; 在 app.module.ts 中引入及挂载1import &#123; StorageService &#125; from './services/storage.service'; 挂载 1providers: [StorageService], 在其他组建中使用在组建中引入 1import &#123; StorageService &#125; from '../../services/storage.service'; 在组建中使用 12345678910111213constructor(public service: StorageService) &#123; &#125;// 使用 addList(e: any) &#123; if (e.keyCode === 13) &#123; this.list.unshift(&#123; title: this.thing, status: false, &#125;); this.service.setStorage('userHistory', this.list); this.thing = ''; &#125; &#125; angular 中的 Dom 操作 以及 ViewChildangular 中 通过原生 js(ts) 操作 Dom在组建中使用 ngAfterViewInit生命周期函数，在函数中直接使用js操作Dom 123456ngAfterViewInit(): void &#123; const box1: any = document.querySelector('#box1'); box1.style.color = 'red'; const box2: any = document.querySelector('.box2'); box2.style.color = 'hotpink'; &#125; ngAfterViewInit 函数 指的是dom加载完成后的 生命周期函数 ngAfterViewInit 函数需要 实现于 AfterViewInit 接口，所以需要修改 1234import &#123; Component, OnInit, AfterViewInit &#125; from '@angular/core'export class DomComponent implements OnInit, AfterViewInit 用 ViewChild 获取 dom 节点定义html 节点 用 #xxx 为标记 123&lt;div #box3&gt; this is box3&lt;/div&gt; 使用 ViewChild 12345678 @ViewChild('box3', &#123; static: false &#125;) box3(随便的名字): ElementRef; constructor() &#123; &#125;// 使用ngAfterViewInit(): void &#123; this.box3.nativeElement.style.color = 'blue'; &#125; 用 ViewChild 获取子组件的属性和方法使用子组件 12345// 在父组件中使用子组件&lt;app-head #head&gt;&lt;/app-head&gt;// 父组件的 button&lt;button mat-button (click)="getChildFn()"&gt;获取子组件的方法&lt;/button&gt; ViewChild 获取子组件 123456// 注入@ViewChild('head', &#123;static: true&#125;) head: any;// 使用 getChildFn() &#123; this.head.print(); &#125; 这样就可以调用 子组件上的 print（） 方法 angular 中的父子组建，及组建间通信父传子父组件不仅可以给子组件传递简单的数据，也可以把自己的方法以及整个父组件传递给子组件 1. 父组件调用子组件的时候传入数据 1&lt;app-son [msg] = '传入的数据'&gt;&lt;/app-son&gt; 2. 子组件引入 Input 模块 1import &#123;Component, OnInit, Input&#125; from '@anuglar/core' 3. 子组件中用 @Inpit 接收父组件传递过来的数据 12345export class HeaderComponent inplements OnInint &#123; // 接收 父组件传入的值 @Input() msg: string &#125; 父组件分别向子组件传入数据，函数，和整个父组件的方法 12345678// 传入普通数据&lt;app-son [msg] = '传入的数据'&gt;&lt;/app-son&gt;// 传入一个函数&lt;app-son [run] = "这是父组件的一个函数"&gt;&lt;/app-son&gt;// 传入整个父组件&lt;app-son [father] = "this"&gt;&lt;/app-son&gt; 子传父用 ViewChild 获取子组件的数据 或 方法使用方法见上面的 用 ViewChild 获取子组件的属性和方法 子组件通过 @Output 触发父组件的方法（和vue的子传父有点像） 子组件引入 Output 和 EventEmitter 1import &#123; Component, OnInit, Output, EventEmitter &#125; from '@angular/core'; 子组件实例化EventEmitter 1@Output() private outer = new EventEmitter&lt;string&gt;(); 子组件通过 EventEmitter 对象 outer 实例广播对象 123sendParent() &#123; this.outer.emit('子组件的消息')&#125; 父组件调用子组件的时候，定义接收事件 ，outer 就是子组件的 EventEmitter 对象 outer 1&lt;app-son (outer) = "runParent($event)"&gt;&lt;/app-son&gt; 父组件接收到数据会调用自己的 runParent 方法，获取数据 123runParent(msg: string) &#123; alert(msg)&#125; 非父子组件传递 service（服务） localStorage]]></content>
@@ -297,8 +309,8 @@
         <category>前端</category>
       </categories>
       <tags>
-        <tag>bootstrap</tag>
         <tag>前端库</tag>
+        <tag>bootstrap</tag>
       </tags>
   </entry>
   <entry>
@@ -320,8 +332,8 @@
         <category>前端</category>
       </categories>
       <tags>
-        <tag>模板引擎</tag>
         <tag>前端库</tag>
+        <tag>模板引擎</tag>
       </tags>
   </entry>
   <entry>
