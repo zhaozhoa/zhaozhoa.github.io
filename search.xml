@@ -1,6 +1,17 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title><![CDATA[闭包总结]]></title>
+    <url>%2F2019%2F09%2F08%2F%E9%97%AD%E5%8C%85%E6%80%BB%E7%BB%93%2F</url>
+    <content type="text"><![CDATA[闭包函数的创建和执行过程函数的创建 开辟一个堆内存 把函数体中的代码当作字符串存储进去 把堆内存的地址赋值给函数名 函数在那创建，那么它执行的时候所需要查找的上级作用域就是谁 函数的执行 形成一个私有的作用域（执行上下文，私用的栈内存） 执行一次，产生一个，互不影响 参数赋值 &amp; 变量提升 代码执行 把堆内存中的字符串代码一行行执行 作用域链查找 遇到一个变量，先判断是否为私有变量（函数中声明的变量和形参是私有变量）如果是直接操作，不是向上级作用域查找，直到 window 私有变量和外界的变量没有必然关系，可以理解成被私有的栈内存保护 这就是闭包的保护级制 堆栈内存的释放问题 函数执行就会形成栈内存（在内存中分配空间），如果不及时销毁，会导致内存爆满也就是内存泄漏 堆内存的释放创建一个引用类型，就会形成一个堆内存，如果当前的堆内存不被引用，就会被浏览器给释放 12let obj = &#123;name: zhao&#125;let oop = obj 此时对象被 obj 和 oop 变量引用，所以不能释放 12obj = nulloop = null 此时 对象 不被引用，所以就会被释放 栈内存释放栈内存的形成方式 浏览器形成的全局作用域 执行时函数形成的私有作用域 let / const 形成的代码块 栈内存销毁方式 全局栈内存 关闭页面 函数私有栈内存 一般情况函数执行完，浏览器自动清除 一旦栈内存中的某个东西（一般是堆内存）被私有作用域以外的事物引用，则栈内存不能立即被销毁，私有作用域中的变量等信息得以保存，只有外部引用解除，才能被销毁 1234567function X() &#123; return function() &#123;...&#125;&#125; let f = X() // 此时 f 引用 X 中返回的函数，所以 X 在执行完不能释放 f = null //此时才可以 闭包 解释一： 函数形成的私用作用域就是闭包 解释二： 函数中的堆内存被私有作用域以外的变量引用，形成闭包 123456789101112let i = 5function fn(i) &#123; return function (n) &#123; console.log(n + (++i)) &#125;&#125;let f = fn(1)f(2) // 4fn(3)(4) // 8fn(5)(6) // 12f(7) // 10console.log(i) // 5 解释： 1let f = fn(1) 首先在栈内存中执行 fn 函数 返回 里面函数的栈内存地址，并将其赋值给 变量 f ，此时由于此时 变量 f 引用了栈内存中 fn 返回的 堆内存地址，此时的 fn 执行的 栈内存不销毁，同时变量 i 被保存。私有变量 i 此时是 1 1f(2) 调用 fn 返回的函数并传参 2 ，返回 结果为 2 + (++i) = 4 , 私有变量 i 同时变为 2 ，这时 返回的函数执行完毕，销毁，但是 fn 不销毁,变量 i也不销毁 1fn(3)(4) 再次执行 fn 则需要重新 开辟一个栈内存，先执行 fn(3)，再执行返回的函数，由于再这个栈内存中，没有什么引用 返回函数的堆地址，所以返回函数执行完后 fn() 和 返回函数都销毁 1fn(5)(6) 原理同上 1f(7) 此时 fn 函数 在栈中没有销毁，则返回的 为 7 + (++i) = 10; 变量 i 变为值 为 3]]></content>
+      <categories>
+        <category>前端</category>
+      </categories>
+      <tags>
+        <tag>前端基础</tag>
+      </tags>
+  </entry>
+  <entry>
     <title><![CDATA[Mockjs]]></title>
     <url>%2F2019%2F09%2F04%2FMockjs%2F</url>
     <content type="text"><![CDATA[Mockjs用于前端自己造加数据的库 文档:https://github.com/nuysoft/Mock/wiki 上车安装1npm i Mockjs -D vue 中使用 在 vue的 src 目录下面 新建一个 mock 文件夹，里面新建一个 index.js文件 在 index.js 文件下面导入 mockjs 包 1import Mock from 'mockjs' 将 index.js 导入到 main.js 1import './mock/' 用 mockjs 模拟 api 拦截 get 和 post 请求 用 Mock.mock() 模拟 api 接口 参数一： 接口地址，可选参数 参数二： 请求方式， 可选参数 参数三： 返回数据或者函数 拦截 get 请求12345678Mock.mock('aaa/bbb', 'get', &#123; status: 0, msg: 'ok', data: &#123; name: 'zhaozhaozhao', age: 22 &#125;&#125;) 拦截 post 请求1234567Mock.mock('/api/addgoods', 'post', function (options) &#123; console.log(options) return &#123; status: 0, msg: 'ok' &#125;&#125;) 函数的 option 参数为 提交的数据 用 mockjs 创造假数据文档写的很详细，不想重复累赘了]]></content>
@@ -355,8 +366,8 @@
         <category>移动端</category>
       </categories>
       <tags>
-        <tag>less</tag>
         <tag>rem</tag>
+        <tag>less</tag>
       </tags>
   </entry>
 </search>

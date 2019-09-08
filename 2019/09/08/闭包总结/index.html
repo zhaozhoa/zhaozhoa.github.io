@@ -103,16 +103,18 @@
 
 
 
-  <meta name="description" content="前端菜菜鸟">
-<meta property="og:type" content="website">
-<meta property="og:title" content="脚印">
-<meta property="og:url" content="https://zhaozhoa.github.com/archives/page/3/index.html">
+  <meta name="description" content="闭包函数的创建和执行过程函数的创建 开辟一个堆内存 把函数体中的代码当作字符串存储进去 把堆内存的地址赋值给函数名 函数在那创建，那么它执行的时候所需要查找的上级作用域就是谁  函数的执行 形成一个私有的作用域（执行上下文，私用的栈内存） 执行一次，产生一个，互不影响   参数赋值 &amp;amp;  变量提升 代码执行 把堆内存中的字符串代码一行行执行   作用域链查找 遇到一个变量，先判断是否为私有">
+<meta name="keywords" content="前端基础">
+<meta property="og:type" content="article">
+<meta property="og:title" content="闭包总结">
+<meta property="og:url" content="https://zhaozhoa.github.com/2019/09/08/闭包总结/index.html">
 <meta property="og:site_name" content="脚印">
-<meta property="og:description" content="前端菜菜鸟">
+<meta property="og:description" content="闭包函数的创建和执行过程函数的创建 开辟一个堆内存 把函数体中的代码当作字符串存储进去 把堆内存的地址赋值给函数名 函数在那创建，那么它执行的时候所需要查找的上级作用域就是谁  函数的执行 形成一个私有的作用域（执行上下文，私用的栈内存） 执行一次，产生一个，互不影响   参数赋值 &amp;amp;  变量提升 代码执行 把堆内存中的字符串代码一行行执行   作用域链查找 遇到一个变量，先判断是否为私有">
 <meta property="og:locale" content="zh-CN">
+<meta property="og:updated_time" content="2019-09-08T15:30:45.717Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="脚印">
-<meta name="twitter:description" content="前端菜菜鸟">
+<meta name="twitter:title" content="闭包总结">
+<meta name="twitter:description" content="闭包函数的创建和执行过程函数的创建 开辟一个堆内存 把函数体中的代码当作字符串存储进去 把堆内存的地址赋值给函数名 函数在那创建，那么它执行的时候所需要查找的上级作用域就是谁  函数的执行 形成一个私有的作用域（执行上下文，私用的栈内存） 执行一次，产生一个，互不影响   参数赋值 &amp;amp;  变量提升 代码执行 把堆内存中的字符串代码一行行执行   作用域链查找 遇到一个变量，先判断是否为私有">
 
 
 
@@ -121,7 +123,7 @@
 
 
 
-  <link rel="canonical" href="https://zhaozhoa.github.com/archives/page/3/">
+  <link rel="canonical" href="https://zhaozhoa.github.com/2019/09/08/闭包总结/">
 
 
 
@@ -131,7 +133,7 @@
   };
 </script>
 
-  <title>归档 | 脚印</title>
+  <title>闭包总结 | 脚印</title>
   
 
 
@@ -179,7 +181,7 @@
     
   
 
-  <div class="container sidebar-position-left page-archive">
+  <div class="container sidebar-position-left page-post-detail">
     <div class="headband"></div>
 
     <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
@@ -268,7 +270,7 @@
         
         
           
-          <li class="menu-item menu-item-archives menu-item-active">
+          <li class="menu-item menu-item-archives">
 
     
     
@@ -339,419 +341,315 @@
           
             
 
-    
-    
-      
-      
-    
-      
-      
-    
-      
-      
-    
-      
-      
-    
-    
-
-  
-
-
           
           <div id="content" class="content">
             
 
+  <div id="posts" class="posts-expand">
+    
+
+  
+
   
   
   
-  <div class="post-block archive">
-    <div id="posts" class="posts-collapse">
-      <span class="archive-move-on"></span>
 
-      
-      <span class="archive-page-counter">
-        
-        
-         
-        
-        还行! 目前共计 33 篇日志。 继续努力。
-      </span>
-      
+  
 
-      
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://zhaozhoa.github.com/2019/09/08/闭包总结/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="张朝">
+      <meta itemprop="description" content="前端菜菜鸟">
+      <meta itemprop="image" content="/images/avatar.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="脚印">
+    </span>
+
+    
+      <header class="post-header">
 
         
         
+          <h1 class="post-title" itemprop="name headline">闭包总结
+
+              
+            
+          </h1>
         
 
-        
+        <div class="post-meta">
+          <span class="post-time">
+
+            
+            
+            
+
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+
+              
+                
+              
+
+              <time title="创建时间：2019-09-08 20:46:17 / 修改时间：23:30:45" itemprop="dateCreated datePublished" datetime="2019-09-08T20:46:17+08:00">2019-09-08</time>
+            
+
+            
+              
+
+              
+            
+          </span>
+
           
-          <div class="collection-title">
-            <h1 class="archive-year" id="archive-year-2019">2019</h1>
-          </div>
-        
-        
-
-        
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <h2 class="post-title">
-        
-          <a class="post-title-link" href="/2019/03/29/canvas/" itemprop="url">
+            <span class="post-category">
             
-              <span itemprop="name">canvas</span>
+              <span class="post-meta-divider">|</span>
             
-          </a>
-        
-      </h2>
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/前端/" itemprop="url" rel="index"><span itemprop="name">前端</span></a></span>
 
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated" datetime="2019-03-29T17:29:39+08:00" content="2019-03-29">
-          03-29
-        </time>
-      </div>
+                
+                
+              
+            </span>
+          
 
-    </header>
-  </article>
+          
+            
+            
+          
 
+          
+          
 
+          
+
+          
+            <div class="post-symbolscount">
+              
+
+              
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-file-word-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">本文字数：</span>
+                
+                <span title="本文字数">1.5k</span>
+              
+
+              
+                <span class="post-meta-divider">|</span>
+              
+
+              
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-clock-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">阅读时长 &asymp;</span>
+                
+                <span title="阅读时长">1 分钟</span>
+              
+            </div>
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
 
       
-
-        
-        
-        
-
-        
-        
-
-        
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <h2 class="post-title">
-        
-          <a class="post-title-link" href="/2019/03/24/缓存和多进程/" itemprop="url">
-            
-              <span itemprop="name">缓存和多进程</span>
-            
-          </a>
-        
-      </h2>
-
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated" datetime="2019-03-24T18:58:01+08:00" content="2019-03-24">
-          03-24
-        </time>
-      </div>
-
-    </header>
-  </article>
-
-
-
       
 
-        
-        
-        
-
-        
-        
-
-        
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <h2 class="post-title">
-        
-          <a class="post-title-link" href="/2019/03/23/流与压缩/" itemprop="url">
-            
-              <span itemprop="name">流与压缩</span>
-            
-          </a>
-        
-      </h2>
-
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated" datetime="2019-03-23T20:47:42+08:00" content="2019-03-23">
-          03-23
-        </time>
-      </div>
-
-    </header>
-  </article>
-
-
+      
+        <h1 id="闭包"><a href="#闭包" class="headerlink" title="闭包"></a>闭包</h1><h2 id="函数的创建和执行过程"><a href="#函数的创建和执行过程" class="headerlink" title="函数的创建和执行过程"></a>函数的创建和执行过程</h2><h3 id="函数的创建"><a href="#函数的创建" class="headerlink" title="函数的创建"></a>函数的创建</h3><ul>
+<li>开辟一个<code>堆内存</code></li>
+<li>把函数体中的代码当作字符串存储进去</li>
+<li>把堆内存的地址赋值给函数名</li>
+<li>函数在那创建，那么它执行的时候所需要查找的上级作用域就是谁</li>
+</ul>
+<h3 id="函数的执行"><a href="#函数的执行" class="headerlink" title="函数的执行"></a>函数的执行</h3><ul>
+<li>形成一个私有的作用域（执行上下文，私用的<code>栈内存</code>）<ul>
+<li>执行一次，产生一个，互不影响</li>
+</ul>
+</li>
+<li>参数赋值 &amp;  变量提升</li>
+<li>代码执行<ul>
+<li>把堆内存中的字符串代码一行行执行</li>
+</ul>
+</li>
+<li>作用域链查找<ul>
+<li>遇到一个变量，先判断是否为私有变量（函数中声明的变量和形参是私有变量）如果是直接操作，不是向上级作用域查找，直到 window</li>
+</ul>
+</li>
+</ul>
+<p>私有变量和外界的变量没有必然关系，可以理解成被私有的栈内存保护 这就是<strong>闭包的保护级制</strong></p>
+<h2 id="堆栈内存的释放问题"><a href="#堆栈内存的释放问题" class="headerlink" title="堆栈内存的释放问题"></a>堆栈内存的释放问题</h2><blockquote>
+<p>函数执行就会形成栈内存（在内存中分配空间），如果不及时销毁，会导致内存爆满也就是内存泄漏</p>
+</blockquote>
+<h3 id="堆内存的释放"><a href="#堆内存的释放" class="headerlink" title="堆内存的释放"></a>堆内存的释放</h3><p>创建一个引用类型，就会形成一个堆内存，如果当前的堆内存不被引用，就会被浏览器给释放</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> obj = &#123;<span class="attr">name</span>: zhao&#125;</span><br><span class="line"><span class="keyword">let</span> oop = obj</span><br></pre></td></tr></table></figure>
+<p>此时对象被 obj 和 oop  变量引用，所以不能释放</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">obj = <span class="literal">null</span></span><br><span class="line">oop = <span class="literal">null</span></span><br></pre></td></tr></table></figure>
+<p>此时 对象 不被引用，所以就会被释放</p>
+<h3 id="栈内存释放"><a href="#栈内存释放" class="headerlink" title="栈内存释放"></a>栈内存释放</h3><h4 id="栈内存的形成方式"><a href="#栈内存的形成方式" class="headerlink" title="栈内存的形成方式"></a>栈内存的形成方式</h4><ul>
+<li>浏览器形成的全局作用域</li>
+<li>执行时函数形成的私有作用域</li>
+<li>let / const 形成的代码块</li>
+</ul>
+<h4 id="栈内存销毁方式"><a href="#栈内存销毁方式" class="headerlink" title="栈内存销毁方式"></a>栈内存销毁方式</h4><ul>
+<li>全局栈内存<ul>
+<li>关闭页面</li>
+</ul>
+</li>
+<li>函数私有栈内存<ul>
+<li>一般情况函数执行完，浏览器自动清除</li>
+<li>一旦栈内存中的某个东西（一般是堆内存）被私有作用域以外的事物引用，则栈内存不能立即被销毁，私有作用域中的变量等信息得以保存，只有外部引用解除，才能被销毁</li>
+</ul>
+</li>
+</ul>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">X</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">  <span class="keyword">return</span> <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;...&#125;</span><br><span class="line">&#125;</span><br><span class="line">  </span><br><span class="line"> <span class="keyword">let</span> f = X() <span class="comment">// 此时 f 引用 X 中返回的函数，所以 X 在执行完不能释放</span></span><br><span class="line"> </span><br><span class="line"> f = <span class="literal">null</span> <span class="comment">//此时才可以</span></span><br></pre></td></tr></table></figure>
+<h2 id="闭包-1"><a href="#闭包-1" class="headerlink" title="闭包"></a>闭包</h2><blockquote>
+<p>解释一： 函数形成的私用作用域就是闭包</p>
+<p>解释二： 函数中的堆内存被私有作用域以外的变量引用，形成闭包</p>
+</blockquote>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> i = <span class="number">5</span></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">fn</span>(<span class="params">i</span>) </span>&#123;</span><br><span class="line">  <span class="keyword">return</span> <span class="function"><span class="keyword">function</span> (<span class="params">n</span>) </span>&#123;</span><br><span class="line">    <span class="built_in">console</span>.log(n + (++i))</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">let</span> f = fn(<span class="number">1</span>)</span><br><span class="line">f(<span class="number">2</span>) <span class="comment">// 4</span></span><br><span class="line">fn(<span class="number">3</span>)(<span class="number">4</span>) <span class="comment">// 8</span></span><br><span class="line">fn(<span class="number">5</span>)(<span class="number">6</span>) <span class="comment">// 12</span></span><br><span class="line">f(<span class="number">7</span>) <span class="comment">// 10</span></span><br><span class="line"><span class="built_in">console</span>.log(i) <span class="comment">// 5</span></span><br></pre></td></tr></table></figure>
+<p><strong>解释：</strong></p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> f = fn(<span class="number">1</span>)</span><br></pre></td></tr></table></figure>
+<p>首先在栈内存中执行 fn 函数 返回 里面函数的栈内存地址，并将其赋值给 变量 f ，此时由于此时 变量 f 引用了栈内存中 fn 返回的 堆内存地址，此时的 fn 执行的 栈内存<code>不销毁，同时变量 i 被保存</code>。私有变量 i 此时是 1</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">f(<span class="number">2</span>)</span><br></pre></td></tr></table></figure>
+<p>调用 fn 返回的函数并传参 2 ，返回 结果为 2 + (++i) = 4 , 私有变量 i 同时变为 2 ，这时 <code>返回的函数执行完毕，销毁</code>，但是 <code>fn 不销毁,变量 i也不销毁</code></p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">fn(<span class="number">3</span>)(<span class="number">4</span>)</span><br></pre></td></tr></table></figure>
+<p>再次执行 fn 则需要重新 开辟一个栈内存，先执行 fn(3)，再执行返回的函数，由于再这个栈内存中，没有什么引用 返回函数的堆地址，所以返回函数执行完后 <code>fn() 和 返回函数都销毁</code></p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">fn(<span class="number">5</span>)(<span class="number">6</span>)</span><br></pre></td></tr></table></figure>
+<p>原理同上</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">f(<span class="number">7</span>)</span><br></pre></td></tr></table></figure>
+<p>此时 fn 函数  在栈中没有销毁，则返回的 为 7 + (++i) = 10; 变量 i 变为值 为 3</p>
 
       
-
-        
-        
-        
-
-        
-        
-
-        
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <h2 class="post-title">
-        
-          <a class="post-title-link" href="/2019/03/23/继承/" itemprop="url">
-            
-              <span itemprop="name">继承</span>
-            
-          </a>
-        
-      </h2>
-
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated" datetime="2019-03-23T10:43:35+08:00" content="2019-03-23">
-          03-23
-        </time>
-      </div>
-
-    </header>
-  </article>
-
-
-
-      
-
-        
-        
-        
-
-        
-        
-
-        
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <h2 class="post-title">
-        
-          <a class="post-title-link" href="/2019/03/23/原型及原型链/" itemprop="url">
-            
-              <span itemprop="name">原型及原型链</span>
-            
-          </a>
-        
-      </h2>
-
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated" datetime="2019-03-23T10:37:03+08:00" content="2019-03-23">
-          03-23
-        </time>
-      </div>
-
-    </header>
-  </article>
-
-
-
-      
-
-        
-        
-        
-
-        
-        
-
-        
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <h2 class="post-title">
-        
-          <a class="post-title-link" href="/2019/03/20/数据通信/" itemprop="url">
-            
-              <span itemprop="name">ajax的封装</span>
-            
-          </a>
-        
-      </h2>
-
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated" datetime="2019-03-20T08:41:08+08:00" content="2019-03-20">
-          03-20
-        </time>
-      </div>
-
-    </header>
-  </article>
-
-
-
-      
-
-        
-        
-        
-
-        
-        
-
-        
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <h2 class="post-title">
-        
-          <a class="post-title-link" href="/2019/03/12/计算机组成原理/" itemprop="url">
-            
-              <span itemprop="name">计算机组成原理</span>
-            
-          </a>
-        
-      </h2>
-
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated" datetime="2019-03-12T20:45:05+08:00" content="2019-03-12">
-          03-12
-        </time>
-      </div>
-
-    </header>
-  </article>
-
-
-
-      
-
-        
-        
-        
-
-        
-        
-
-        
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <h2 class="post-title">
-        
-          <a class="post-title-link" href="/2019/03/08/移动端轮播图/" itemprop="url">
-            
-              <span itemprop="name">移动端轮播图</span>
-            
-          </a>
-        
-      </h2>
-
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated" datetime="2019-03-08T18:28:59+08:00" content="2019-03-08">
-          03-08
-        </time>
-      </div>
-
-    </header>
-  </article>
-
-
-
-      
-
-        
-        
-        
-
-        
-        
-
-        
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <h2 class="post-title">
-        
-          <a class="post-title-link" href="/2019/03/06/bootstrap常见组建/" itemprop="url">
-            
-              <span itemprop="name">bootstrap 常见组件</span>
-            
-          </a>
-        
-      </h2>
-
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated" datetime="2019-03-06T11:30:20+08:00" content="2019-03-06">
-          03-06
-        </time>
-      </div>
-
-    </header>
-  </article>
-
-
-
-      
-
-        
-        
-        
-
-        
-        
-
-        
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <h2 class="post-title">
-        
-          <a class="post-title-link" href="/2019/03/05/数据的获取和转换/" itemprop="url">
-            
-              <span itemprop="name">数据的获取和转换</span>
-            
-          </a>
-        
-      </h2>
-
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated" datetime="2019-03-05T16:06:15+08:00" content="2019-03-05">
-          03-05
-        </time>
-      </div>
-
-    </header>
-  </article>
-
-
-
-      
-
     </div>
+
+    
+
+    
+    
+    
+
+    
+
+    
+      
+    
+    
+      <div>
+        <div style="padding: 10px 0; margin: 20px auto; width: 90%; text-align: center;">
+  <div>求大佬赏饭</div>
+  <button id="rewardButton" disable="enable" onclick="var qr = document.getElementById(&quot;QR&quot;); if (qr.style.display === 'none') {qr.style.display='block';} else {qr.style.display='none'}">
+    <span>打赏</span>
+  </button>
+  <div id="QR" style="display: none;">
+
+    
+      <div id="wechat" style="display: inline-block">
+        <img id="wechat_qr" src="/images/wechatpay.jpg" alt="张朝 微信支付">
+        <p>微信支付</p>
+      </div>
+    
+
+    
+      <div id="alipay" style="display: inline-block">
+        <img id="alipay_qr" src="/images/alipay.jpg" alt="张朝 支付宝">
+        <p>支付宝</p>
+      </div>
+    
+
+    
+
+  </div>
+</div>
+
+      </div>
+    
+
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/前端基础/" rel="tag"># 前端基础</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2019/09/04/Mockjs/" rel="next" title="Mockjs">
+                <i class="fa fa-chevron-left"></i> Mockjs
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
   </div>
   
   
   
-
-  
-  <nav class="pagination">
-    <a class="extend prev" rel="prev" href="/archives/page/2/"><i class="fa fa-angle-left" aria-label="上一页"></i></a><a class="page-number" href="/archives/">1</a><a class="page-number" href="/archives/page/2/">2</a><span class="page-number current">3</span><a class="page-number" href="/archives/page/4/">4</a><a class="extend next" rel="next" href="/archives/page/4/"><i class="fa fa-angle-right" aria-label="下一页"></i></a>
-  </nav>
+  </article>
 
 
+  </div>
 
 
           </div>
           
+
+  
+
+
 
         </div>
         
@@ -771,8 +669,17 @@
       
 
       
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
 
-      <div class="site-overview-wrap sidebar-panel sidebar-panel-active">
+      <div class="site-overview-wrap sidebar-panel">
         <div class="site-overview">
           <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
             
@@ -987,6 +894,23 @@
       </div>
 
       
+      <!--noindex-->
+        <div class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+            
+            
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#闭包"><span class="nav-number">1.</span> <span class="nav-text">闭包</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#函数的创建和执行过程"><span class="nav-number">1.1.</span> <span class="nav-text">函数的创建和执行过程</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#函数的创建"><span class="nav-number">1.1.1.</span> <span class="nav-text">函数的创建</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#函数的执行"><span class="nav-number">1.1.2.</span> <span class="nav-text">函数的执行</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#堆栈内存的释放问题"><span class="nav-number">1.2.</span> <span class="nav-text">堆栈内存的释放问题</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#堆内存的释放"><span class="nav-number">1.2.1.</span> <span class="nav-text">堆内存的释放</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#栈内存释放"><span class="nav-number">1.2.2.</span> <span class="nav-text">栈内存释放</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#栈内存的形成方式"><span class="nav-number">1.2.2.1.</span> <span class="nav-text">栈内存的形成方式</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#栈内存销毁方式"><span class="nav-number">1.2.2.2.</span> <span class="nav-text">栈内存销毁方式</span></a></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#闭包-1"><span class="nav-number">1.3.</span> <span class="nav-text">闭包</span></a></li></ol></li></ol></div>
+            
+
+          </div>
+        </div>
+      <!--/noindex-->
+      
 
       
         <div class="back-to-top">
@@ -1133,6 +1057,10 @@
 
 
   
+  <script src="/js/src/scrollspy.js?v=7.0.1"></script>
+<script src="/js/src/post-details.js?v=7.0.1"></script>
+
+
 
   
 
@@ -1143,6 +1071,8 @@
   
   
 
+
+  
 
 
   
