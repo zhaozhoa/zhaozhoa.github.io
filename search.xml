@@ -1,6 +1,17 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title><![CDATA[双向数据绑定原理]]></title>
+    <url>%2F2019%2F09%2F09%2F%E5%8F%8C%E5%90%91%E6%95%B0%E6%8D%AE%E7%BB%91%E5%AE%9A%E5%8E%9F%E7%90%86%2F</url>
+    <content type="text"><![CDATA[Vue 中双向数据绑定的原理利用 Object.defineProperty() 方法实现双向数据绑定 Object.defineProperty(obj, prop, descriptor)方法会直接在一个对象上定义一个新属性，或者修改一个对象的现有属性， 并返回这个对象 obj ：要在其上定义属性的对象。 prop：要定义或修改的属性的名称 descriptor：将被定义或修改的属性描述符。 descriptor 为一个对象，有两个方法get 和 set 当 获取 对象上的属性时触发 get方法 添加对象属性时 触发 set 方法 123456789101112131415161718192021222324&lt;body&gt; &lt;input type="text" id="userName"&gt;&lt;br&gt; &lt;span id="uName"&gt;&lt;/span&gt; &lt;script&gt; let obj = &#123; pwd: 123456 &#125; Object.defineProperty(obj, 'userName', &#123; get()&#123; console.log("get init") &#125;, // vul 为添加属性的值 set(val) &#123; console.log('set init'); document.querySelector('#uName').innerHTML = val document.querySelector('#userName').value = val &#125; &#125;) document.querySelector('#userName').addEventListener('keyup', (event) =&gt; &#123; obj.userName = event.target.value &#125;) &lt;/script&gt;&lt;/body&gt; 分析 : 当键盘按下时，修改 obj 对象的 userName 属性， 触发 set 事件 给 文本框添加innerHtml，实现 页面的改变影响 js 内存的改变 当 浏览器控制台 修改obj.userName 时， 会改变文本框的 innerHTML和 span 的 value ，实现 js 内存属性的改变，影响页面的变化]]></content>
+      <categories>
+        <category>前端框架</category>
+      </categories>
+      <tags>
+        <tag>vue</tag>
+      </tags>
+  </entry>
+  <entry>
     <title><![CDATA[闭包总结]]></title>
     <url>%2F2019%2F09%2F08%2F%E9%97%AD%E5%8C%85%E6%80%BB%E7%BB%93%2F</url>
     <content type="text"><![CDATA[闭包函数的创建和执行过程函数的创建 开辟一个堆内存 把函数体中的代码当作字符串存储进去 把堆内存的地址赋值给函数名 函数在那创建，那么它执行的时候所需要查找的上级作用域就是谁 函数的执行 形成一个私有的作用域（执行上下文，私用的栈内存） 执行一次，产生一个，互不影响 参数赋值 &amp; 变量提升 代码执行 把堆内存中的字符串代码一行行执行 作用域链查找 遇到一个变量，先判断是否为私有变量（函数中声明的变量和形参是私有变量）如果是直接操作，不是向上级作用域查找，直到 window 私有变量和外界的变量没有必然关系，可以理解成被私有的栈内存保护 这就是闭包的保护级制 堆栈内存的释放问题 函数执行就会形成栈内存（在内存中分配空间），如果不及时销毁，会导致内存爆满也就是内存泄漏 堆内存的释放创建一个引用类型，就会形成一个堆内存，如果当前的堆内存不被引用，就会被浏览器给释放 12let obj = &#123;name: zhao&#125;let oop = obj 此时对象被 obj 和 oop 变量引用，所以不能释放 12obj = nulloop = null 此时 对象 不被引用，所以就会被释放 栈内存释放栈内存的形成方式 浏览器形成的全局作用域 执行时函数形成的私有作用域 let / const 形成的代码块 栈内存销毁方式 全局栈内存 关闭页面 函数私有栈内存 一般情况函数执行完，浏览器自动清除 一旦栈内存中的某个东西（一般是堆内存）被私有作用域以外的事物引用，则栈内存不能立即被销毁，私有作用域中的变量等信息得以保存，只有外部引用解除，才能被销毁 1234567function X() &#123; return function() &#123;...&#125;&#125; let f = X() // 此时 f 引用 X 中返回的函数，所以 X 在执行完不能释放 f = null //此时才可以 闭包 解释一： 函数形成的私用作用域就是闭包 解释二： 函数中的堆内存被私有作用域以外的变量引用，形成闭包 123456789101112let i = 5function fn(i) &#123; return function (n) &#123; console.log(n + (++i)) &#125;&#125;let f = fn(1)f(2) // 4fn(3)(4) // 8fn(5)(6) // 12f(7) // 10console.log(i) // 5 解释： 1let f = fn(1) 首先在栈内存中执行 fn 函数 返回 里面函数的栈内存地址，并将其赋值给 变量 f ，此时由于此时 变量 f 引用了栈内存中 fn 返回的 堆内存地址，此时的 fn 执行的 栈内存不销毁，同时变量 i 被保存。私有变量 i 此时是 1 1f(2) 调用 fn 返回的函数并传参 2 ，返回 结果为 2 + (++i) = 4 , 私有变量 i 同时变为 2 ，这时 返回的函数执行完毕，销毁，但是 fn 不销毁,变量 i也不销毁 1fn(3)(4) 再次执行 fn 则需要重新 开辟一个栈内存，先执行 fn(3)，再执行返回的函数，由于再这个栈内存中，没有什么引用 返回函数的堆地址，所以返回函数执行完后 fn() 和 返回函数都销毁 1fn(5)(6) 原理同上 1f(7) 此时 fn 函数 在栈中没有销毁，则返回的 为 7 + (++i) = 10; 变量 i 变为值 为 3]]></content>
@@ -19,8 +30,8 @@
         <category>前端</category>
       </categories>
       <tags>
-        <tag>mockjs</tag>
         <tag>vue</tag>
+        <tag>mockjs</tag>
       </tags>
   </entry>
   <entry>

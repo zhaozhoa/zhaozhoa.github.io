@@ -103,16 +103,18 @@
 
 
 
-  <meta name="description" content="前端菜菜鸟">
-<meta property="og:type" content="website">
-<meta property="og:title" content="脚印">
-<meta property="og:url" content="https://zhaozhoa.github.com/tags/linux/index.html">
+  <meta name="description" content="Vue 中双向数据绑定的原理利用 Object.defineProperty() 方法实现双向数据绑定 Object.defineProperty(obj, prop, descriptor)方法会直接在一个对象上定义一个新属性，或者修改一个对象的现有属性， 并返回这个对象  obj ：要在其上定义属性的对象。 prop：要定义或修改的属性的名称 descriptor：将被定义或修改的属性描述符。">
+<meta name="keywords" content="vue">
+<meta property="og:type" content="article">
+<meta property="og:title" content="双向数据绑定原理">
+<meta property="og:url" content="https://zhaozhoa.github.com/2019/09/09/双向数据绑定原理/index.html">
 <meta property="og:site_name" content="脚印">
-<meta property="og:description" content="前端菜菜鸟">
+<meta property="og:description" content="Vue 中双向数据绑定的原理利用 Object.defineProperty() 方法实现双向数据绑定 Object.defineProperty(obj, prop, descriptor)方法会直接在一个对象上定义一个新属性，或者修改一个对象的现有属性， 并返回这个对象  obj ：要在其上定义属性的对象。 prop：要定义或修改的属性的名称 descriptor：将被定义或修改的属性描述符。">
 <meta property="og:locale" content="zh-CN">
+<meta property="og:updated_time" content="2019-09-09T07:36:59.014Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="脚印">
-<meta name="twitter:description" content="前端菜菜鸟">
+<meta name="twitter:title" content="双向数据绑定原理">
+<meta name="twitter:description" content="Vue 中双向数据绑定的原理利用 Object.defineProperty() 方法实现双向数据绑定 Object.defineProperty(obj, prop, descriptor)方法会直接在一个对象上定义一个新属性，或者修改一个对象的现有属性， 并返回这个对象  obj ：要在其上定义属性的对象。 prop：要定义或修改的属性的名称 descriptor：将被定义或修改的属性描述符。">
 
 
 
@@ -121,7 +123,7 @@
 
 
 
-  <link rel="canonical" href="https://zhaozhoa.github.com/tags/linux/">
+  <link rel="canonical" href="https://zhaozhoa.github.com/2019/09/09/双向数据绑定原理/">
 
 
 
@@ -131,7 +133,7 @@
   };
 </script>
 
-  <title>标签: linux | 脚印</title>
+  <title>双向数据绑定原理 | 脚印</title>
   
 
 
@@ -179,7 +181,7 @@
     
   
 
-  <div class="container sidebar-position-left ">
+  <div class="container sidebar-position-left page-post-detail">
     <div class="headband"></div>
 
     <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
@@ -234,7 +236,7 @@
         
         
           
-          <li class="menu-item menu-item-tags menu-item-active">
+          <li class="menu-item menu-item-tags">
 
     
     
@@ -339,80 +341,268 @@
           
             
 
-    
-    
-      
-      
-    
-      
-      
-    
-      
-      
-    
-      
-      
-    
-    
-
-  
-
-
           
           <div id="content" class="content">
             
 
-  
-  
-  
-  <div class="post-block tag">
+  <div id="posts" class="posts-expand">
+    
 
-    <div id="posts" class="posts-collapse">
-      <div class="collection-title">
-        <h1>linux<small>标签</small>
-        </h1>
-      </div>
+  
 
-      
-        
+  
+  
+  
+
+  
 
   <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://zhaozhoa.github.com/2019/09/09/双向数据绑定原理/">
 
-      <h2 class="post-title">
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="张朝">
+      <meta itemprop="description" content="前端菜菜鸟">
+      <meta itemprop="image" content="/images/avatar.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="脚印">
+    </span>
+
+    
+      <header class="post-header">
+
         
-          <a class="post-title-link" href="/2019/05/23/服务部署/" itemprop="url">
-            
-              <span itemprop="name">服务部署</span>
-            
-          </a>
         
-      </h2>
+          <h1 class="post-title" itemprop="name headline">双向数据绑定原理
 
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated" datetime="2019-05-23T20:51:04+08:00" content="2019-05-23">
-          05-23
-        </time>
-      </div>
+              
+            
+          </h1>
+        
 
-    </header>
-  </article>
+        <div class="post-meta">
+          <span class="post-time">
 
+            
+            
+            
+
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+
+              
+                
+              
+
+              <time title="创建时间：2019-09-09 15:35:25 / 修改时间：15:36:59" itemprop="dateCreated datePublished" datetime="2019-09-09T15:35:25+08:00">2019-09-09</time>
+            
+
+            
+              
+
+              
+            
+          </span>
+
+          
+            <span class="post-category">
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/前端框架/" itemprop="url" rel="index"><span itemprop="name">前端框架</span></a></span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+            
+          
+
+          
+          
+
+          
+
+          
+            <div class="post-symbolscount">
+              
+
+              
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-file-word-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">本文字数：</span>
+                
+                <span title="本文字数">1.1k</span>
+              
+
+              
+                <span class="post-meta-divider">|</span>
+              
+
+              
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-clock-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">阅读时长 &asymp;</span>
+                
+                <span title="阅读时长">1 分钟</span>
+              
+            </div>
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <h1 id="Vue-中双向数据绑定的原理"><a href="#Vue-中双向数据绑定的原理" class="headerlink" title="Vue 中双向数据绑定的原理"></a>Vue 中双向数据绑定的原理</h1><p>利用 <code>Object.defineProperty()</code> 方法实现双向数据绑定</p>
+<p><code>Object.defineProperty(obj, prop, descriptor)</code>方法会直接在一个对象上定义一个新属性，或者修改一个对象的现有属性， 并返回这个对象</p>
+<ul>
+<li>obj ：要在其上定义属性的对象。</li>
+<li>prop：要定义或修改的属性的名称</li>
+<li>descriptor：将被定义或修改的属性描述符。<ul>
+<li>descriptor 为一个对象，有两个方法get 和 set</li>
+<li>当 获取 对象上的属性时触发 get方法</li>
+<li>添加对象属性时 触发 set 方法</li>
+</ul>
+</li>
+</ul>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line">&lt;body&gt;</span><br><span class="line">  &lt;input type=<span class="string">"text"</span> id=<span class="string">"userName"</span>&gt;<span class="xml"><span class="tag">&lt;<span class="name">br</span>&gt;</span></span></span><br><span class="line"><span class="xml">  <span class="tag">&lt;<span class="name">span</span> <span class="attr">id</span>=<span class="string">"uName"</span>&gt;</span><span class="tag">&lt;/<span class="name">span</span>&gt;</span></span></span><br><span class="line">  &lt;script&gt;</span><br><span class="line">  let obj = &#123;</span><br><span class="line">    pwd: 123456</span><br><span class="line">  &#125;</span><br><span class="line">  Object.defineProperty(obj, 'userName', &#123;</span><br><span class="line">    get()&#123;</span><br><span class="line">      console.log("get init")</span><br><span class="line">    &#125;,</span><br><span class="line">    // vul 为添加属性的值</span><br><span class="line">    set(val) &#123;</span><br><span class="line">      console.log('set init');</span><br><span class="line">      document.querySelector('#uName').innerHTML = val</span><br><span class="line">      document.querySelector('#userName').value = val</span><br><span class="line">      </span><br><span class="line">    &#125;</span><br><span class="line">  &#125;)</span><br><span class="line">  document.querySelector('#userName').addEventListener('keyup', (event) =&gt; &#123;</span><br><span class="line">    obj.userName = event.target.value</span><br><span class="line">  &#125;)</span><br><span class="line"><span class="xml">  <span class="tag">&lt;/<span class="name">script</span>&gt;</span></span></span><br><span class="line"><span class="xml"><span class="tag">&lt;/<span class="name">body</span>&gt;</span></span></span><br></pre></td></tr></table></figure>
+<p><strong>分析 :</strong> 当键盘按下时，修改 obj 对象的 userName 属性， 触发 set 事件</p>
+<p>给 文本框添加innerHtml，实现 <code>页面的改变影响 js 内存的改变</code></p>
+<p>当 浏览器控制台 修改obj.userName 时， 会改变文本框的 innerHTML和 span 的 value ，实现 <code>js 内存属性的改变，影响页面的变化</code></p>
 
       
     </div>
 
+    
+
+    
+    
+    
+
+    
+
+    
+      
+    
+    
+      <div>
+        <div style="padding: 10px 0; margin: 20px auto; width: 90%; text-align: center;">
+  <div>求大佬赏饭</div>
+  <button id="rewardButton" disable="enable" onclick="var qr = document.getElementById(&quot;QR&quot;); if (qr.style.display === 'none') {qr.style.display='block';} else {qr.style.display='none'}">
+    <span>打赏</span>
+  </button>
+  <div id="QR" style="display: none;">
+
+    
+      <div id="wechat" style="display: inline-block">
+        <img id="wechat_qr" src="/images/wechatpay.jpg" alt="张朝 微信支付">
+        <p>微信支付</p>
+      </div>
+    
+
+    
+      <div id="alipay" style="display: inline-block">
+        <img id="alipay_qr" src="/images/alipay.jpg" alt="张朝 支付宝">
+        <p>支付宝</p>
+      </div>
+    
+
+    
+
+  </div>
+</div>
+
+      </div>
+    
+
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/vue/" rel="tag"># vue</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2019/09/08/闭包总结/" rel="next" title="闭包总结">
+                <i class="fa fa-chevron-left"></i> 闭包总结
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
   </div>
   
   
   
+  </article>
 
-  
 
+  </div>
 
 
           </div>
           
+
+  
+
+
 
         </div>
         
@@ -432,8 +622,17 @@
       
 
       
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
 
-      <div class="site-overview-wrap sidebar-panel sidebar-panel-active">
+      <div class="site-overview-wrap sidebar-panel">
         <div class="site-overview">
           <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
             
@@ -648,6 +847,23 @@
       </div>
 
       
+      <!--noindex-->
+        <div class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+            
+            
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#Vue-中双向数据绑定的原理"><span class="nav-number">1.</span> <span class="nav-text">Vue 中双向数据绑定的原理</span></a></li></ol></div>
+            
+
+          </div>
+        </div>
+      <!--/noindex-->
+      
 
       
         <div class="back-to-top">
@@ -794,6 +1010,10 @@
 
 
   
+  <script src="/js/src/scrollspy.js?v=7.0.1"></script>
+<script src="/js/src/post-details.js?v=7.0.1"></script>
+
+
 
   
 
@@ -804,6 +1024,8 @@
   
   
 
+
+  
 
 
   
