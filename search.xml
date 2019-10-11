@@ -1,6 +1,17 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title><![CDATA[git踩坑]]></title>
+    <url>%2F2019%2F10%2F11%2Fgit%E8%B8%A9%E5%9D%91%2F</url>
+    <content type="text"><![CDATA[git 删除分支问题删除命令删除本地分支 普通删除（不能删除没有合并的分支） 1git branch --delete &lt;分支名&gt; 强制删除（可以删除没有合并分支） 1git branch -D &lt;分支名&gt; 删除远程分支1git push orinin --delete &lt;分支名&gt; 解决本地分支和远程分支不同步问题 远程分支已经删除，但是在本地依然显示 查看本地所有分支1git branch -a 显示结果中白色是为本地分支，红色为远程分支 查看远程分支和本地分支的对应关系 1git remote show origin 在对应关系中有的后面会显示 (use ‘git remote prune’ to remove)说明此分支远程已经移除 ，而本地依然存在 将本地分支和远程分支同步 1git remote prune origin]]></content>
+      <categories>
+        <category>git</category>
+      </categories>
+      <tags>
+        <tag>git</tag>
+      </tags>
+  </entry>
+  <entry>
     <title><![CDATA[双向数据绑定原理]]></title>
     <url>%2F2019%2F09%2F09%2F%E5%8F%8C%E5%90%91%E6%95%B0%E6%8D%AE%E7%BB%91%E5%AE%9A%E5%8E%9F%E7%90%86%2F</url>
     <content type="text"><![CDATA[Vue 中双向数据绑定的原理利用 Object.defineProperty() 方法实现双向数据绑定 Object.defineProperty(obj, prop, descriptor)方法会直接在一个对象上定义一个新属性，或者修改一个对象的现有属性， 并返回这个对象 obj ：要在其上定义属性的对象。 prop：要定义或修改的属性的名称 descriptor：将被定义或修改的属性描述符。 descriptor 为一个对象，有两个方法get 和 set 当 获取 对象上的属性时触发 get方法 添加对象属性时 触发 set 方法 123456789101112131415161718192021222324&lt;body&gt; &lt;input type="text" id="userName"&gt;&lt;br&gt; &lt;span id="uName"&gt;&lt;/span&gt; &lt;script&gt; let obj = &#123; pwd: 123456 &#125; Object.defineProperty(obj, 'userName', &#123; get()&#123; console.log("get init") &#125;, // vul 为添加属性的值 set(val) &#123; console.log('set init'); document.querySelector('#uName').innerHTML = val document.querySelector('#userName').value = val &#125; &#125;) document.querySelector('#userName').addEventListener('keyup', (event) =&gt; &#123; obj.userName = event.target.value &#125;) &lt;/script&gt;&lt;/body&gt; 分析 : 当键盘按下时，修改 obj 对象的 userName 属性， 触发 set 事件 给 文本框添加innerHtml，实现 页面的改变影响 js 内存的改变 当 浏览器控制台 修改obj.userName 时， 会改变文本框的 innerHTML和 span 的 value ，实现 js 内存属性的改变，影响页面的变化]]></content>
@@ -30,8 +41,8 @@
         <category>前端</category>
       </categories>
       <tags>
-        <tag>mockjs</tag>
         <tag>vue</tag>
+        <tag>mockjs</tag>
       </tags>
   </entry>
   <entry>
@@ -286,8 +297,8 @@
         <category>前端</category>
       </categories>
       <tags>
-        <tag>前端基础</tag>
         <tag>原型</tag>
+        <tag>前端基础</tag>
       </tags>
   </entry>
   <entry>
