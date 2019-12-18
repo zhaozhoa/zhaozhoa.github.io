@@ -104,14 +104,14 @@
 
 
   <meta name="description" content="Mockjs用于前端自己造加数据的库 文档:https://github.com/nuysoft/Mock/wiki 上车安装1npm i Mockjs -D vue 中使用 在 vue的 src 目录下面 新建一个 mock 文件夹，里面新建一个 index.js文件 在 index.js 文件下面导入 mockjs 包  1import Mock from &apos;mockjs&apos;  将 index.">
-<meta name="keywords" content="vue,mockjs">
+<meta name="keywords" content="mockjs,vue">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Mockjs">
 <meta property="og:url" content="https://zhaozhoa.github.com/2019/09/04/Mockjs/index.html">
 <meta property="og:site_name" content="脚印">
 <meta property="og:description" content="Mockjs用于前端自己造加数据的库 文档:https://github.com/nuysoft/Mock/wiki 上车安装1npm i Mockjs -D vue 中使用 在 vue的 src 目录下面 新建一个 mock 文件夹，里面新建一个 index.js文件 在 index.js 文件下面导入 mockjs 包  1import Mock from &apos;mockjs&apos;  将 index.">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2019-09-04T12:20:23.966Z">
+<meta property="og:updated_time" content="2019-10-26T04:49:15.065Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Mockjs">
 <meta name="twitter:description" content="Mockjs用于前端自己造加数据的库 文档:https://github.com/nuysoft/Mock/wiki 上车安装1npm i Mockjs -D vue 中使用 在 vue的 src 目录下面 新建一个 mock 文件夹，里面新建一个 index.js文件 在 index.js 文件下面导入 mockjs 包  1import Mock from &apos;mockjs&apos;  将 index.">
@@ -404,12 +404,24 @@
                 
               
 
-              <time title="创建时间：2019-09-04 18:03:42 / 修改时间：20:20:23" itemprop="dateCreated datePublished" datetime="2019-09-04T18:03:42+08:00">2019-09-04</time>
+              <time title="创建时间：2019-09-04 18:03:42" itemprop="dateCreated datePublished" datetime="2019-09-04T18:03:42+08:00">2019-09-04</time>
             
 
             
               
 
+              
+                
+                <span class="post-meta-divider">|</span>
+                
+
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">更新于</span>
+                
+                <time title="修改时间：2019-10-26 12:49:15" itemprop="dateModified" datetime="2019-10-26T12:49:15+08:00">2019-10-26</time>
               
             
           </span>
@@ -455,7 +467,7 @@
                 
                   <span class="post-meta-item-text">本文字数：</span>
                 
-                <span title="本文字数">690</span>
+                <span title="本文字数">1.6k</span>
               
 
               
@@ -504,7 +516,7 @@
 <h2 id="用-mockjs-模拟-api-拦截-get-和-post-请求"><a href="#用-mockjs-模拟-api-拦截-get-和-post-请求" class="headerlink" title="用 mockjs 模拟 api 拦截 get 和 post 请求"></a>用 mockjs 模拟 api 拦截 get 和 post 请求</h2><blockquote>
 <ul>
 <li>用 Mock.mock() 模拟 api 接口<ul>
-<li>参数一： 接口地址，可选参数</li>
+<li>参数一： 接口地址(可以写成正则)，可选参数</li>
 <li>参数二： 请求方式， 可选参数</li>
 <li>参数三： 返回数据或者函数</li>
 </ul>
@@ -515,6 +527,17 @@
 <h3 id="拦截-post-请求"><a href="#拦截-post-请求" class="headerlink" title="拦截 post 请求"></a>拦截 post 请求</h3><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">Mock.mock(<span class="string">'/api/addgoods'</span>, <span class="string">'post'</span>, <span class="function"><span class="keyword">function</span> (<span class="params">options</span>) </span>&#123;</span><br><span class="line">  <span class="built_in">console</span>.log(options)</span><br><span class="line">  <span class="keyword">return</span> &#123;</span><br><span class="line">    status: <span class="number">0</span>,</span><br><span class="line">    msg: <span class="string">'ok'</span></span><br><span class="line">  &#125;</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
 <p>函数的 option 参数为 提交的数据</p>
 <h2 id="用-mockjs-创造假数据"><a href="#用-mockjs-创造假数据" class="headerlink" title="用 mockjs 创造假数据"></a>用 mockjs 创造假数据</h2><p>文档写的很详细，不想重复累赘了</p>
+<p>这部分还是看官网吧，又不难</p>
+<hr>
+<p>本来不想写了，但是由于项目后端的接口跨域问题迟迟解决不了，耽误了我的进度，于是决定自己动手造数据，所以我又回来了😂、</p>
+<h2 id="原生-js-项目中使用mockjs"><a href="#原生-js-项目中使用mockjs" class="headerlink" title="原生 js 项目中使用mockjs"></a>原生 js 项目中使用mockjs</h2><p>在 html 文件中 引入 mockjs 文件 ，</p>
+<p>当后台的接口可以调通只需要删除mockjs 的引用即可</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 这个是mock.js 文件 </span></span><br><span class="line">&lt;script src=<span class="string">"./../../lib/Mock-refactoring/dist/mock.js"</span>&gt;&lt;/script&gt;</span><br><span class="line"><span class="comment">// 这个文件是自己建立的用来配置mockjs 拦截和返回结果规则的文件</span></span><br><span class="line">&lt;script src=<span class="string">"./../../myMock.js"</span>&gt;&lt;/script&gt;</span><br></pre></td></tr></table></figure>
+<p>在myMock.js 中写规则</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line">Mock.mock(<span class="regexp">/bmy/</span>, <span class="string">'get'</span>, <span class="function"><span class="keyword">function</span> (<span class="params">options</span>) </span>&#123;</span><br><span class="line"></span><br><span class="line">  <span class="keyword">return</span> Mock.mock(&#123;</span><br><span class="line">    <span class="string">'page'</span>: &#123;</span><br><span class="line">      showCount: <span class="number">15</span>,</span><br><span class="line">      <span class="string">"totalPage"</span>: <span class="number">100</span>/<span class="number">2</span>,</span><br><span class="line">      <span class="string">"currentPage"</span>: <span class="number">2</span>,</span><br><span class="line">    &#125;,</span><br><span class="line">    <span class="string">'list|15'</span>: [&#123; <span class="comment">// 返回15条数据</span></span><br><span class="line">      <span class="string">"publishtime"</span>: Mock.Random.date(), <span class="comment">//随机一个fmtDate 格式的日趋</span></span><br><span class="line">      <span class="string">"title"</span>: <span class="string">'@cword(5,10)'</span>, <span class="comment">// 随机5-10 个汉字</span></span><br><span class="line">      <span class="string">"picture"</span>: <span class="string">'@dataImage("200x200")'</span>, <span class="comment">// 随机一张200x200 的base64的图片</span></span><br><span class="line">      <span class="string">"htmlpath"</span>: <span class="string">'@url()'</span> <span class="comment">//随机一个url</span></span><br><span class="line">    &#125;],</span><br><span class="line">  &#125;)</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
+<p><code>注意:</code> Mock.random 相当于 @，不过用@需要用<code>&#39;&#39;</code> 包裹起开 </p>
+<p>如：</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="string">"publishtime"</span>: Mock.Random.date()</span><br><span class="line"><span class="comment">// 等价于</span></span><br><span class="line"><span class="string">"publishtime"</span>: ‘@date()’</span><br></pre></td></tr></table></figure>
 
       
     </div>
@@ -567,9 +590,9 @@
       
         <div class="post-tags">
           
-            <a href="/tags/vue/" rel="tag"># vue</a>
-          
             <a href="/tags/mockjs/" rel="tag"># mockjs</a>
+          
+            <a href="/tags/vue/" rel="tag"># vue</a>
           
         </div>
       
@@ -665,7 +688,7 @@
                 
                   <a href="/archives/">
                 
-                    <span class="site-state-item-count">35</span>
+                    <span class="site-state-item-count">37</span>
                     <span class="site-state-item-name">日志</span>
                   </a>
                 </div>
@@ -698,7 +721,9 @@
                     
                       
                     
-                    <span class="site-state-item-count">8</span>
+                      
+                    
+                    <span class="site-state-item-count">9</span>
                     <span class="site-state-item-name">分类</span>
                   </a>
                 </div>
@@ -775,7 +800,9 @@
                     
                       
                     
-                    <span class="site-state-item-count">30</span>
+                      
+                    
+                    <span class="site-state-item-count">31</span>
                     <span class="site-state-item-name">标签</span>
                   </a>
                 </div>
@@ -877,7 +904,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#Mockjs"><span class="nav-number">1.</span> <span class="nav-text">Mockjs</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#上车"><span class="nav-number">1.1.</span> <span class="nav-text">上车</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#安装"><span class="nav-number">1.1.1.</span> <span class="nav-text">安装</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#vue-中使用"><span class="nav-number">1.1.2.</span> <span class="nav-text">vue 中使用</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#用-mockjs-模拟-api-拦截-get-和-post-请求"><span class="nav-number">1.2.</span> <span class="nav-text">用 mockjs 模拟 api 拦截 get 和 post 请求</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#拦截-get-请求"><span class="nav-number">1.2.0.1.</span> <span class="nav-text">拦截 get 请求</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#拦截-post-请求"><span class="nav-number">1.2.1.</span> <span class="nav-text">拦截 post 请求</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#用-mockjs-创造假数据"><span class="nav-number">1.3.</span> <span class="nav-text">用 mockjs 创造假数据</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#Mockjs"><span class="nav-number">1.</span> <span class="nav-text">Mockjs</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#上车"><span class="nav-number">1.1.</span> <span class="nav-text">上车</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#安装"><span class="nav-number">1.1.1.</span> <span class="nav-text">安装</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#vue-中使用"><span class="nav-number">1.1.2.</span> <span class="nav-text">vue 中使用</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#用-mockjs-模拟-api-拦截-get-和-post-请求"><span class="nav-number">1.2.</span> <span class="nav-text">用 mockjs 模拟 api 拦截 get 和 post 请求</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#拦截-get-请求"><span class="nav-number">1.2.0.1.</span> <span class="nav-text">拦截 get 请求</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#拦截-post-请求"><span class="nav-number">1.2.1.</span> <span class="nav-text">拦截 post 请求</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#用-mockjs-创造假数据"><span class="nav-number">1.3.</span> <span class="nav-text">用 mockjs 创造假数据</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#原生-js-项目中使用mockjs"><span class="nav-number">1.4.</span> <span class="nav-text">原生 js 项目中使用mockjs</span></a></li></ol></div>
             
 
           </div>
@@ -917,7 +944,7 @@
       <i class="fa fa-area-chart"></i>
     </span>
     
-    <span title="站点总字数">133k</span>
+    <span title="站点总字数">139k</span>
   
 
   
@@ -926,7 +953,7 @@
       <i class="fa fa-coffee"></i>
     </span>
     
-    <span title="站点阅读时长">2:01</span>
+    <span title="站点阅读时长">2:06</span>
   
 </div>
 

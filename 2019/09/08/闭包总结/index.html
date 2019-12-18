@@ -111,7 +111,7 @@
 <meta property="og:site_name" content="脚印">
 <meta property="og:description" content="闭包函数的创建和执行过程函数的创建 开辟一个堆内存 把函数体中的代码当作字符串存储进去 把堆内存的地址赋值给函数名 函数在那创建，那么它执行的时候所需要查找的上级作用域就是谁  函数的执行 形成一个私有的作用域（执行上下文，私用的栈内存） 执行一次，产生一个，互不影响   参数赋值 &amp;amp;  变量提升 代码执行 把堆内存中的字符串代码一行行执行   作用域链查找 遇到一个变量，先判断是否为私有">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2019-09-08T15:30:45.717Z">
+<meta property="og:updated_time" content="2019-12-18T06:12:41.690Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="闭包总结">
 <meta name="twitter:description" content="闭包函数的创建和执行过程函数的创建 开辟一个堆内存 把函数体中的代码当作字符串存储进去 把堆内存的地址赋值给函数名 函数在那创建，那么它执行的时候所需要查找的上级作用域就是谁  函数的执行 形成一个私有的作用域（执行上下文，私用的栈内存） 执行一次，产生一个，互不影响   参数赋值 &amp;amp;  变量提升 代码执行 把堆内存中的字符串代码一行行执行   作用域链查找 遇到一个变量，先判断是否为私有">
@@ -404,12 +404,24 @@
                 
               
 
-              <time title="创建时间：2019-09-08 20:46:17 / 修改时间：23:30:45" itemprop="dateCreated datePublished" datetime="2019-09-08T20:46:17+08:00">2019-09-08</time>
+              <time title="创建时间：2019-09-08 20:46:17" itemprop="dateCreated datePublished" datetime="2019-09-08T20:46:17+08:00">2019-09-08</time>
             
 
             
               
 
+              
+                
+                <span class="post-meta-divider">|</span>
+                
+
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">更新于</span>
+                
+                <time title="修改时间：2019-12-18 14:12:41" itemprop="dateModified" datetime="2019-12-18T14:12:41+08:00">2019-12-18</time>
               
             
           </span>
@@ -455,7 +467,7 @@
                 
                   <span class="post-meta-item-text">本文字数：</span>
                 
-                <span title="本文字数">1.5k</span>
+                <span title="本文字数">4.2k</span>
               
 
               
@@ -469,7 +481,7 @@
                 
                   <span class="post-meta-item-text">阅读时长 &asymp;</span>
                 
-                <span title="阅读时长">1 分钟</span>
+                <span title="阅读时长">4 分钟</span>
               
             </div>
           
@@ -543,7 +555,7 @@
 <figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> i = <span class="number">5</span></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">fn</span>(<span class="params">i</span>) </span>&#123;</span><br><span class="line">  <span class="keyword">return</span> <span class="function"><span class="keyword">function</span> (<span class="params">n</span>) </span>&#123;</span><br><span class="line">    <span class="built_in">console</span>.log(n + (++i))</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">let</span> f = fn(<span class="number">1</span>)</span><br><span class="line">f(<span class="number">2</span>) <span class="comment">// 4</span></span><br><span class="line">fn(<span class="number">3</span>)(<span class="number">4</span>) <span class="comment">// 8</span></span><br><span class="line">fn(<span class="number">5</span>)(<span class="number">6</span>) <span class="comment">// 12</span></span><br><span class="line">f(<span class="number">7</span>) <span class="comment">// 10</span></span><br><span class="line"><span class="built_in">console</span>.log(i) <span class="comment">// 5</span></span><br></pre></td></tr></table></figure>
 <p><strong>解释：</strong></p>
 <figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> f = fn(<span class="number">1</span>)</span><br></pre></td></tr></table></figure>
-<p>首先在栈内存中执行 fn 函数 返回 里面函数的栈内存地址，并将其赋值给 变量 f ，此时由于此时 变量 f 引用了栈内存中 fn 返回的 堆内存地址，此时的 fn 执行的 栈内存<code>不销毁，同时变量 i 被保存</code>。私有变量 i 此时是 1</p>
+<p>首先在栈内存中执行 fn 函数 返回 里面函数的栈内存地址，并将其赋值给 变量 f ，此时由于 变量 f 引用了栈内存中 fn 返回的 堆内存地址，此时的 fn 执行的 栈内存<code>不销毁，同时变量 i 被保存</code>。私有变量 i 此时是 1</p>
 <figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">f(<span class="number">2</span>)</span><br></pre></td></tr></table></figure>
 <p>调用 fn 返回的函数并传参 2 ，返回 结果为 2 + (++i) = 4 , 私有变量 i 同时变为 2 ，这时 <code>返回的函数执行完毕，销毁</code>，但是 <code>fn 不销毁,变量 i也不销毁</code></p>
 <figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">fn(<span class="number">3</span>)(<span class="number">4</span>)</span><br></pre></td></tr></table></figure>
@@ -552,6 +564,33 @@
 <p>原理同上</p>
 <figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">f(<span class="number">7</span>)</span><br></pre></td></tr></table></figure>
 <p>此时 fn 函数  在栈中没有销毁，则返回的 为 7 + (++i) = 10; 变量 i 变为值 为 3</p>
+<h3 id="经典用法"><a href="#经典用法" class="headerlink" title="经典用法"></a>经典用法</h3><h4 id="一"><a href="#一" class="headerlink" title="一"></a>一</h4><figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">html</span>&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="tag">&lt;<span class="name">body</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">div</span>&gt;</span>1<span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">div</span>&gt;</span>2<span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">div</span>&gt;</span>3<span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">div</span>&gt;</span>4<span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">div</span>&gt;</span>5<span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">script</span>&gt;</span><span class="undefined"> </span></span><br><span class="line"><span class="javascript">    <span class="keyword">var</span> nodes = <span class="built_in">document</span>.getElementsByTagName(<span class="string">'div'</span>);</span></span><br><span class="line"><span class="javascript">    <span class="keyword">for</span> (<span class="keyword">var</span> i = <span class="number">0</span>, len = nodes.length; i &lt; len; i++) &#123;</span></span><br><span class="line"><span class="javascript">      nodes[i].onclick = <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span></span><br><span class="line"><span class="undefined">        alert(i);</span></span><br><span class="line"><span class="undefined">      &#125;</span></span><br><span class="line"><span class="undefined">    &#125;;</span></span><br><span class="line"><span class="undefined">  </span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">body</span>&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="tag">&lt;/<span class="name">html</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<blockquote>
+<p>测试这段代码就会发现，无论点击哪个 div，最后弹出的结果都是 5。这是因为 div 节点的<br>onclick 事件是被异步触发的，当事件被触发的时候，for 循环早已结束，此时变量 i的值已经是 5，所以在 div 的 onclick事件函数中顺着作用域链从内到外查找变量 i时，查找到的值总是 5。</p>
+</blockquote>
+<p>用闭包封存 i </p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> nodes = <span class="built_in">document</span>.getElementsByTagName(<span class="string">'div'</span>);</span><br><span class="line"><span class="keyword">for</span> (<span class="keyword">var</span> i = <span class="number">0</span>, len = nodes.length; i &lt; len; i++) &#123;</span><br><span class="line">  (<span class="function"><span class="keyword">function</span> (<span class="params">i</span>) </span>&#123;</span><br><span class="line"></span><br><span class="line">    nodes[i].onclick = <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">      alert(i);</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;)(i)</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+<h3 id="闭包的作用"><a href="#闭包的作用" class="headerlink" title="闭包的作用"></a>闭包的作用</h3><h4 id="一、封装变量"><a href="#一、封装变量" class="headerlink" title="一、封装变量"></a>一、封装变量</h4><h4 id="二、延长局部变量的生命"><a href="#二、延长局部变量的生命" class="headerlink" title="二、延长局部变量的生命"></a>二、延长局部变量的生命</h4><blockquote>
+<p>闭包可以帮助把一些不需要暴露在全局的变量封装成“私有变量”</p>
+</blockquote>
+<p>eg： 累乘方法的优化</p>
+<p>最基本方法</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> mult = <span class="function"><span class="keyword">function</span> (<span class="params">...args</span>) </span>&#123;</span><br><span class="line">  <span class="keyword">let</span> a = <span class="number">1</span></span><br><span class="line">  <span class="keyword">for</span>(<span class="keyword">let</span> i = <span class="number">0</span>, l = args.length; i &lt; l; i++) &#123;</span><br><span class="line">    a = a* args[i]</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="keyword">return</span> a</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="built_in">console</span>.log(mult(<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>));</span><br></pre></td></tr></table></figure>
+<blockquote>
+<p>对于那些相同的参数来说，每次都进行计算是一种浪费，我们可以加入缓存机制来提高这个函数的性能</p>
+</blockquote>
+<p>缓存优化</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> cache = &#123;&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">let</span> mult = <span class="function"><span class="keyword">function</span> (<span class="params">...args</span>) </span>&#123;</span><br><span class="line">  <span class="keyword">let</span> args2 = args.join(<span class="string">','</span>)</span><br><span class="line">  <span class="keyword">if</span> (cache[args2]) &#123;</span><br><span class="line">    <span class="keyword">return</span> cache[args2]</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="keyword">let</span> a = <span class="number">1</span></span><br><span class="line">  <span class="keyword">for</span> (<span class="keyword">let</span> i = <span class="number">0</span>, l =  args.length; i&lt; l; i++) &#123;</span><br><span class="line">    a = a * args[i]</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  <span class="keyword">return</span> cache[args2] = a</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="built_in">console</span>.log(mult(<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>, <span class="number">5</span>, <span class="number">6</span>, <span class="number">7</span>)); <span class="comment">// 执行方法获取数据</span></span><br><span class="line"><span class="built_in">console</span>.log(mult(<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>, <span class="number">5</span>, <span class="number">6</span>, <span class="number">7</span>)); <span class="comment">// 直接在缓存中获取数据</span></span><br></pre></td></tr></table></figure>
+<blockquote>
+<p>我们看到 cache 这个变量仅仅在 mult函数中被使用，与其让 cache变量跟 mult函数一起平行<br>地暴露在全局作用域下，不如把它封闭在 mult 函数内部，这样可以减少页面中的全局变量，以 避免这个变量在其他地方被不小心修改而引发错误</p>
+</blockquote>
+<p>闭包优化</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> mult = (<span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">  <span class="keyword">let</span> cache = &#123;&#125;</span><br><span class="line">  <span class="keyword">return</span> <span class="function"><span class="keyword">function</span> (<span class="params">...args</span>) </span>&#123;</span><br><span class="line">    <span class="keyword">let</span> args2 = args.join(<span class="string">','</span>)</span><br><span class="line">    <span class="keyword">if</span> (cache[args2]) &#123;</span><br><span class="line">      <span class="keyword">return</span> cache[args2]</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">let</span> a = <span class="number">1</span></span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">let</span> i = <span class="number">0</span>, l = args.length; i&lt;l; i++) &#123;</span><br><span class="line">      a = a * args[i]</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> cache[args2] = a</span><br><span class="line">  &#125;</span><br><span class="line">&#125;)()</span><br><span class="line"></span><br><span class="line"><span class="built_in">console</span>.log(mult(<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>, <span class="number">5</span>, <span class="number">6</span>, <span class="number">7</span>));</span><br></pre></td></tr></table></figure>
+<p>进一步封装</p>
+<blockquote>
+<p>提炼函数是代码重构中的一种常见技巧。如果在一个大函数中有一些代码块能够独立出来，<br>我们常常把这些代码块封装在独立的小函数里面。独立出来的小函数有助于代码复用，如果这些 小函数有一个良好的命名，它们本身也起到了注释的作用。如果这些小函数不需要在程序的其他 地方使用，最好是把它们用闭包封闭起</p>
+</blockquote>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> mult = <span class="function">(<span class="params">(</span>) =&gt;</span> &#123;</span><br><span class="line">  <span class="keyword">let</span> cache = &#123;&#125;</span><br><span class="line">  <span class="keyword">let</span> calculate = <span class="function">(<span class="params">...args</span>) =&gt;</span> &#123;</span><br><span class="line">    <span class="keyword">let</span> a = <span class="number">1</span></span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">let</span> i = <span class="number">0</span>, l = args.length; i &lt; l; i++) &#123;</span><br><span class="line">      a = a * args[i]</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> a</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="keyword">return</span> <span class="function">(<span class="params">...args</span>) =&gt;</span> &#123;</span><br><span class="line">    <span class="keyword">let</span> args2 = args.join(<span class="string">','</span>)</span><br><span class="line">    <span class="keyword">if</span> (args <span class="keyword">in</span> cache) &#123;</span><br><span class="line">      <span class="keyword">return</span> cache[args2]</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> cache[args2] = calculate(...args)</span><br><span class="line">  &#125;</span><br><span class="line">&#125;)()</span><br><span class="line"></span><br><span class="line"><span class="built_in">console</span>.log(mult(<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>, <span class="number">5</span>, <span class="number">6</span>, <span class="number">7</span>));</span><br></pre></td></tr></table></figure>
 
       
     </div>
@@ -700,7 +739,7 @@
                 
                   <a href="/archives/">
                 
-                    <span class="site-state-item-count">35</span>
+                    <span class="site-state-item-count">37</span>
                     <span class="site-state-item-name">日志</span>
                   </a>
                 </div>
@@ -733,7 +772,9 @@
                     
                       
                     
-                    <span class="site-state-item-count">8</span>
+                      
+                    
+                    <span class="site-state-item-count">9</span>
                     <span class="site-state-item-name">分类</span>
                   </a>
                 </div>
@@ -810,7 +851,9 @@
                     
                       
                     
-                    <span class="site-state-item-count">30</span>
+                      
+                    
+                    <span class="site-state-item-count">31</span>
                     <span class="site-state-item-name">标签</span>
                   </a>
                 </div>
@@ -912,7 +955,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#闭包"><span class="nav-number">1.</span> <span class="nav-text">闭包</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#函数的创建和执行过程"><span class="nav-number">1.1.</span> <span class="nav-text">函数的创建和执行过程</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#函数的创建"><span class="nav-number">1.1.1.</span> <span class="nav-text">函数的创建</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#函数的执行"><span class="nav-number">1.1.2.</span> <span class="nav-text">函数的执行</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#堆栈内存的释放问题"><span class="nav-number">1.2.</span> <span class="nav-text">堆栈内存的释放问题</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#堆内存的释放"><span class="nav-number">1.2.1.</span> <span class="nav-text">堆内存的释放</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#栈内存释放"><span class="nav-number">1.2.2.</span> <span class="nav-text">栈内存释放</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#栈内存的形成方式"><span class="nav-number">1.2.2.1.</span> <span class="nav-text">栈内存的形成方式</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#栈内存销毁方式"><span class="nav-number">1.2.2.2.</span> <span class="nav-text">栈内存销毁方式</span></a></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#闭包-1"><span class="nav-number">1.3.</span> <span class="nav-text">闭包</span></a></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#闭包"><span class="nav-number">1.</span> <span class="nav-text">闭包</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#函数的创建和执行过程"><span class="nav-number">1.1.</span> <span class="nav-text">函数的创建和执行过程</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#函数的创建"><span class="nav-number">1.1.1.</span> <span class="nav-text">函数的创建</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#函数的执行"><span class="nav-number">1.1.2.</span> <span class="nav-text">函数的执行</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#堆栈内存的释放问题"><span class="nav-number">1.2.</span> <span class="nav-text">堆栈内存的释放问题</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#堆内存的释放"><span class="nav-number">1.2.1.</span> <span class="nav-text">堆内存的释放</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#栈内存释放"><span class="nav-number">1.2.2.</span> <span class="nav-text">栈内存释放</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#栈内存的形成方式"><span class="nav-number">1.2.2.1.</span> <span class="nav-text">栈内存的形成方式</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#栈内存销毁方式"><span class="nav-number">1.2.2.2.</span> <span class="nav-text">栈内存销毁方式</span></a></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#闭包-1"><span class="nav-number">1.3.</span> <span class="nav-text">闭包</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#经典用法"><span class="nav-number">1.3.1.</span> <span class="nav-text">经典用法</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#一"><span class="nav-number">1.3.1.1.</span> <span class="nav-text">一</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#闭包的作用"><span class="nav-number">1.3.2.</span> <span class="nav-text">闭包的作用</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#一、封装变量"><span class="nav-number">1.3.2.1.</span> <span class="nav-text">一、封装变量</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#二、延长局部变量的生命"><span class="nav-number">1.3.2.2.</span> <span class="nav-text">二、延长局部变量的生命</span></a></li></ol></li></ol></li></ol></li></ol></div>
             
 
           </div>
@@ -952,7 +995,7 @@
       <i class="fa fa-area-chart"></i>
     </span>
     
-    <span title="站点总字数">133k</span>
+    <span title="站点总字数">139k</span>
   
 
   
@@ -961,7 +1004,7 @@
       <i class="fa fa-coffee"></i>
     </span>
     
-    <span title="站点阅读时长">2:01</span>
+    <span title="站点阅读时长">2:06</span>
   
 </div>
 
