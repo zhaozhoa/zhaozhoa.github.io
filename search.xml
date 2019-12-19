@@ -1,6 +1,28 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title><![CDATA[正则表达式一]]></title>
+    <url>%2F2019%2F12%2F19%2F%E6%AD%A3%E5%88%99%E8%A1%A8%E8%BE%BE%E5%BC%8F%E4%B8%80%2F</url>
+    <content type="text"><![CDATA[正则表达式一什么是正则表达式正则表达式是匹配模式，要么匹配字符，要么匹配位置 两种模糊匹配横向模糊匹配横向模糊指的是，一个正则可匹配的字符串的长度不是固定的，可以是多种情况的 其实现的方式是使用量词。譬如 {m,n}，表示连续出现最少 m 次，最多 n 次 纵向模糊匹配纵向模糊指的是，一个正则匹配的字符串，具体到某一位字符时，它可以不是某个确定的字符，可以有多种 可能。 其实现的方式是使用字符组。譬如 [abc]，表示该字符是可以字符 “a”、”b”、”c” 中的任何一个 [^abc]，表示是一个除 “a”、”b”、”c”之外的任意一个字 符。字符组的第一位放 ^（脱字符），表示求反的概念。 字符组需要强调的是，虽叫字符组（字符类），但只是其中一个字符 eg: [abc]表示该字符是可以字符 “a”、”b”、”c” 中的任何一个 范围表示法[1-9]: 匹配1 到 9 中的某一个数字 [a-z]: 匹配 a 到 z 中的某一个字母 [A-Z]: 匹配 A 到 Z 中的某一个字母 因为连字符有特殊用途，要匹配 “a”、”-“、”z” 这三者中任意一个字符可以使用 [-az]或[az-]或[a\-z] 简写 字符组 具体含义 \d [0-9]。表示是一位数字。 记忆方式：其英文是 digit（数字） \D 表示 [^0-9]。表示除数字外的任意字符。 \w 表示 [0-9a-zA-Z_]。表示数字、大小写字母和下划线。 记忆方式：w 是 word 的简写，也称单词字符 \W 表示 [^0-9a-zA-Z_]。非单词字符 \s 表示 [ \t\v\n\r\f]。表示空白符，包括空格、水平制表符、垂直制表符、换行符、回车符、换页 符。 记忆方式：s 是 space 的首字母，空白符的单词是 white space。 \S 表示 [^ \t\v\n\r\f]。 非空白符 . 表示 [^\n\r\u2028\u2029]。通配符，表示几乎任意字符。换行符、回车符、行分隔符和段分隔符 除外。 记忆方式：想想省略号 … 中的每个点，都可以理解成占位符，表示任何类似的东 如果要匹配任意字符怎么办？可以使用 [\d\D]、[\w\W]、[\s\S] 和 [^] 中任何的一个。 量词 量词 具体含义 {m,} 表示至少出现 m 次。 {m} 等价于 {m,m}，表示出现 m 次。 ? 等价于 {0,1}，表示出现或者不出现。 记忆方式：问号的意思表示，有吗？ + 等价于 {1,}，表示出现至少一次。 记忆方式：加号是追加的意思，得先有一个，然后才考虑追加。 * 等价于 {0,}，表示出现任意次，有可能不出现。 记忆方式：看看天上的星星，可能一颗没有，可能零散有几颗，可能数也数不过来。 贪婪匹配和懒惰匹配通过在量词后面加个问号就能实现懒惰匹配 贪婪匹配/\d{2,5}/，表示数字连续出现 2 到 5 次。会匹配 2 位、3 位、4 位、5 位连续数字，只要在能力范围内，越多越好 懒惰匹配/\d{2,5}?/ 表示，虽然 2 到 5 次都行，当 2 个就够的时候，就不再往下尝试了 12345let string = '123 1234 12345 1'// 贪婪匹配console.log(string.match(/\d+/g)); // [ '123', '1234', '12345', '1' ]// 懒惰匹配console.log(string.match(/\d&#123;2,5&#125;?/g)); // [ '12', '12', '34', '12', '34' ] 多选分支一个模式可以实现横向和纵向模糊匹配。而多选分支可以支持多个子模式任选其一 具体形式如下：(p1|p2|p3)，其中 p1、p2 和 p3 是子模式，用 |（管道符）分隔，表示其中任何之一 123var regex = /good|nice/g; var string = "good idea, nice try.";console.log( string.match(regex) ); // =&gt; ["good", "nice"] 注意： 分支结构是懒惰匹配，当前面匹配上了，后面将不会匹配 练习匹配 16 进制的颜色1234567let regex = /#([a-fA-F0-9]&#123;6&#125;|[a-fA-F0-9]&#123;3&#125;)/glet regex2 = /#([a-fA-F0-9]&#123;3&#125;|[a-fA-F0-9]&#123;6&#125;)/glet string = "#ffbbad #Fc01DF #FFF #ffE fff #ffz #ffff";console.log(string.match(regex)); // [ '#ffbbad', '#Fc01DF', '#FFF', '#ffE', '#fff' ]console.log(string.match(regex2)); // [ '#ffb', '#Fc0', '#FFF', '#ffE', '#fff' ] 用 regex2 匹配时 由于多选分支是 懒惰匹配 所以返回只返回了匹配到的三位 匹配时间匹配格式为： 24: 30 05: 59 7:09 7:9 1234567let reg = /^(0?[0-9]|[1][0-9]|2[0-3]):(0?[0-9]|[1-5][0-9])$/console.log(reg.test('23:59')); // trueconsole.log(reg.test('05:30')); // trueconsole.log(reg.test('5:30')); // trueconsole.log(reg.test('5:3')); // trueconsole.log(reg.test('24:30')); // false 匹配日期日期格式为 yyyy-mm-dd 1234let regex = /^\d&#123;4&#125;-(0[1-9]|1[0-2])-(0[1-9]|[12][0-9]|3[01])$/console.log(regex.test('2012-02-01')); // trueconsole.log(regex.test('2012-21-01')); // false 匹配id从 1&lt;div id="container" class="main"&gt;&lt;/div&gt; 提取出 id=”container” 12345let string = '&lt;div id="container" class="main"&gt;&lt;/div&gt;'let regex = /id=".*"/let regex2 = /id=".*?"/console.log(string.match(regex)[0]); // id="container" class="main"console.log(string.match(regex2)[0]); // id="container" 因为 . 是通配符，本身就匹配双引号的，而量词 * 又是贪婪的，当遇到 container 后面双引号时，是不会 停下来，会一直继续匹配 所以此处应该使用 懒惰模式 进行匹配]]></content>
+      <categories>
+        <category>正则</category>
+      </categories>
+      <tags>
+        <tag>正则</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[高阶函数]]></title>
+    <url>%2F2019%2F12%2F18%2F%E9%AB%98%E9%98%B6%E5%87%BD%E6%95%B0%2F</url>
+    <content type="text"><![CDATA[高阶函数什么是高阶函数高阶函数是指至少满足下列条件之一的函数 函数可以作为参数被传递 函数可以作为返回值输出 函数可以作为参数被传递 把函数当作参数传递，这代表我们可以抽离出一部分容易变化的业务逻辑，把这部分业务逻辑放在函数参数中，这样一来可以分离业务代码中变化与不变的部分。其中一个重要应用场景就 是常见的回调函数 1234567891011let getData = function(id, callback) &#123; $.ajax('aaa/bbb/ccc?' + id, function(data) &#123; // 调用回调函数处理业务逻辑 callback &amp;&amp; callback(data) &#125;)&#125;// 调用 getData 方法，传入回调函数处理逻辑业务getData(123, function (data) &#123; console.log(data.name)&#125;) 同时数组的 sort，map，some，every 等都是常见的高阶函数 函数可以作为返回值输出 相比把函数当作参数传递，函数当作返回值输出的应用场景也许更多，也更能体现函数式编程的巧妙。让函数继续返回一个可执行的函数，意味着运算过程是可延续的 在判断一个数据的具体类型的时候可以使用 Object.prototype.toString来判断，数组返回 [object Array]”，字符串返回 “[object String]”，数字返回 ‘[object Number]’，因此可以写出 123456789let isString = function (obj) &#123; return Object.prototype.toString.call(obj) === '[object String]';&#125;;let isArray = function (obj) &#123; return Object.prototype.toString.call(obj) === '[object Array]';&#125;;let isNumber = function (obj) &#123; return Object.prototype.toString.call(obj) === '[object Number]';&#125;; 高阶函数优化 1234567891011let isType = (type) =&gt; &#123; return (obj) =&gt; &#123; return Object.prototype.toString.call(obj) === `[object $&#123;type&#125;]` &#125;&#125;let isArray = isType('Array')let isString = isType('String')console.log(isArray([])); // trueconsole.log(isString('aa')); // true 高阶函数的应用柯里化（currying） currying 又称部分求值。一个 currying的函数首先会接受一些参数，接受了这些参数之后，该函数并不会立即求值，而是继续返回另外一个函数，刚才传入的参数在函数形成的闭包中被保 存起来。待到函数被真正需要求值的时候，之前传入的所有参数都会被一次性用于求值 求和 12345678910111213141516171819202122232425262728293031let curring = function(fn) &#123; // 存放传入的数字 let args = [] return function inner(...parse) &#123; // 如果没有传入参数则返回求和函数 fn 的调用 if (parse.length === 0) &#123; return fn.apply(this, args) &#125; else &#123; // args 里面追加传入的数字 [].push.apply(args, parse) // 返回 inner 方法，方便连续调用 return inner &#125; &#125;&#125;// 求和函数let cost = (function () &#123; let money = 0 return function (...params) &#123; for(let i = 0, l = params.length; i &lt; l; i++) &#123; money += params[i] &#125; return money &#125;&#125;)()let res = curring(cost)res(100)(200)(300)res(20)console.log(res()); // 620 节流函数1234567891011121314151617181920212223242526272829let throttle = function (fn, interval) &#123; let _self = fn, timer, firstTime = true return function () &#123; let args = arguments, _me = this if (firstTime) &#123; _self.apply(_me, args) return firstTime = false &#125; if (timer) &#123; return false &#125; timer = setTimeout(() =&gt; &#123; clearTimeout(timer) timer = null _self.apply(_me, args) &#125;, interval || 500); &#125;&#125;window.onresize = throttle(function () &#123; console.log();&#125;, 500)]]></content>
+      <categories>
+        <category>前端</category>
+      </categories>
+      <tags>
+        <tag>前端基础</tag>
+      </tags>
+  </entry>
+  <entry>
     <title><![CDATA[实现一个bind方法]]></title>
     <url>%2F2019%2F12%2F17%2F%E5%AE%9E%E7%8E%B0%E4%B8%80%E4%B8%AAbind%E6%96%B9%E6%B3%95%2F</url>
     <content type="text"><![CDATA[借用构造函数实现一个 bind方法bind 方法的作用返回一个 修改了 this 指向的 函数 代码123456789101112131415161718192021222324Function.prototype.Mybind = function () &#123; // 1 var self = this, // 2 // context: 上下文对象(obj对象) context = [].shift.call(arguments), // args: Mybind 传入的参数(1, 2) args = [].slice.call(arguments); // 3 return function () &#123; // 4 return self.apply(context, [].concat.call(args, [].slice.call(arguments))); &#125;&#125;;var obj = &#123; name: 'sven'&#125;;var func = function (a, b, c, d) &#123; alert(this.name); alert([a, b, c, d])&#125;.Mybind(obj, 1, 2); func(3, 4); 解析 再使用 Mybind 方法的时候，this 指的是当前使用 Mybind 的函数对象， 此处相当于复制了一份函数对象 借用构造函数 Array.shift() 如果不传入参数，默认移除并返回第一个元素,因为 arguments 是一个类数组，没有shift方法，所以用 call 借用了Array的shift方法 Array.slice (start，end) 返回的是一个截取后的数组，如果不传参数则返回整个数组 这里同样借用了 Array的slice方法，将一个类数组转换成数组 返回值是一个函数 这个函数返回了一个使用 Mybind 的那个函数(func 的复制)的调用，并修改了 this 为传入的上下问对象(obj) es6 重写 bind 方法123456789101112131415161718192021Function.prototype.Mybind = function (...arg) &#123; let self = this, context = arg.shift() return function () &#123; return self.apply(context, arg) &#125;&#125;let obj2 = &#123; name: 'sven'&#125;let func2 = function (...args) &#123; console.log(this.name); console.log(args);&#125;let res = func2.Mybind(obj2, 1, 2)res()]]></content>
@@ -87,17 +109,6 @@
       </categories>
       <tags>
         <tag>typtScript</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title><![CDATA[排序和搜索]]></title>
-    <url>%2F2019%2F07%2F06%2F%E6%8E%92%E5%BA%8F%E5%92%8C%E6%90%9C%E7%B4%A2%2F</url>
-    <content type="text"><![CDATA[排序与查找排序冒泡排序 冒泡排序比较所有相邻的两个项，如果第一个比第二个大，则交换它们。元素项向上移动至正确的顺序，就好像气泡升至表面一样，冒泡排序因此得名]]></content>
-      <categories>
-        <category>数据结构与算法</category>
-      </categories>
-      <tags>
-        <tag>排序</tag>
       </tags>
   </entry>
   <entry>
@@ -319,8 +330,8 @@
         <category>前端</category>
       </categories>
       <tags>
-        <tag>前端基础</tag>
         <tag>原型</tag>
+        <tag>前端基础</tag>
       </tags>
   </entry>
   <entry>
