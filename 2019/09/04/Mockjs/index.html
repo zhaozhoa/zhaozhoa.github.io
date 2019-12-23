@@ -532,7 +532,7 @@
 <p>本来不想写了，但是由于项目后端的接口跨域问题迟迟解决不了，耽误了我的进度，于是决定自己动手造数据，所以我又回来了😂、</p>
 <h2 id="原生-js-项目中使用mockjs"><a href="#原生-js-项目中使用mockjs" class="headerlink" title="原生 js 项目中使用mockjs"></a>原生 js 项目中使用mockjs</h2><p>在 html 文件中 引入 mockjs 文件 ，</p>
 <p>当后台的接口可以调通只需要删除mockjs 的引用即可</p>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 这个是mock.js 文件 </span></span><br><span class="line">&lt;script src=<span class="string">"./../../lib/Mock-refactoring/dist/mock.js"</span>&gt;&lt;/script&gt;</span><br><span class="line"><span class="comment">// 这个文件是自己建立的用来配置mockjs 拦截和返回结果规则的文件</span></span><br><span class="line">&lt;script src=<span class="string">"./../../myMock.js"</span>&gt;&lt;/script&gt;</span><br></pre></td></tr></table></figure>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 这个是mock.js 文件 </span></span><br><span class="line">&lt;script src=<span class="string">"./../../lib/Mock-refactoring/dist/mock.js"</span>&gt;<span class="xml"><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span></span><br><span class="line"><span class="comment">// 这个文件是自己建立的用来配置mockjs 拦截和返回结果规则的文件</span></span><br><span class="line">&lt;script src=<span class="string">"./../../myMock.js"</span>&gt;<span class="xml"><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span></span><br></pre></td></tr></table></figure>
 <p>在myMock.js 中写规则</p>
 <figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line">Mock.mock(<span class="regexp">/bmy/</span>, <span class="string">'get'</span>, <span class="function"><span class="keyword">function</span> (<span class="params">options</span>) </span>&#123;</span><br><span class="line"></span><br><span class="line">  <span class="keyword">return</span> Mock.mock(&#123;</span><br><span class="line">    <span class="string">'page'</span>: &#123;</span><br><span class="line">      showCount: <span class="number">15</span>,</span><br><span class="line">      <span class="string">"totalPage"</span>: <span class="number">100</span>/<span class="number">2</span>,</span><br><span class="line">      <span class="string">"currentPage"</span>: <span class="number">2</span>,</span><br><span class="line">    &#125;,</span><br><span class="line">    <span class="string">'list|15'</span>: [&#123; <span class="comment">// 返回15条数据</span></span><br><span class="line">      <span class="string">"publishtime"</span>: Mock.Random.date(), <span class="comment">//随机一个fmtDate 格式的日趋</span></span><br><span class="line">      <span class="string">"title"</span>: <span class="string">'@cword(5,10)'</span>, <span class="comment">// 随机5-10 个汉字</span></span><br><span class="line">      <span class="string">"picture"</span>: <span class="string">'@dataImage("200x200")'</span>, <span class="comment">// 随机一张200x200 的base64的图片</span></span><br><span class="line">      <span class="string">"htmlpath"</span>: <span class="string">'@url()'</span> <span class="comment">//随机一个url</span></span><br><span class="line">    &#125;],</span><br><span class="line">  &#125;)</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
 <p><code>注意:</code> Mock.random 相当于 @，不过用@需要用<code>&#39;&#39;</code> 包裹起开 </p>
@@ -688,7 +688,7 @@
                 
                   <a href="/archives/">
                 
-                    <span class="site-state-item-count">38</span>
+                    <span class="site-state-item-count">39</span>
                     <span class="site-state-item-name">日志</span>
                   </a>
                 </div>
@@ -946,7 +946,7 @@
       <i class="fa fa-area-chart"></i>
     </span>
     
-    <span title="站点总字数">144k</span>
+    <span title="站点总字数">147k</span>
   
 
   
@@ -955,7 +955,7 @@
       <i class="fa fa-coffee"></i>
     </span>
     
-    <span title="站点阅读时长">2:11</span>
+    <span title="站点阅读时长">2:14</span>
   
 </div>
 
